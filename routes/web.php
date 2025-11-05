@@ -10,7 +10,7 @@ Route::get('/licence', function () {
 // Authenticated routes
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', function () {
-        return view('index');
+        return view('home');
     })->name('index');
     Route::get('/home', function () {
         return view('home');
