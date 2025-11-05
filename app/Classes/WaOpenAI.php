@@ -70,7 +70,7 @@ class WaOpenAI
                 'tools' => [
                     [
                         'type' => 'function',
-                        'name' => 'rental_property_search',
+                        'name' => 'find_property',
                         'description' => 'Search for available rental properties based on minimum and maximum price per month, type of room (standard or master bedroom that includes en-suite bath).',
                         'parameters' => [
                             'type' => 'object',
@@ -224,9 +224,9 @@ class WaOpenAI
 
                         $finalText = $followUp->outputText;
 
-                    } else if ($name === 'rental_property_search') {
+                    } else if ($name === 'find_property') {
                         
-                        Log::channel('tools')->info('Calling rental_property_search with args: ' . json_encode($args));
+                        Log::channel('tools')->info('Calling find_property with args: ' . json_encode($args));
 
                         // Search properties
                         $query = Property::query();
