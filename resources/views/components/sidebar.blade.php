@@ -10,12 +10,9 @@
         <!-- logo  -->
         <a href="{{ route('home') }}"
             class="flex items-center ml-1 w-fit text-2xl font-bold text-neutral-900 dark:text-white">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L19 7V17L12 22L5 17V7L12 2Z" class="fill-indigo-600"></path>
-                <circle cx="12" cy="12" r="3" class="fill-white"></circle>
-            </svg>
-            <span class="font-bold text-xl text-black dark:text-gray-200">Concierg</span>
-            <span class="text-indigo-600">AI</span>
+            <img src="/cohome-logo_light.png" alt="" class="h-[28px] mr-2 dark:hidden">
+            <img src="/cohome-logo_dark.png" alt="" class="h-[28px] mr-2 hidden dark:block">
+            <span class="font-bold text-xl text-black dark:text-gray-200">CoHomeSG</span>
         </a>
 
         <!-- sidebar links  -->
