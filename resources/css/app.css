@@ -1,0 +1,211 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/resources/fonts/Lato/Lato-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('/resources/fonts/Inconsolata/Inconsolata-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    /* PenguinUI */
+
+    /* fonts */
+    --font-title: 'Lato', sans-serif;
+    --font-paragraph: 'Inconsolata', sans-serif;
+    --font-body: 'Inconsolata', sans-serif;
+
+    /* light theme */
+    --color-surface: var(--color-white);
+    --color-surface-alt: var(--color-slate-100);
+    --color-on-surface: var(--color-slate-700);
+    --color-on-surface-strong: var(--color-black);
+    --color-primary: var(--color-indigo-700);
+    --color-on-primary: var(--color-slate-100);
+    --color-secondary: var(--color-fuchsia-700);
+    --color-on-secondary: var(--color-slate-100);
+    --color-outline: var(--color-slate-300);
+    --color-outline-strong: var(--color-slate-800);
+
+    /* dark theme */
+    --color-surface-dark: var(--color-slate-900);
+    --color-surface-dark-alt: var(--color-slate-800);
+    --color-on-surface-dark: var(--color-slate-300);
+    --color-on-surface-dark-strong: var(--color-white);
+    --color-primary-dark: var(--color-indigo-600);
+    --color-on-primary-dark: var(--color-slate-100);
+    --color-secondary-dark: var(--color-fuchsia-600);
+    --color-on-secondary-dark: var(--color-slate-100);
+    --color-outline-dark: var(--color-slate-700);
+    --color-outline-dark-strong: var(--color-slate-300);
+
+    /* shared colors */
+    --color-info: var(--color-sky-600);
+    --color-on-info: var(--color-white);
+    --color-success: var(--color-green-600);
+    --color-on-success: var(--color-white);
+    --color-warning: var(--color-amber-500);
+    --color-on-warning: var(--color-white);
+    --color-danger: var(--color-red-600);
+    --color-on-danger: var(--color-white);
+
+    /* border radius */
+    --radius-radius: var(--radius-lg);
+}
+
+@layer base {
+    .dark {
+        --color-background: rgba(58, 55, 78, 1);
+    }
+
+    body {
+        font-family: var(--font-body);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-title);
+    }
+}
+
+@layer components {
+
+    /* Buttons */
+    .btn-primary {
+        @apply whitespace-nowrap rounded-radius bg-primary border border-primary px-4 py-2 text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-primary-dark dark:border-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark
+    }
+
+    .btn-secondary {
+        @apply whitespace-nowrap rounded-radius bg-secondary border border-secondary px-4 py-2 text-sm font-medium tracking-wide text-on-secondary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-secondary-dark dark:border-secondary-dark dark:text-on-secondary-dark dark:focus-visible:outline-secondary-dark
+    }
+
+    .btn-alternate {
+        @apply whitespace-nowrap rounded-radius bg-surface-alt border border-surface-alt px-4 py-2 text-sm font-medium tracking-wide text-on-surface-strong transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-surface-alt active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-surface-dark-alt dark:border-surface-dark-alt dark:text-on-surface-dark-strong dark:focus-visible:outline-surface-dark-alt
+    }
+
+    .btn-inverse {
+        @apply whitespace-nowrap rounded-radius bg-surface-dark border border-surface-dark px-4 py-2 text-sm font-medium tracking-wide text-on-surface-dark transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-surface-dark active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-surface dark:border-surface dark:text-on-surface dark:focus-visible:outline-surface
+    }
+
+    .btn-info {
+        @apply whitespace-nowrap rounded-radius bg-info border border-info px-4 py-2 text-sm font-medium tracking-wide text-onInfo transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-info active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-info dark:border-info dark:text-onInfo dark:focus-visible:outline-info
+    }
+
+    .btn-danger {
+        @apply whitespace-nowrap rounded-radius bg-danger border border-danger px-4 py-2 text-sm font-medium tracking-wide text-onDanger transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-danger active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-danger dark:border-danger dark:text-onDanger dark:focus-visible:outline-danger
+    }
+
+    .btn-warning {
+        @apply whitespace-nowrap rounded-radius bg-warning border border-warning px-4 py-2 text-sm font-medium tracking-wide text-onWarning transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warning active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-warning dark:border-warning dark:text-onWarning dark:focus-visible:outline-warning
+    }
+
+    .btn-success {
+        @apply whitespace-nowrap rounded-radius bg-success border border-success px-4 py-2 text-sm font-medium tracking-wide text-onSuccess transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-success dark:border-success dark:text-onSuccess dark:focus-visible:outline-success
+    }
+
+    .sidebar-link {
+        @apply flex items-center rounded-radius gap-2 px-2 py-1.5 text-sm font-medium text-on-surface underline-offset-2 hover:bg-primary/6 hover:text-on-surface-strong focus-visible:underline focus:outline-hidden dark:text-on-surface-dark dark:hover:bg-primary-dark/20 dark:hover:text-on-surface-dark-strong
+    }
+
+    .sidebar-link.active {
+        @apply bg-primary/6 text-on-surface-strong dark:bg-primary-dark/20 dark:text-on-surface-dark-strong
+    }
+
+    .sidebar-link-collapsible-base {
+        @apply flex items-center justify-between rounded-radius gap-2 px-2 py-1.5 text-sm font-medium underline-offset-2 focus:outline-hidden focus-visible:underline
+    }
+
+    .sidebar-link-collapsible-expanded {
+        @apply text-on-surface hover:bg-primary/6 hover:text-on-surface-strong dark:text-on-surface-dark dark:hover:text-on-surface-dark-strong dark:hover:bg-primary-dark/20
+    }
+
+    .sidebar-link-collapsible-collapsed {
+        @apply text-on-surface hover:bg-primary/6 hover:text-on-surface-strong dark:text-on-surface-dark dark:hover:text-on-surface-dark-strong dark:hover:bg-primary-dark/20
+    }
+
+    .sidebar-link-collapsible-subitem {
+        @apply flex items-center rounded-radius gap-2 px-2 py-1.5 text-sm text-on-surface underline-offset-2 hover:bg-primary/6 hover:text-on-surface-strong focus:outline-hidden focus-visible:underline dark:text-on-surface-dark dark:hover:bg-primary-dark/20 dark:hover:text-on-surface-dark-strong
+    }
+
+    .sidebar-link-collapsible-subitem.active {
+        @apply bg-primary/6 text-on-surface-strong dark:bg-primary-dark/20 dark:text-on-surface-dark-strong
+    }
+
+    .wa-inbound {
+        @apply relative mr-auto flex max-w-full flex-col gap-2 rounded-r-radius rounded-bl-radius bg-surface-alt p-4 text-on-surface-strong md:max-w-[60%] dark:bg-surface-dark-alt dark:text-on-surface-dark-strong
+    }
+
+    /* Top-left "tail" for inbound chat bubble */
+    .wa-inbound::after {
+        content: "";
+        @apply absolute top-0 -left-2 w-0 h-0 z-[1]
+            border-l-8 border-r-8 border-t-8
+            border-l-transparent border-r-transparent
+            border-t-surface-alt;
+    }
+    .dark .wa-inbound::after {
+        @apply border-t-surface-dark-alt;
+    }
+
+    .wa-outbound {
+        @apply relative ml-auto flex max-w-[80%] flex-col gap-2 rounded-l-radius rounded-br-radius bg-primary p-4 text-sm text-on-primary md:max-w-[60%] dark:bg-primary-dark dark:text-on-primary-dark
+    }
+    
+    /* Top-right "tail" for outbound chat bubble */
+    .wa-outbound::after {
+        content: "";
+        @apply absolute top-0 -right-2 w-0 h-0 z-[1]
+            border-l-8 border-r-8 border-t-8
+            border-l-transparent border-r-transparent
+            border-t-primary;
+    }
+    .dark .wa-outbound::after {
+        @apply border-t-primary-dark;
+    }
+
+}
+
+@utility text-onInfo {
+    @apply text-on-info;
+}
+
+@utility text-onDanger {
+    @apply text-on-danger;
+}
+
+@utility text-onWarning {
+    @apply text-on-warning;
+}
+
+@utility text-onSuccess {
+    @apply text-on-success;
+}
+
+/* fix for screen reader only element issue causing body height */
+.sr-only {
+    display: none;
+}
+
+[x-cloak] {
+    display: none !important;
+}
