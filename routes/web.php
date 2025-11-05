@@ -2,23 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
 
 Route::get('/licence', function () {
     return view('licence');
 })->name('licence');
 
-Route::get('/test', function () {
-    $properties = App\Models\Property::all();
-        return view('test', [
-                'properties' => $properties
-            ]);
-    })->name('test');
-
 // Authenticated routes
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', function () {
+        return view('index');
+    })->name('index');
     Route::get('/home', function () {
         return view('home');
     })->name('home');
