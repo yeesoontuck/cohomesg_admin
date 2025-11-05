@@ -1,5 +1,5 @@
 <!-- top navbar  -->
-<nav class="sticky top-0 z-100 flex items-center justify-between border-b border-outline bg-surface-alt px-4 py-2 dark:border-outline-dark dark:bg-surface-dark-alt"
+<nav class="sticky top-0 z-100 flex items-center justify-end border-b border-outline bg-surface-alt px-4 py-2 dark:border-outline-dark dark:bg-surface-dark-alt"
     aria-label="top navibation bar">
 
     <!-- sidebar toggle button for small screens  -->
@@ -13,7 +13,7 @@
     </button>
 
     <!-- breadcrumbs  -->
-    @include('components.breadcrumbs')
+    {{-- @include('components.breadcrumbs') --}}
 
     <!-- Profile Menu  -->
     <div x-data="{ userDropdownIsOpen: false }" class="relative" x-on:keydown.esc.window="userDropdownIsOpen = false">
@@ -21,12 +21,14 @@
             class="flex w-full items-center rounded-radius gap-2 p-2 text-left text-on-surface hover:bg-primary/5 hover:text-on-surface-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:text-on-surface-dark dark:hover:bg-primary-dark/5 dark:hover:text-on-surface-dark-strong dark:focus-visible:outline-primary-dark"
             x-bind:class="userDropdownIsOpen ? 'bg-primary/10 dark:bg-primary-dark/10' : ''" aria-haspopup="true"
             x-on:click="userDropdownIsOpen = ! userDropdownIsOpen" x-bind:aria-expanded="userDropdownIsOpen">
-            <img src="https://penguinui.s3.amazonaws.com/component-assets/avatar-7.webp"
-                class="size-8 object-cover rounded-radius" alt="avatar" aria-hidden="true" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+            </svg>
             <div class="hidden md:flex flex-col">
-                <span class="text-sm font-bold text-on-surface-strong dark:text-on-surface-dark-strong">Alex
-                    Martinez</span>
-                <span class="text-xs" aria-hidden="true">@alexmartinez</span>
+                <span class="text-sm font-bold text-on-surface-strong dark:text-on-surface-dark-strong">Alan</span>
+                <span class="text-xs" aria-hidden="true">@cohomesg</span>
                 <span class="sr-only">profile settings</span>
             </div>
         </button>
