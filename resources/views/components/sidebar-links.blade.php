@@ -128,7 +128,7 @@
                 :class="{ 'active': current === $el.getAttribute('href') }">All Properties</a>
         </li>
         <li class="px-1 py-0.5 first:mt-2">
-            <a href="#" class="sidebar-link-collapsible-subitem"
+            <a href="{{ route('districts.index') }}" class="sidebar-link-collapsible-subitem"
                 :class="{ 'active': current === $el.getAttribute('href') }">Districts</a>
         </li>
     </ul>

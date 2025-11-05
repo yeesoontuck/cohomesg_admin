@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/whatsapp/media', [App\Http\Controllers\WhatsappMessageController::class, 'load_media'])->name('media.show');
 
     Route::resource('properties', App\Http\Controllers\PropertyController::class);
+    Route::resource('districts', App\Http\Controllers\DistrictController::class);
 
     Route::get('openai', [App\Http\Controllers\OpenaiController::class, 'index'])->name('openai.index');
     Route::get('openai/inquiry', [App\Http\Controllers\OpenaiController::class, 'inquiry'])->name('openai.inquiry');
