@@ -17,14 +17,11 @@
         @csrf
 
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <a href="/" class="block flex items-center space-x-2 mb-4">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L19 7V17L12 22L5 17V7L12 2Z" class="fill-indigo-600"></path>
-                    <circle cx="12" cy="12" r="3" class="fill-white"></circle>
-                </svg>
-                <span class="font-bold text-xl text-black dark:text-gray-200">Concierg<span class="text-indigo-600">AI</span></span>
-            </a>
+            <div class="flex items-center mb-4 ml-1 w-fit text-2xl font-bold text-neutral-900 dark:text-white">
+                <img src="/cohome-logo_light.png" alt="" class="h-[28px] mr-2 dark:hidden">
+                <img src="/cohome-logo_dark.png" alt="" class="h-[28px] mr-2 hidden dark:block">
+                <span class="font-bold text-xl text-black dark:text-gray-200">CoHomeSG</span>
+            </div>
 
             <div
                 class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -42,7 +39,8 @@
                                 <label for="password"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                                 <div class="text-sm">
-                                    <a href="#" class="font-medium text-indigo-600 hover:underline dark:text-indigo-500">Forgot
+                                    <a href="#"
+                                        class="font-medium text-indigo-600 hover:underline dark:text-indigo-500">Forgot
                                         password?</a>
                                 </div>
                             </div>
@@ -56,7 +54,8 @@
                                     class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-indigo-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-indigo-600 dark:ring-offset-gray-800">
                             </div>
                             <div class="ml-3 text-sm">
-                                <label for="remember" class="font-light text-gray-500 dark:text-gray-300">Remember me</label>
+                                <label for="remember" class="font-light text-gray-500 dark:text-gray-300">Remember
+                                    me</label>
                             </div>
                         </div>
                         <div>
@@ -64,12 +63,6 @@
                                 class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Login</button>
                         </div>
                     </form>
-
-                    <p class="mt-10 text-center text-sm/6 text-gray-400">
-                        Not a member?
-                        <a href="{{ route('register') }}"
-                            class="font-medium text-indigo-600 hover:underline dark:text-indigo-500">Create an account</a>
-                    </p>
                 </div>
             </div>
         </div>

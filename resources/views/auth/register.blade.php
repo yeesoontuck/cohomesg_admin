@@ -16,14 +16,12 @@
     <form action="/register" method="POST">
         @csrf
     
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <a href="/" class="block flex items-center space-x-2 mb-4">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L19 7V17L12 22L5 17V7L12 2Z" class="fill-indigo-600"></path>
-                    <circle cx="12" cy="12" r="3" class="fill-white"></circle>
-                </svg>
-                <span class="font-bold text-xl text-black dark:text-gray-200">Concierg<span class="text-indigo-600">AI</span></span>
-            </a>
+        <div class="flex flex-col items-center px-6 py-8 mt-12 mx-auto md:h-screen lg:py-0">
+            <div class="flex items-center mb-4 ml-1 w-fit text-2xl font-bold text-neutral-900 dark:text-white">
+                <img src="/cohome-logo_light.png" alt="" class="h-[28px] mr-2 dark:hidden">
+                <img src="/cohome-logo_dark.png" alt="" class="h-[28px] mr-2 hidden dark:block">
+                <span class="font-bold text-xl text-black dark:text-gray-200">CoHomeSG</span>
+            </div>
             
             <div
                 class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">

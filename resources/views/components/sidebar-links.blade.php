@@ -124,7 +124,7 @@
 
     <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="products-btn" id="products" x-ref="productsmenu">
         <li class="px-1 py-0.5 first:mt-2">
-            <a href="{{ route('products') }}" class="sidebar-link-collapsible-subitem"
+            <a href="{{ route('properties.index') }}" class="sidebar-link-collapsible-subitem"
                 :class="{ 'active': current === $el.getAttribute('href') }">All Properties</a>
         </li>
         <li class="px-1 py-0.5 first:mt-2">
