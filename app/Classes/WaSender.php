@@ -70,6 +70,66 @@ class WaSender
         return $response;
     }
 
+    public function send_invoice_rental_template($user, $to, $invoice_id)
+    {
+        $url = "https://graph.facebook.com/{$this->api_version}/{$this->phone_number_id}/messages";
+
+        $payload = [
+            'messaging_product' => 'whatsapp',
+            'recipient_type' => 'individual',
+            'to' => $to,
+            'type' => 'template',
+            'template' => [
+                'name' => 'invoice_rental',
+                'language' => ['code' => 'en_SG'],
+                'components' => [
+                    [
+                        'type' => 'button',
+                        'sub_type' => 'url',
+                        'index' => '0',
+                        'parameters' => [
+                            [
+                                'type' => 'payload',
+                                'payload' => $invoice_id
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ];
+
+        $template_text = '';
+
+        $response = Http::withToken($this->access_token)->post($url, ($payload));
+
+        Log::info('whatsapp template message sent', [
+            'payload' => $payload,
+            'response' => $response->json(),
+        ]);
+
+        // Save to database
+        if ($response->successful()) {
+            $data = $response->json();
+
+            WhatsappMessage::create([
+                'user_id' => $user->id,
+                'wa_message_id' => $data['messages'][0]['id'] ?? null,
+                'direction' => 'outbound',
+                'message_type' => 'template',
+                'message_content' => $template_text,
+                'message_payload' => $payload,
+                'timestamp' => now(),
+                'in_24h_window' => true,
+            ]);
+        } else {
+            Log::error('Failed to send WhatsApp template', [
+                'response' => $response->json(),
+            ]);
+        }
+
+        return $response;
+    }
+
     public function send_template($user, $to, $template_name, $language, $variables = [])
     {
         $url = "https://graph.facebook.com/{$this->api_version}/{$this->phone_number_id}/messages";

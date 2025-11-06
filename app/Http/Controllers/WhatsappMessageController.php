@@ -71,6 +71,24 @@ class WhatsappMessageController extends Controller
         return $result;
     }
 
+    public function send_invoice_rental_template(Request $request)
+    {
+        $validated = $request->validate([
+            'to' => 'required|string',
+            'invoice_id' => 'required',
+        ]);
+
+
+        $to = $validated['to'];
+        $invoice_id = $validated['invoice_id'];
+
+        $user = WhatsappUser::firstOrCreate(['phone_number' => $to]);
+
+        $result = (new WaSender())->send_invoice_rental_template($user, $to, $invoice_id);
+
+        return $result;
+    }
+
     public function send_location(Request $request)
     {
         $validated = $request->validate([
