@@ -2,6 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return view('site.index');
+})->name('site');
+Route::get('/what-is-co-living', function () {
+    return view('site.what-is-co-living');
+})->name('whatiscoliving');
+
+
+
 
 Route::get('/licence', function () {
     return view('licence');
@@ -9,9 +18,7 @@ Route::get('/licence', function () {
 
 // Authenticated routes
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', function () {
-        return view('home');
-    })->name('index');
+    
     Route::get('/home', function () {
         return view('home');
     })->name('home');

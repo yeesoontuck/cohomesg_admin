@@ -158,11 +158,9 @@
     /* Top-left "tail" for inbound chat bubble */
     .wa-inbound::after {
         content: "";
-        @apply absolute top-0 -left-2 w-0 h-0 z-[1]
-            border-l-8 border-r-8 border-t-8
-            border-l-transparent border-r-transparent
-            border-t-surface-alt;
+        @apply absolute top-0 -left-2 w-0 h-0 z-[1] border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-surface-alt;
     }
+
     .dark .wa-inbound::after {
         @apply border-t-surface-dark-alt;
     }
@@ -170,19 +168,39 @@
     .wa-outbound {
         @apply relative ml-auto flex max-w-[80%] flex-col gap-2 rounded-l-radius rounded-br-radius bg-primary p-4 text-sm text-on-primary md:max-w-[60%] dark:bg-primary-dark dark:text-on-primary-dark
     }
-    
+
     /* Top-right "tail" for outbound chat bubble */
     .wa-outbound::after {
         content: "";
-        @apply absolute top-0 -right-2 w-0 h-0 z-[1]
-            border-l-8 border-r-8 border-t-8
-            border-l-transparent border-r-transparent
-            border-t-primary;
+        @apply absolute top-0 -right-2 w-0 h-0 z-[1] border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-primary;
     }
+
     .dark .wa-outbound::after {
         @apply border-t-primary-dark;
     }
 
+    /* 1. Define the custom component class */
+    .link-draw-in {
+        @apply relative inline-block no-underline;
+    }
+
+    /* 2. Define the true ::after pseudo-element */
+    .link-draw-in::after {
+        content: '';
+
+        /* Apply the animation/initial styles using utilities */
+        @apply absolute -bottom-1 left-0 h-0.5 bg-[#B59410] transition-all duration-250 w-0;
+    }
+
+    /* 3. Define the hover state and **text color change** directly on the class */
+    .link-draw-in:hover::after {
+        @apply w-full;
+        /* Expands the underline from 0% to 100% width */
+    }
+
+    .link-draw-in.active::after {
+        @apply w-full;
+    }
 }
 
 @utility text-onInfo {

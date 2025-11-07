@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ darkMode: localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) }" :class="{ 'dark': darkMode }" x-cloak>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="No Agent Fees, No Landlords, Utilities Included, Flexible Leases, Weekly Cleaning. Cohome makes co-living in Singapore simple and affordable!" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+    <link rel="canonical" href="https://cohomesg.com/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Co-living Rooms for Rent in Singapore | CohomeSG" />
+    <meta property="og:description"
+        content="No Agent Fees, No Landlords, Utilities Included, Flexible Leases, Weekly Cleaning. Cohome makes co-living in Singapore simple and affordable!" />
+    <meta property="og:url" content="https://cohomesg.com/" />
+    <meta property="og:site_name" content="Cohome - Co-living Rooms for Rent in Singapore" />
+    <meta property="og:updated_time" content="2025-11-07T08:22:00+00:00" />
+    <meta property="article:published_time" content="2025-09-06T11:14:16+00:00" />
+    <meta property="article:modified_time" content="2025-11-07T08:22:00+00:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Co-living Rooms for Rent in Singapore | CohomeSG" />
+    <meta name="twitter:description"
+        content="No Agent Fees, No Landlords, Utilities Included, Flexible Leases, Weekly Cleaning. Cohome makes co-living in Singapore simple and affordable!" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="admin" />
+    <meta name="twitter:label2" content="Time to read" />
+    <meta name="twitter:data2" content="Less than a minute" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/web/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/web/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/web/favicon-16x16.png">
+    <link rel="manifest" href="/web/site.webmanifest">
+
+    <title>Co-living Rooms for Rent in Singapore | CohomeSG</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <link rel="stylesheet" href="/web/site.css">
+</head>
+
+<body>
+    {{-- top banner --}}
+    <div class="bg-[#3C3C3C] p-2 w-full text-white">
+        <div class="flex justify-between max-w-[1120px] mx-auto">
+            <div class="flex items-center text-[16px]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="white"
+                    class="mr-3">
+                    <path
+                        d="M10 8.35954C10 8.52178 9.96395 8.68853 9.88733 8.85078C9.81072 9.01302 9.71157 9.16625 9.58087 9.31047C9.36004 9.55383 9.11668 9.72959 8.84176 9.84226C8.57136 9.95493 8.27842 10.0135 7.96294 10.0135C7.50326 10.0135 7.01202 9.90536 6.49374 9.68453C5.97546 9.4637 5.45719 9.16625 4.94342 8.79219C4.41978 8.40916 3.92565 7.98734 3.4652 7.5303C3.00946 7.07151 2.58913 6.57887 2.20781 6.05659C1.83826 5.54281 1.54081 5.02904 1.32449 4.51978C1.10816 4.00601 1 3.51477 1 3.04607C1 2.73961 1.05408 2.44667 1.16224 2.17626C1.27041 1.90135 1.44166 1.64897 1.68052 1.42364C1.96895 1.13971 2.28443 1 2.61793 1C2.74412 1 2.87031 1.02704 2.98297 1.08112C3.10015 1.1352 3.20381 1.21632 3.28493 1.3335L4.3305 2.80721C4.41162 2.91988 4.47021 3.02354 4.51077 3.12268C4.55133 3.21733 4.57386 3.31197 4.57386 3.3976C4.57386 3.50576 4.54231 3.61392 4.47922 3.71758C4.42063 3.82123 4.335 3.92939 4.22684 4.03756L3.88433 4.39359C3.83475 4.44316 3.81222 4.50175 3.81222 4.57386C3.81222 4.60992 3.81673 4.64146 3.82574 4.67752C3.83926 4.71357 3.85278 4.74061 3.86179 4.76765C3.94291 4.91637 4.08262 5.11017 4.28092 5.34452C4.48373 5.57887 4.70005 5.81773 4.9344 6.05659C5.17777 6.29544 5.41212 6.51627 5.65098 6.71908C5.88533 6.91738 6.07912 7.05258 6.23235 7.1337C6.25488 7.14271 6.28192 7.15623 6.31347 7.16975C6.34952 7.18327 6.38558 7.18778 6.42614 7.18778C6.50275 7.18778 6.56134 7.16074 6.61092 7.11117L6.95343 6.77316C7.0661 6.66049 7.17426 6.57486 7.27792 6.52078C7.38157 6.45769 7.48523 6.42614 7.5979 6.42614C7.68353 6.42614 7.77366 6.44417 7.87281 6.48473C7.97196 6.52529 8.07561 6.58388 8.18828 6.66049L9.68002 7.71958C9.7972 7.8007 9.87832 7.89534 9.92789 8.00801C9.97296 8.12068 10 8.23335 10 8.35954Z"
+                        stroke="white" stroke-width="1.1" stroke-miterlimit="10"></path>
+                    <path d="M6.94897 1.90137H9.11222V4.06461" stroke="white" stroke-width="1.1" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+                <span class="mr-6">+65 8809 3036</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" id="icon-mail2" width="11" height="11"
+                    viewBox="0 0 32 32" fill="white" class="mr-3">
+                    <path
+                        d="M26.667 0h-21.333c-2.934 0-5.334 2.4-5.334 5.334v21.332c0 2.936 2.4 5.334 5.334 5.334h21.333c2.934 0 5.333-2.398 5.333-5.334v-21.332c0-2.934-2.399-5.334-5.333-5.334zM26.667 4c0.25 0 0.486 0.073 0.688 0.198l-11.355 9.388-11.355-9.387c0.202-0.125 0.439-0.198 0.689-0.198h21.333zM5.334 28c-0.060 0-0.119-0.005-0.178-0.013l7.051-9.78-0.914-0.914-7.293 7.293v-19.098l12 14.512 12-14.512v19.098l-7.293-7.293-0.914 0.914 7.051 9.78c-0.058 0.008-0.117 0.013-0.177 0.013h-21.333z">
+                    </path>
+                </svg>
+                <span>hello@cohomesg.com</span>
+            </div>
+            <div>
+                <a class="cursor-pointer" href="https://www.facebook.com/cohome.sg" target="_blank" data-type="url"
+                    aria-label="facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+                        viewBox="0 0 48 48">
+                        <path fill="#1877F2" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"></path>
+                        <path fill="#fff"
+                            d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    {{-- navbar --}}
+    <div class="flex items-center justify-between max-w-[1120px] mx-auto">
+        <div>
+            <a href="https://cohomesg.com/">
+                <img src="/web/images/cohome-logo-150x150.png" alt="" class="h-[70px]">
+            </a>
+        </div>
+        <div>
+            <ul class="flex gap-5">
+                <li>
+                    <a class="link-draw-in active" href="https://cohomesg.com/">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a class="link-draw-in" href="https://cohomesg.com/room/">
+                        Find a Room
+                    </a>
+                </li>
+                <li>
+                    <a class="link-draw-in" href="https://cohomesg.com/landlords/">
+                        List your Property
+                    </a>
+                </li>
+                <li>
+                    <a class="link-draw-in" href="https://cohomesg.com/coliving-perks/">
+                        Perks
+                    </a>
+                </li>
+                <li>
+                    <a class="link-draw-in" href="https://cohomesg.com/coliving-for-students-interns/">
+                        Students
+                    </a>
+                </li>
+                <li>
+                    <a class="link-draw-in" href="https://cohomesg.com/coliving-for-digital-nomads/">
+                        Expats
+                    </a>
+                </li>
+                <li>
+                    <a class="link-draw-in" href="{{ route('whatiscoliving') }}">
+                        What is Co-living
+                    </a>
+                </li>
+                <li>
+                    <a class="link-draw-in" href="https://cohomesg.com/about-us/">
+                        About Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    {{-- image slider --}}
+    <div class="relative h-[370px] overflow-hidden" x-data="{
+        slides: [
+            { text: 'More than a room. Welcome to a lifestyle.', imgSrc: '/web/images/CE6EE739-5BBB-4729-82F6-B2483BD989F0-1024x768.jpg' },
+            { text: 'Fully furnished. Just bring your luggage.', imgSrc: '/web/images/8E592C1E-4025-4691-946E-2041E4135276-1024x768.jpg' },
+            { text: 'Say hello to co-living that feels like home', imgSrc: '/web/images/1814B0B5-EF70-45B7-91AA-C52D547B2127-1024x768.jpg' }
+        ],
+        currentIndex: 0,
+        interval: 5000
+    }" x-init="setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+    }, interval);">
+        <template x-for="(slide, index) in slides" :key="index">
+            <div class="absolute inset-0" x-show="currentIndex === index"
+                x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-1000 absolute inset-0"
+                x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+                <h1 class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold text-center w-full max-w-2xl drop-shadow-md/50"
+                    style="font-family:'Abhaya Libre', serif" x-text="slide.text">
+                </h1>
+
+                <img :src="slide.imgSrc" :alt="'Slide ' + (index + 1) + ' image'"
+                    class="w-full h-full object-cover blur-[2px] brightness-[0.75]">
+            </div>
+        </template>
+    </div>
+
+    <div class="mt-12 flex items-center justify-center max-w-[1120px] mx-auto">
+        <div class="flex flex-col justify-center">
+            <h2 class="text-center text-4xl font-semibold" style="font-family:'Abhaya Libre', serif">
+                Popular Co-Living Locations in Singapore
+            </h2>
+
+            <div class="mt-6 flex gap-4" role="tablist" aria-label="Content tabs" aria-orientation="horizontal"
+                data-tabs-id="bde-advanced-tabs-18-555">
+
+                <button role="tab" aria-selected="true" class="text-white bg-[#0079C1] px-4 py-2 rounded-full"
+                    aria-controls="tab-panel-bde-advanced-tabs-18-555-1" id="tab-bde-advanced-tabs-18-555-1"
+                    data-value="1">
+                    <span class="font-semibold">486 Sims Ave</span>
+                </button>
+                <button role="tab" aria-selected="false" class="bg-[#E6E6E6] px-4 py-2 rounded-full"
+                    aria-controls="tab-panel-bde-advanced-tabs-18-555-2" id="tab-bde-advanced-tabs-18-555-2"
+                    data-value="2" tabindex="-1">
+                    <span class="font-semibold">262A Tanjong Katong</span>
+                </button>
+                <button role="tab" aria-selected="false" class="bg-[#E6E6E6] px-4 py-2 rounded-full"
+                    aria-controls="tab-panel-bde-advanced-tabs-18-555-3" id="tab-bde-advanced-tabs-18-555-3"
+                    data-value="3" tabindex="-1">
+                    <span class="font-semibold">Hillview Green</span>
+                </button>
+                <button role="tab" aria-selected="false" class="bg-[#E6E6E6] px-4 py-2 rounded-full"
+                    aria-controls="tab-panel-bde-advanced-tabs-18-555-4" id="tab-bde-advanced-tabs-18-555-4"
+                    data-value="4" tabindex="-1">
+                    <span class="font-semibold">Serenity Park</span>
+                </button>
+                <button role="tab" aria-selected="false" class="bg-[#E6E6E6] px-4 py-2 rounded-full"
+                    aria-controls="tab-panel-bde-advanced-tabs-18-555-5" id="tab-bde-advanced-tabs-18-555-5"
+                    data-value="5" tabindex="-1">
+                    <span class="font-semibold">Changi Court</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
