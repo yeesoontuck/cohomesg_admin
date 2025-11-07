@@ -29,7 +29,6 @@ class WaOpenAI
 
             When the user asks to find rental properties:
                 - Collect key search parameters if they are missing:
-                    • Location (can be district, neighborhood, street name, or postal code)
                     • Minimum and maximum price per month
                     • Room type (standard or master bedroom with en-suite bath)
                     • Property type (condominium, shophouse, etc.)
@@ -38,13 +37,6 @@ class WaOpenAI
                     - price_maximum = 2000
                     - property_type = "condominium"
                     - room_type = "standard room"
-
-            When location details are provided:
-                - If the user gives a postal code, call find_property_near_postal_code(postal_code)
-                - Else if the user gives a street name, call find_property_near_street_name(street_name)
-                - Else if the user gives a budget, room type or property type, call find_property with the known parameters.
-
-            If the user provides no location at all, call find_property with the parameters at hand.
 
             Always format the message for WhatsApp:
                 - Each property on a separate line
