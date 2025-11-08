@@ -15,7 +15,7 @@
         <div class="pt-12 flex flex-col max-w-[1195px] mx-auto">
             <div class="flex gap-8 mb-12">
                 <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_man_working_-1-300x300.png" alt=""
-                    class="w-[362px]">
+                    class="w-[362px] h-[362px]">
                 <div>
                     <h2 class="text-4xl font-bold mt-8 mb-4">Who We Are</h2>
                     <p>
@@ -47,7 +47,7 @@
                     </p>
                 </div>
                 <img src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1.png" alt=""
-                    class="w-[362px]">
+                    class="w-[362px] h-[362px]">
             </div>
             <div>
                 <h2 class="text-4xl font-bold my-4">What We Offer</h2>
