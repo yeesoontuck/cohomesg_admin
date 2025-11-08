@@ -178,29 +178,6 @@
     .dark .wa-outbound::after {
         @apply border-t-primary-dark;
     }
-
-    /* 1. Define the custom component class */
-    .link-draw-in {
-        @apply relative inline-block no-underline;
-    }
-
-    /* 2. Define the true ::after pseudo-element */
-    .link-draw-in::after {
-        content: '';
-
-        /* Apply the animation/initial styles using utilities */
-        @apply absolute -bottom-1 left-0 h-0.5 bg-[#B59410] transition-all duration-250 w-0;
-    }
-
-    /* 3. Define the hover state and **text color change** directly on the class */
-    .link-draw-in:hover::after {
-        @apply w-full;
-        /* Expands the underline from 0% to 100% width */
-    }
-
-    .link-draw-in.active::after {
-        @apply w-full;
-    }
 }
 
 @utility text-onInfo {

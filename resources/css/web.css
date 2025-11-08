@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    
+}
+
+@layer base {
+    .dark {
+        --color-background: rgba(58, 55, 78, 1);
+    }
+
+    body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Abhaya Libre', serif;
+    }
+}
+
+@layer components {
+
+    /* 1. Define the custom component class */
+    .link-draw-in {
+        @apply relative inline-block no-underline;
+    }
+
+    /* 2. Define the true ::after pseudo-element */
+    .link-draw-in::after {
+        content: '';
+
+        /* Apply the animation/initial styles using utilities */
+        @apply absolute -bottom-1 left-0 h-0.5 bg-[#B59410] transition-all duration-250 w-0;
+    }
+
+    /* 3. Define the hover state and **text color change** directly on the class */
+    .link-draw-in:hover::after {
+        @apply w-full;
+        /* Expands the underline from 0% to 100% width */
+    }
+
+    .link-draw-in.active::after {
+        @apply w-full;
+    }
+}
+
+/* fix for screen reader only element issue causing body height */
+.sr-only {
+    display: none;
+}
+
+[x-cloak] {
+    display: none !important;
+}
