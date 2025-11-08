@@ -53,7 +53,7 @@
                 <h2 class="text-4xl font-bold my-4">What We Offer</h2>
 
                 <div class="flex gap-8">
-                    <div class="p-8 bg-white flex flex-col gap-y-4">
+                    <div class="p-8 bg-white flex flex-col gap-y-4 rounded-lg drop-shadow-md">
                         <h3 class="text-3xl font-semibold">For Tenants</h3>
 
                         <div class="flex gap-4 items-center">
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-8 bg-white flex flex-col gap-y-4">
+                    <div class="p-8 bg-white flex flex-col gap-y-4 rounded-lg drop-shadow-md">
                         <h3 class="text-3xl font-semibold">For Landlords</h3>
 
                         <div class="flex gap-4 items-center">
