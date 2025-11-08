@@ -2,6 +2,16 @@
 
 @section('content')
     <div class="bg-stone-100">
+
+        <div class="relative h-[280px] overflow-hidden">
+            <h1
+                class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-6xl font-bold text-center w-full max-w-2xl drop-shadow-md/50">
+                About Cohome SG
+            </h1>
+            <img src="/web/images/434788F7-165F-4E32-8615-925597CEC34B-1536x1152.jpg" alt=""
+                class="w-full h-full object-cover blur-[2px] brightness-[0.75]">
+        </div>
+
         <div class="pt-12 flex flex-col max-w-[1195px] mx-auto">
             <div class="flex gap-8 mb-12">
                 <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_man_working_-1-300x300.png" alt=""

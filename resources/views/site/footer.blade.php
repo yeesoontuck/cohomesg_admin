@@ -70,7 +70,7 @@
 
         <div class="text-center md:flex md:justify-between md:text-left">
             <p class="text-sm text-gray-400 mb-2 md:mb-0">
-                &copy; {{ date('Y') }} CoHome SG. All rights reserved.
+                &copy; {{ date('Y') }} Cohome SG. All rights reserved.
             </p>
             {{-- <div class="text-sm text-gray-400 space-x-4">
                     <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
