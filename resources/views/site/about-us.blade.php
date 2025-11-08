@@ -96,7 +96,22 @@
                                 Meet like-minded people through shared spaces and events.
                             </div>
                         </div>
+
+                        <a href="#"
+                            class="group self-start mt-8 px-4 py-2 rounded-full bg-[#048DEC] hover:bg-[#048DEC]/90 text-white text-xl inline-flex items-center cursor-pointer">Find rooms
+                            to rent
+
+                            <div class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-[#6FBAC1] rounded-full ml-4 -mr-2 -ml-2">
+                                <svg class="-rotate-45 text-white w-8 h-8" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M11.293 4.707 17.586 11H4v2h13.586l-6.293 6.293 1.414 1.414L21.414 12l-8.707-8.707-1.414 1.414z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </a>
                     </div>
+
                     <div class="p-8 bg-white flex flex-col gap-y-4 rounded-lg drop-shadow-md">
                         <h3 class="text-3xl font-semibold">For Landlords</h3>
 
@@ -140,6 +155,19 @@
                                 Predictable income, and peace of mind.
                             </div>
                         </div>
+
+                        <a href="#"
+                            class="group self-start mt-8 px-4 py-2 rounded-full bg-[#B59410] hover:bg-[#B59410]/90 text-white text-xl inline-flex items-center cursor-pointer">List my property
+
+                            <div class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-[#EACA43] rounded-full ml-4 -mr-2 -ml-2">
+                                <svg class="-rotate-45 text-white w-8 h-8" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M11.293 4.707 17.586 11H4v2h13.586l-6.293 6.293 1.414 1.414L21.414 12l-8.707-8.707-1.414 1.414z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
