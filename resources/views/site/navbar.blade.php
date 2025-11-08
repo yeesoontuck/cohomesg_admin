@@ -43,7 +43,7 @@
                 </a>
             </li>
             <li>
-                <a class="link-draw-in" href="https://cohomesg.com/about-us/">
+                <a class="link-draw-in {{ request()->routeIs('aboutus') ? 'active' : '' }}" href="{{ route('aboutus') }}">
                     About Us
                 </a>
             </li>

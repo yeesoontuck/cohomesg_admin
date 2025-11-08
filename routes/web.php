@@ -8,6 +8,9 @@ Route::get('/', function () {
 Route::get('/what-is-co-living', function () {
     return view('site.what-is-co-living');
 })->name('whatiscoliving');
+Route::get('/about-us', function () {
+    return view('site.about-us');
+})->name('aboutus');
 
 Route::get('/licence', function () {
     return view('licence');
