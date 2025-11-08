@@ -18,8 +18,8 @@
                 x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-1000 absolute inset-0"
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                <h1 class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold text-center w-full max-w-2xl drop-shadow-md/50"
-                    style="font-family:'Abhaya Libre', serif" x-text="slide.text">
+                <h1 class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-[40px] font-bold text-center w-full drop-shadow-md/50"
+                    x-text="slide.text">
                 </h1>
 
                 <img :src="slide.imgSrc" :alt="'Slide ' + (index + 1) + ' image'"
@@ -79,7 +79,8 @@
                     <div class="flex gap-6 my-4">
                         <div class="relative bg-white rounded-xl">
 
-                            <p class="absolute top-2 left-2 px-3 py-2 rounded-full bg-[#FFE2D1] text-red-500 text-xs font-medium border-2 border-white">
+                            <p
+                                class="absolute top-2 left-2 px-3 py-2 rounded-full bg-[#FFE2D1] text-red-500 text-xs font-medium border-2 border-white">
                                 Occupied
                             </p>
 
