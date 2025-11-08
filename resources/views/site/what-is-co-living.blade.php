@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ darkMode: localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) }" :class="{ 'dark': darkMode }" x-cloak>
+<html class="scroll-smooth" lang="en" x-data="{ darkMode: localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) }" :class="{ 'dark': darkMode }" x-cloak>
 
 <head>
     <meta charset="UTF-8">
@@ -34,168 +34,52 @@
     <link rel="manifest" href="/web/site.webmanifest">
 
     <title>Co-living Rooms for Rent in Singapore | CohomeSG</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link rel="stylesheet" href="/web/site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    @vite(['resources/css/web.css', 'resources/js/app.js'])
 </head>
 
 <body>
     {{-- top banner --}}
-    <div class="bg-[#3C3C3C] p-2 w-full text-white">
-        <div class="flex justify-between max-w-[1120px] mx-auto">
-            <div class="flex items-center text-[16px]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="white"
-                    class="mr-3">
-                    <path
-                        d="M10 8.35954C10 8.52178 9.96395 8.68853 9.88733 8.85078C9.81072 9.01302 9.71157 9.16625 9.58087 9.31047C9.36004 9.55383 9.11668 9.72959 8.84176 9.84226C8.57136 9.95493 8.27842 10.0135 7.96294 10.0135C7.50326 10.0135 7.01202 9.90536 6.49374 9.68453C5.97546 9.4637 5.45719 9.16625 4.94342 8.79219C4.41978 8.40916 3.92565 7.98734 3.4652 7.5303C3.00946 7.07151 2.58913 6.57887 2.20781 6.05659C1.83826 5.54281 1.54081 5.02904 1.32449 4.51978C1.10816 4.00601 1 3.51477 1 3.04607C1 2.73961 1.05408 2.44667 1.16224 2.17626C1.27041 1.90135 1.44166 1.64897 1.68052 1.42364C1.96895 1.13971 2.28443 1 2.61793 1C2.74412 1 2.87031 1.02704 2.98297 1.08112C3.10015 1.1352 3.20381 1.21632 3.28493 1.3335L4.3305 2.80721C4.41162 2.91988 4.47021 3.02354 4.51077 3.12268C4.55133 3.21733 4.57386 3.31197 4.57386 3.3976C4.57386 3.50576 4.54231 3.61392 4.47922 3.71758C4.42063 3.82123 4.335 3.92939 4.22684 4.03756L3.88433 4.39359C3.83475 4.44316 3.81222 4.50175 3.81222 4.57386C3.81222 4.60992 3.81673 4.64146 3.82574 4.67752C3.83926 4.71357 3.85278 4.74061 3.86179 4.76765C3.94291 4.91637 4.08262 5.11017 4.28092 5.34452C4.48373 5.57887 4.70005 5.81773 4.9344 6.05659C5.17777 6.29544 5.41212 6.51627 5.65098 6.71908C5.88533 6.91738 6.07912 7.05258 6.23235 7.1337C6.25488 7.14271 6.28192 7.15623 6.31347 7.16975C6.34952 7.18327 6.38558 7.18778 6.42614 7.18778C6.50275 7.18778 6.56134 7.16074 6.61092 7.11117L6.95343 6.77316C7.0661 6.66049 7.17426 6.57486 7.27792 6.52078C7.38157 6.45769 7.48523 6.42614 7.5979 6.42614C7.68353 6.42614 7.77366 6.44417 7.87281 6.48473C7.97196 6.52529 8.07561 6.58388 8.18828 6.66049L9.68002 7.71958C9.7972 7.8007 9.87832 7.89534 9.92789 8.00801C9.97296 8.12068 10 8.23335 10 8.35954Z"
-                        stroke="white" stroke-width="1.1" stroke-miterlimit="10"></path>
-                    <path d="M6.94897 1.90137H9.11222V4.06461" stroke="white" stroke-width="1.1" stroke-linecap="round"
-                        stroke-linejoin="round"></path>
-                </svg>
-                <span class="mr-6">+65 8809 3036</span>
-
-                <svg xmlns="http://www.w3.org/2000/svg" id="icon-mail2" width="11" height="11"
-                    viewBox="0 0 32 32" fill="white" class="mr-3">
-                    <path
-                        d="M26.667 0h-21.333c-2.934 0-5.334 2.4-5.334 5.334v21.332c0 2.936 2.4 5.334 5.334 5.334h21.333c2.934 0 5.333-2.398 5.333-5.334v-21.332c0-2.934-2.399-5.334-5.333-5.334zM26.667 4c0.25 0 0.486 0.073 0.688 0.198l-11.355 9.388-11.355-9.387c0.202-0.125 0.439-0.198 0.689-0.198h21.333zM5.334 28c-0.060 0-0.119-0.005-0.178-0.013l7.051-9.78-0.914-0.914-7.293 7.293v-19.098l12 14.512 12-14.512v19.098l-7.293-7.293-0.914 0.914 7.051 9.78c-0.058 0.008-0.117 0.013-0.177 0.013h-21.333z">
-                    </path>
-                </svg>
-                <span>hello@cohomesg.com</span>
-            </div>
-            <div>
-                <a class="cursor-pointer" href="https://www.facebook.com/cohome.sg" target="_blank" data-type="url"
-                    aria-label="facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
-                        viewBox="0 0 48 48">
-                        <path fill="#1877F2" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"></path>
-                        <path fill="#fff"
-                            d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z">
-                        </path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
+    @include('site.banner')
 
 
     {{-- navbar --}}
-    <div class="flex items-center justify-between max-w-[1120px] mx-auto">
-        <div>
-            <a href="https://cohomesg.com/">
-                <img src="/web/images/cohome-logo-150x150.png" alt="" class="h-[70px]">
-            </a>
-        </div>
-        <div>
-            <ul class="flex gap-5">
-                <li class="">
-                    <a class="link-draw-in" href="{{ route('site') }}">
-                        Home
-                    </a>
-                </li>
-                <li class="">
-                    <a class="link-draw-in" href="https://cohomesg.com/room/">
-                        Find a Room
-                    </a>
-                </li>
-                <li class="">
-                    <a class="link-draw-in" href="https://cohomesg.com/landlords/">
-                        List your Property
-                    </a>
-                </li>
-                <li class="">
-                    <a class="link-draw-in" href="https://cohomesg.com/coliving-perks/">
-                        Perks
-                    </a>
-                </li>
-                <li class="">
-                    <a class="link-draw-in" href="https://cohomesg.com/coliving-for-students-interns/">
-                        Students
-                    </a>
-                </li>
-                <li class="">
-                    <a class="link-draw-in" href="https://cohomesg.com/coliving-for-digital-nomads/">
-                        Expats
-                    </a>
-                </li>
-                <li class="">
-                    <a class="link-draw-in active" href="{{ route('whatiscoliving') }}">
-                        What is Co-living
-                    </a>
-                </li>
-                <li class="">
-                    <a class="link-draw-in" href="https://cohomesg.com/about-us/">
-                        About Us
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    @include('site.navbar')
 
-    <div class="bg-stone-100">
+    <div class="bg-stone-50 pb-20">
         <div class="max-w-[1080px] mx-auto pt-12">
             <div class="flex gap-8">
                 <div class="w-[260px] p-4">
-                    <h3 class="mb-4">Table Of Contents</h3>
-                    <ol x-data="{
-                        scrollToId(id) {
-                            document.querySelector(id).scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    }" class="toc-list border-l-3 border-gray-200 pl-4 text-gray-500">
-                        <li class="mb-2"><a x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                href="#what-is-co-living-1" class="text-black">What Is
-                                Co-Living?</a></li>
-                        <li class="mb-2"><a x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                href="#why-co-living-matters-in-singapore-2">Why Co-Living
-                                Matters in Singapore</a></li>
-                        <li class="mb-2"><a x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                href="#how-co-living-works-key-components-3">How Co-Living
-                                Works: Key Components</a></li>
-                        <li class="mb-2"><a x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                href="#co-living-in-singapore-key-statistics-trends-4">Co-Living in Singapore: Key
-                                Statistics &amp; Trends</a>
-                        </li>
-                        <li class="mb-2"><a x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                href="#why-people-choose-co-living-5">Why People Choose
-                                Co-Living</a></li>
-                        <li class="mb-2"><a x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                href="#who-is-co-living-for-6">Who
-                                Is Co-Living For?</a></li>
-                        <li class="mb-2"><a x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                href="#pros-cons-of-co-living-7">Pros &amp; Cons of
-                                Co-Living</a>
-                            <ol class="ml-4">
-                                <li class="mb-2"><a
-                                        x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                        href="#pros-8" class="toc-link node-name--H3 ">Pros</a></li>
-                                <li class="mb-2"><a
-                                        x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                        href="#cons-things-to-consider-9" class="toc-link node-name--H3 ">Cons /
-                                        Things to
-                                        Consider</a></li>
-                            </ol>
-                        </li>
-                        <li class="mb-2"><a x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                href="#how-to-choose-a-good-co-living-space-in-singapore-10">How to Choose a Good
-                                Co-Living
-                                Space in Singapore</a></li>
-                        <li class="mb-2"><a x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                href="#the-future-of-co-living-in-singapore-11">The Future
-                                of Co-Living in Singapore</a></li>
-                        <li class="mb-2"><a x-on:click.prevent="scrollToId($event.target.getAttribute('href'))"
-                                href="#summary-12">Summary</a></li>
-                    </ol>
+                    <div class="sticky top-20" x-data="tocObserver()" x-init="init()">
+                        <h3 class="mb-4">Table Of Contents</h3>
+                        <ol class="border-l-3 border-gray-200 pl-4 text-gray-500">
+                            <template x-for="item in items" :key="item.id">
+                                <li class="mb-2">
+                                    <a :href="'#' + item.id" x-text="item.title"
+                                        class="block text-sm transition-colors"
+                                        :class="activeId === item.id ?
+                                            'text-gray-600' :
+                                            'text-gray-600 hover:text-gray-900'"></a>
+                                </li>
+                            </template>
+                        </ol>
+                    </div>
                 </div>
                 <div class="flex flex-col w-[820px]">
-                    <div class="flex items-center h-[400px] overflow-hidden"><img
+                    <div class="relative flex items-center h-[400px] overflow-hidden">
+                        <img
                             src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1.png"
                             alt="">
+                        <h1 class="absolute bottom-[20px] bg-[#B59410] p-2 pr-4 rounded-r-2xl text-white text-4xl font-bold">
+                            What Is Co-Living? | Singapore’s New Rental Trend
+                        </h1>
                     </div>
                     <div class="bde-rich-text-1142-106 bde-rich-text breakdance-rich-text-styles">
-                        <h2 style="font-family:'Abhaya Libre', serif" class="text-3xl font-semibold mt-8 mb-4"
-                            id="what-is-co-living-1">What Is Co-Living?</h2>
+                        <h2 class="text-3xl font-bold mt-8 mb-4" id="what-is-co-living-1">What Is Co-Living?</h2>
                         <p class="my-4">Co-living refers to a modern housing model where individuals
                             rent private
                             bedrooms within a larger shared property, and share communal spaces (kitchen, lounge, work
@@ -206,8 +90,8 @@
                         <p class="my-4">In Singapore, co-living has transitioned from a niche
                             workaround into a
                             mature, growing segment of the rental market.</p>
-                        <h2 style="font-family:'Abhaya Libre', serif" class="text-3xl font-semibold mt-8 mb-4"
-                            id="why-co-living-matters-in-singapore-2">Why Co-Living
+                        <h2 class="text-3xl font-bold mt-8 mb-4" id="why-co-living-matters-in-singapore-2">Why
+                            Co-Living
                             Matters in
                             Singapore</h2>
                         <p class="my-4">Singapore faces certain housing and rental pressures that make
@@ -228,8 +112,8 @@
                                     or more flexible leases</strong>, and <strong>shared
                                     services</strong>, which aligns well with evolving lifestyles.</li>
                         </ul>
-                        <h2 style="font-family:'Abhaya Libre', serif" class="text-3xl font-semibold mt-8 mb-4"
-                            id="how-co-living-works-key-components-3">How Co-Living
+                        <h2 class="text-3xl font-bold mt-8 mb-4" id="how-co-living-works-key-components-3">How
+                            Co-Living
                             Works: Key
                             Components</h2>
                         <p class="my-4">Here’s what typically makes up a co-living offering in
@@ -259,8 +143,7 @@
                                 appeal of
                                 co-living is the lifestyle component, not just the room.</li>
                         </ul>
-                        <h2 style="font-family:'Abhaya Libre', serif" class="text-3xl font-semibold mt-8 mb-4"
-                            id="co-living-in-singapore-key-statistics-trends-4">
+                        <h2 class="text-3xl font-bold mt-8 mb-4" id="co-living-in-singapore-key-statistics-trends-4">
                             Co-Living in
                             Singapore: Key Statistics &amp; Trends</h2>
                         <p class="my-4">To understand how strong the case for co-living is in
@@ -296,8 +179,8 @@
                         <p>These numbers reflect that co-living isn’t just a trendy
                             alternative —
                             it’s a viable, resilient housing segment in Singapore.</p>
-                        <h2 style="font-family:'Abhaya Libre', serif" class="text-3xl font-semibold mt-8 mb-4"
-                            id="why-people-choose-co-living-5">Why People Choose
+                        <h2 class="text-3xl font-bold mt-8 mb-4" id="why-people-choose-co-living-5">Why People
+                            Choose
                             Co-Living</h2>
                         <p class="my-4">Here are specific reasons why co-living is compelling in the
                             Singapore
@@ -342,8 +225,8 @@
                                     demonstrating strong demand for the model.</p>
                             </li>
                         </ul>
-                        <h2 style="font-family:'Abhaya Libre', serif" class="text-3xl font-semibold mt-8 mb-4"
-                            id="who-is-co-living-for-6">Who Is Co-Living For?</h2>
+                        <h2 class="text-3xl font-bold mt-8 mb-4" id="who-is-co-living-for-6">Who Is Co-Living For?
+                        </h2>
                         <p class="my-4">In Singapore, co-living can appeal to multiple segments:</p>
                         <ul class="list-disc pl-10">
                             <li class="mb-2">
@@ -377,11 +260,10 @@
                                     piece.)</p>
                             </li>
                         </ul>
-                        <h2 style="font-family:'Abhaya Libre', serif" class="text-3xl font-semibold mt-8 mb-4"
-                            id="pros-cons-of-co-living-7">Pros &amp; Cons of Co-Living
+                        <h2 class="text-3xl font-bold mt-8 mb-4" id="pros-cons-of-co-living-7">Pros &amp; Cons of
+                            Co-Living
                         </h2>
-                        <h3 style="font-family:'Abhaya Libre', serif" class="text-2xl font-semibold mt-4 mb-4"
-                            id="pros-8">Pros</h3>
+                        <h3 class="text-2xl font-bold mt-4 mb-4" id="pros-8">Pros</h3>
                         <ul class="list-disc pl-10">
                             <li class="mb-2">
                                 <p>Move-in ready, often single bill covering utilities
@@ -405,8 +287,8 @@
                                 </p>
                             </li>
                         </ul>
-                        <h3 style="font-family:'Abhaya Libre', serif" class="text-2xl font-semibold mt-8 mb-4"
-                            id="cons-things-to-consider-9">Cons / Things to Consider
+                        <h3 class="text-2xl font-bold mt-8 mb-4" id="cons-things-to-consider-9">Cons / Things to
+                            Consider
                         </h3>
                         <ul class="list-disc pl-10">
                             <li class="mb-2">
@@ -435,7 +317,7 @@
                                     tenancy, services and provider are transparent.</p>
                             </li>
                         </ul>
-                        <h2 style="font-family:'Abhaya Libre', serif" class="text-3xl font-semibold mt-8 mb-4"
+                        <h2 class="text-3xl font-bold mt-8 mb-4"
                             id="how-to-choose-a-good-co-living-space-in-singapore-10">
                             How to Choose
                             a Good Co-Living Space in Singapore</h2>
@@ -482,66 +364,151 @@
                                     occupancy rate?</p>
                             </li>
                         </ol>
-                        <h2 style="font-family:'Abhaya Libre', serif" class="text-3xl font-semibold mt-8 mb-4"
-                            id="the-future-of-co-living-in-singapore-11">The Future of
-                            Co-Living in
-                            Singapore</h2>
-                        <p class="my-4">Looking ahead:</p>
-                        <ul class="list-disc pl-10">
-                            <li class="mb-2">
-                                <p>The co-living sector is moving from niche to
-                                    mainstream in
-                                    Singapore, increasingly recognised as a distinct residential option.</p>
-                            </li>
-                            <li class="mb-2">
-                                <p>With strong demand — especially from international
-                                    students and
-                                    mobile workforces — plus institutional interest (S$1.4 billion+ investments since
-                                    2022)
-                                    the growth
-                                    outlook is positive.</p>
-                            </li>
-                            <li class="mb-2">
-                                <p>Lease models may evolve: more flexible stays,
-                                    tailored services,
-                                    purpose-built properties for co-living rather than simple conversion.</p>
-                            </li>
-                            <li class="mb-2">
-                                <p>Operators may focus more on differentiators:
-                                    community events,
-                                    wellness amenities, co-working spaces, tech-enabled services.</p>
-                            </li>
-                            <li class="mb-2">
-                                <p>For tenants, expect more choice, quality, and
-                                    transparent
-                                    pricing. For landlords/investors, expect greater professionalism and yield
-                                    optimisation
-                                    in the
-                                    co-living space.</p>
-                            </li>
-                        </ul>
-                        <h2 style="font-family:'Abhaya Libre', serif" class="text-3xl font-semibold mt-8 mb-4"
-                            id="summary-12">Summary</h2>
-                        <p class="my-4">In short: co-living is more than just shared housing — it’s a
-                            lifestyle-centric, service-rich rental model that fits the evolving demands of Singapore’s
-                            urban
-                            rental
-                            market. With strong local demand (students, expats, young professionals), a growing stock
-                            (approx. 9,000
-                            rooms), high occupancy (85-95 %), and significant institutional investment (S$1.4 billion+
-                            since
-                            2022),
-                            co-living is firmly establishing itself as a durable part of Singapore’s housing ecosystem.
-                        </p>
-                        <p class="my-4">If you’re looking for flexibility, community, convenience and
-                            affordability — co-living might just be the smarter way to live in Singapore’s vibrant
-                            city-state.</p>
+
+                        <section id="the-future-of-co-living-in-singapore-11">
+                            <h2 class="text-3xl font-bold mt-8 mb-4">The
+                                Future of
+                                Co-Living in
+                                Singapore</h2>
+                            <p class="my-4">Looking ahead:</p>
+                            <ul class="list-disc pl-10">
+                                <li class="mb-2">
+                                    <p>The co-living sector is moving from niche to
+                                        mainstream in
+                                        Singapore, increasingly recognised as a distinct residential option.</p>
+                                </li>
+                                <li class="mb-2">
+                                    <p>With strong demand — especially from international
+                                        students and
+                                        mobile workforces — plus institutional interest (S$1.4 billion+ investments
+                                        since
+                                        2022)
+                                        the growth
+                                        outlook is positive.</p>
+                                </li>
+                                <li class="mb-2">
+                                    <p>Lease models may evolve: more flexible stays,
+                                        tailored services,
+                                        purpose-built properties for co-living rather than simple conversion.</p>
+                                </li>
+                                <li class="mb-2">
+                                    <p>Operators may focus more on differentiators:
+                                        community events,
+                                        wellness amenities, co-working spaces, tech-enabled services.</p>
+                                </li>
+                                <li class="mb-2">
+                                    <p>For tenants, expect more choice, quality, and
+                                        transparent
+                                        pricing. For landlords/investors, expect greater professionalism and yield
+                                        optimisation
+                                        in the
+                                        co-living space.</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section id="summary-12">
+                            <h2 class="text-3xl font-bold mt-8 mb-4">Summary</h2>
+                            <p class="my-4">In short: co-living is more than just shared housing — it’s a
+                                lifestyle-centric, service-rich rental model that fits the evolving demands of
+                                Singapore’s
+                                urban
+                                rental
+                                market. With strong local demand (students, expats, young professionals), a growing
+                                stock
+                                (approx. 9,000
+                                rooms), high occupancy (85-95 %), and significant institutional investment (S$1.4
+                                billion+
+                                since
+                                2022),
+                                co-living is firmly establishing itself as a durable part of Singapore’s housing
+                                ecosystem.
+                            </p>
+                            <p class="my-4">If you’re looking for flexibility, community, convenience and
+                                affordability — co-living might just be the smarter way to live in Singapore’s vibrant
+                                city-state.</p>
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+
+    {{-- footer --}}
+    @include('site.footer')
+
+
+    <script>
+        function tocObserver() {
+            return {
+                items: [{
+                    id: 'what-is-co-living-1',
+                    title: 'What Is Co-Living?'
+                }, {
+                    id: 'why-co-living-matters-in-singapore-2',
+                    title: 'Why Co - Living Matters in Singapore '
+                }, {
+                    id: 'how-co-living-works-key-components-3',
+                    title: 'How Co-Living Works: Key Components'
+                }, {
+                    id: 'co-living-in-singapore-key-statistics-trends-4',
+                    title: 'Co-Living in Singapore: Key Statistics & Trends'
+                }, {
+                    id: 'why-people-choose-co-living-5',
+                    title: 'Why People Choose Co-Living'
+                }, {
+                    id: 'who-is-co-living-for-6',
+                    title: 'Who Is Co-Living For?'
+                }, {
+                    id: 'pros-cons-of-co-living-7',
+                    title: 'Pros & Cons of Co-Living'
+                }, {
+                    id: 'pros-8',
+                    title: 'Pros'
+                }, {
+                    id: 'cons-things-to-consider-9',
+                    title: 'Cons / Things to Consider'
+                }, {
+                    id: 'how-to-choose-a-good-co-living-space-in-singapore-10',
+                    title: 'How to Choose a Good Co-Living Space in Singapore'
+                }, {
+                    id: 'the-future-of-co-living-in-singapore-11',
+                    title: 'The Future of Co-Living in Singapore'
+                }, {
+                    id: 'summary-12',
+                    title: 'Summary'
+                }, ],
+                activeId: null,
+
+                init() {
+                    const observer = new IntersectionObserver(
+                        (entries) => {
+                            // Find the entry with the largest visible ratio
+                            let mostVisible = entries.reduce((max, entry) =>
+                                entry.intersectionRatio > max.intersectionRatio ? entry : max
+                            );
+
+                            if (mostVisible.isIntersecting) {
+                                this.activeId = mostVisible.target.id;
+                            }
+                        }, {
+                            threshold: Array.from({
+                                length: 11
+                            }, (_, i) => i / 10), // 0.0 → 1.0 in 0.1 steps
+                        }
+                    );
+
+                    this.items.forEach((item) => {
+                        const el = document.getElementById(item.id);
+                        if (el) observer.observe(el);
+                    });
+                }
+
+            };
+        }
+    </script>
 </body>
 
 </html>

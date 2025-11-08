@@ -9,9 +9,6 @@ Route::get('/what-is-co-living', function () {
     return view('site.what-is-co-living');
 })->name('whatiscoliving');
 
-
-
-
 Route::get('/licence', function () {
     return view('licence');
 })->name('licence');
