@@ -2,14 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Route::get('/test', function () {
+    //     return view('site.test');
+    // })->name('test');
+// Route::get('/test', function () {
+//     $rooms = App\Models\Room::all();
+    
+//     foreach($rooms as $room)
+//     {
+//         $room->generateSlug();
+//         $room->save();
+//     }
+// });
 Route::get('/what-is-co-living', [App\Http\Controllers\SiteController::class, 'whatiscoliving'])->name('whatiscoliving');
 Route::get('/about-us', [App\Http\Controllers\SiteController::class, 'aboutus'])->name('aboutus');
-Route::get('/room/{property}', [App\Http\Controllers\SiteController::class, 'room'])->name('room_details');
+Route::get('/room/{room}', [App\Http\Controllers\SiteController::class, 'room'])->name('room_details');
+
 Route::get('/{property?}', [App\Http\Controllers\SiteController::class, 'index'])->name('site');
 
-// Route::get('/test', function () {
-//     return view('site.test');
-// })->name('test');
+
 
 Route::get('/licence', function () {
     return view('licence');

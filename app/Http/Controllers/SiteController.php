@@ -38,8 +38,8 @@ class SiteController extends Controller
         return view('site.about-us');
     }
 
-    public function room(Property $property)
+    public function room(Room $room)
     {
-        return view('site.about-us', compact('property'));
+        return view('site.about-us', compact('room'));
     }
 }

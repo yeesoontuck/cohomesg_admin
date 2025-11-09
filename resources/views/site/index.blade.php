@@ -72,7 +72,7 @@
                 aria-orientation="horizontal" data-tabs-id="bde-advanced-tabs-18-555">
 
                 @foreach ($properties as $property)
-                    <a href="{{ route('site', $property->id) }}" class="property-pill px-4 py-2 rounded-full cursor-pointer {{ $property == $current_property ? 'active':'' }}">
+                    <a href="{{ route('site', $property->slug) }}" class="property-pill px-4 py-2 rounded-full cursor-pointer {{ $property == $current_property ? 'active':'' }}">
                         <span class="font-semibold">{{ $property->property_name }}</span>
                     </a>
                 @endforeach
@@ -182,7 +182,7 @@
                                     </div>
 
                                     <div class="text-center py-4">
-                                        <a href="{{ route('room_details', $property) }}"
+                                        <a href="{{ route('room_details', $room->slug) }}"
                                             class="px-4 py-2 rounded bg-blue-700 text-white">View details</a>
                                     </div>
 
