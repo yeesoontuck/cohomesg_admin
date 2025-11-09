@@ -40,17 +40,19 @@
                     </a>
 
                     <a href="#"
-                            class="group self-start mt-8 px-4 py-2 rounded-full bg-white text-black text-lg inline-flex items-center cursor-pointer">List my property
+                        class="group self-start mt-8 px-4 py-2 rounded-full bg-white text-black text-lg inline-flex items-center cursor-pointer">List
+                        my property
 
-                            <div class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-[#B59410] rounded-full ml-4 -mr-2 -ml-2">
-                                <svg class="-rotate-45 text-white w-8 h-8" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path
-                                        d="M11.293 4.707 17.586 11H4v2h13.586l-6.293 6.293 1.414 1.414L21.414 12l-8.707-8.707-1.414 1.414z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </a>
+                        <div
+                            class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-[#B59410] rounded-full ml-4 -mr-2 -ml-2">
+                            <svg class="-rotate-45 text-white w-8 h-8" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M11.293 4.707 17.586 11H4v2h13.586l-6.293 6.293 1.414 1.414L21.414 12l-8.707-8.707-1.414 1.414z">
+                                </path>
+                            </svg>
+                        </div>
+                    </a>
                 </div>
 
                 <img :src="slide.imgSrc" :alt="'Slide ' + (index + 1) + ' image'"
@@ -69,30 +71,11 @@
             <div class="mt-6 flex justify-center gap-4" role="tablist" aria-label="Content tabs"
                 aria-orientation="horizontal" data-tabs-id="bde-advanced-tabs-18-555">
 
-                <button role="tab" aria-selected="true" class="text-white bg-[#0079C1] px-4 py-2 rounded-full"
-                    aria-controls="tab-panel-bde-advanced-tabs-18-555-1" id="tab-bde-advanced-tabs-18-555-1" data-value="1">
-                    <span class="font-semibold">486 Sims Ave</span>
-                </button>
-                <button role="tab" aria-selected="false" class="bg-[#E6E6E6] px-4 py-2 rounded-full"
-                    aria-controls="tab-panel-bde-advanced-tabs-18-555-2" id="tab-bde-advanced-tabs-18-555-2" data-value="2"
-                    tabindex="-1">
-                    <span class="font-semibold">262A Tanjong Katong</span>
-                </button>
-                <button role="tab" aria-selected="false" class="bg-[#E6E6E6] px-4 py-2 rounded-full"
-                    aria-controls="tab-panel-bde-advanced-tabs-18-555-3" id="tab-bde-advanced-tabs-18-555-3" data-value="3"
-                    tabindex="-1">
-                    <span class="font-semibold">Hillview Green</span>
-                </button>
-                <button role="tab" aria-selected="false" class="bg-[#E6E6E6] px-4 py-2 rounded-full"
-                    aria-controls="tab-panel-bde-advanced-tabs-18-555-4" id="tab-bde-advanced-tabs-18-555-4" data-value="4"
-                    tabindex="-1">
-                    <span class="font-semibold">Serenity Park</span>
-                </button>
-                <button role="tab" aria-selected="false" class="bg-[#E6E6E6] px-4 py-2 rounded-full"
-                    aria-controls="tab-panel-bde-advanced-tabs-18-555-5" id="tab-bde-advanced-tabs-18-555-5" data-value="5"
-                    tabindex="-1">
-                    <span class="font-semibold">Changi Court</span>
-                </button>
+                @foreach ($properties as $property)
+                    <a href="{{ route('site', $property->id) }}" class="property-pill px-4 py-2 rounded-full cursor-pointer {{ $property == $current_property ? 'active':'' }}">
+                        <span class="font-semibold">{{ $property->property_name }}</span>
+                    </a>
+                @endforeach
             </div>
 
 
@@ -103,13 +86,13 @@
                         <img src="/web/images/1814B0B5-EF70-45B7-91AA-C52D547B2127-768x576.jpg" alt=""
                             class="w-[324px] h-[460px] object-cover rounded-l-xl">
                         <div class="absolute inset-x-0 bottom-0 py-4 text-white bg-black/50 rounded-bl-xl">
-                            <h2 class="text-center text-3xl font-medium">486 Sims Ave</h2>
-                            <p class="text-center">Shophouse</p>
+                            <h2 class="text-center text-3xl font-medium">{{ $current_property->property_name }}</h2>
+                            <p class="text-center">&mdash; {{ ucwords($current_property->property_type) }} &mdash;</p>
                         </div>
                     </div>
 
                     <div class="flex gap-6 my-4">
-                        @foreach ($properties as $property)
+                        @foreach ($rooms as $room)
                             <div class="relative bg-white rounded-xl">
                                 <p
                                     class="absolute top-2 left-2 px-3 py-2 rounded-full bg-[#FFE2D1] text-red-500 text-xs font-medium border-2 border-white">
@@ -123,9 +106,9 @@
 
                                 <div class="p-4">
                                     <h3 class="text-lg font-medium leading-4 text-center">
-                                        {{ ucwords($property->room_type) }}</h3>
+                                        {{ ucwords($room->room_type) }}</h3>
                                     <h2 class="text-[#B38D00] text-2xl font-semibold text-center">
-                                        S${{ $property->price_month }}/month
+                                        S${{ $room->price_month }}/month
                                     </h2>
                                     <p class="flex items-center justify-center text-sm pb-4 border-b-4 border-double">
                                         <svg xmlns="http://www.w3.org/2000/svg" id="icon-location" viewBox="0 0 32 32"
@@ -134,7 +117,7 @@
                                                 d="M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z">
                                             </path>
                                         </svg>
-                                        {{ ucwords($property->district->district_name) }} (D{{ $property->district_id }})
+                                        {{ ucwords($room->property->district->district_name) }} (D{{ $room->property->district_id }})
                                     </p>
 
                                     <div class="mt-4 ml-2 grid grid-cols-2 gap-4 text-xs">

@@ -54,6 +54,13 @@
     .link-draw-in.active::after {
         @apply w-full;
     }
+
+    .property-pill {
+        @apply text-black bg-[#E6E6E6];
+    }
+    .property-pill.active {
+        @apply text-white bg-[#0079C1];
+    }
 }
 
 /* fix for screen reader only element issue causing body height */

@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])->name('site');
 Route::get('/what-is-co-living', [App\Http\Controllers\SiteController::class, 'whatiscoliving'])->name('whatiscoliving');
 Route::get('/about-us', [App\Http\Controllers\SiteController::class, 'aboutus'])->name('aboutus');
 Route::get('/room/{property}', [App\Http\Controllers\SiteController::class, 'room'])->name('room_details');
+Route::get('/{property?}', [App\Http\Controllers\SiteController::class, 'index'])->name('site');
 
 // Route::get('/test', function () {
 //     return view('site.test');
