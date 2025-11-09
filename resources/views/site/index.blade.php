@@ -112,7 +112,7 @@
                                         S${{ $room->price_month }}/month
                                     </h2>
                                     <p class="flex items-center justify-center text-sm pb-4 border-b-4 border-double">
-                                        <svg xmlns="http://www.w3.org/2000/svg" id="icon-location" viewBox="0 0 32 32" fill="currentColor" class="text-[#D8B06C] w-6 h-6"
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="icon-location" viewBox="0 0 32 32" 
                                             fill="currentColor" class="h-4 text-gray-500">
                                             <path
                                                 d="M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z">
@@ -122,9 +122,9 @@
                                         (D{{ $room->property->district_id }})
                                     </p>
 
-                                    <div class="mt-4 ml-2 grid grid-cols-2 gap-4 text-xs">
+                                    <div class="mt-4 ml-2 grid grid-cols-2 gap-2 text-xs">
                                         <div class="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" class="text-[#D8B06C] w-6 h-6"
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" 
                                                 fill="currentColor" class="w-4 h-4 text-gray-500">
                                                 <path
                                                     d="M32 32c17.7 0 32 14.3 32 32V320H288V160c0-17.7 14.3-32 32-32H544c53 0 96 43 96 96V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V416H352 320 64v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V64C0 46.3 14.3 32 32 32zm144 96a80 80 0 1 1 0 160 80 80 0 1 1 0-160z">
@@ -133,7 +133,7 @@
                                             Queen Bed
                                         </div>
                                         <div class="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" class="text-[#D8B06C] w-6 h-6"
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" 
                                                 fill="currentColor" class="w-4 h-4 text-gray-500">
                                                 <path
                                                     d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-.9s11.8-33-.9-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 169-3.3 189.2 8.9 202s32.5 13.2 45.2 .9zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C459.8 219.2 393 192 320 192s-139.8 27.2-190.5 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z">
@@ -143,7 +143,7 @@
                                         </div>
 
                                         <div class="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" fill="currentColor" class="text-[#D8B06C] w-6 h-6"
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
                                                 class="w-4 h-4 text-gray-500" viewBox="0 0 448 512">
                                                 <path
                                                     d="M248 48V256h48V58.7c23.9 13.8 40 39.7 40 69.3V256h48V128C384 57.3 326.7 0 256 0H192C121.3 0 64 57.3 64 128V256h48V128c0-29.6 16.1-55.5 40-69.3V256h48V48h48zM48 288c-12.1 0-23.2 6.8-28.6 17.7l-16 32c-5 9.9-4.4 21.7 1.4 31.1S20.9 384 32 384l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32V384H352v96c0 17.7 14.3 32 32 32s32-14.3 32-32V384c11.1 0 21.4-5.7 27.2-15.2s6.4-21.2 1.4-31.1l-16-32C423.2 294.8 412.1 288 400 288H48z">
@@ -152,7 +152,7 @@
                                             Furnishings<br />Included
                                         </div>
                                         <div class="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="text-[#D8B06C] w-6 h-6"
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" 
                                                 fill="currentColor" class="w-4 h-4 text-gray-500">
                                                 <path
                                                     d="M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z">
@@ -162,7 +162,7 @@
                                         </div>
 
                                         <div class="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="text-[#D8B06C] w-6 h-6"
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" 
                                                 fill="currentColor" class="w-4 h-4 text-gray-500">
                                                 <path
                                                     d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z">
