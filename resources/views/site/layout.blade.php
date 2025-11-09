@@ -39,6 +39,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+    @yield('head')
+
     @vite(['resources/css/web.css', 'resources/js/app.js'])
 </head>
 
@@ -55,6 +58,8 @@
 
     {{-- footer --}}
     @include('site.footer')
+
+    @yield('script')
 </body>
 
 </html>

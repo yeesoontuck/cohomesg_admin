@@ -7,6 +7,10 @@ Route::get('/what-is-co-living', [App\Http\Controllers\SiteController::class, 'w
 Route::get('/about-us', [App\Http\Controllers\SiteController::class, 'aboutus'])->name('aboutus');
 Route::get('/room/{property}', [App\Http\Controllers\SiteController::class, 'room'])->name('room_details');
 
+// Route::get('/test', function () {
+//     return view('site.test');
+// })->name('test');
+
 Route::get('/licence', function () {
     return view('licence');
 })->name('licence');

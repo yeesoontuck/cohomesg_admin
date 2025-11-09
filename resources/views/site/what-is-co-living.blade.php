@@ -1,32 +1,83 @@
 @extends('site.layout')
 
-@section('content')
+@section('head')
+    {{-- https://github.com/cferdinandi/gumshoe --}}
+    <script src="/web/gumshoe.polyfills.min.js"></script>
+    <style>
+        li.active a {
+            color: #000;
+        }
+    </style>
+@endsection
 
+@section('content')
     <div class="bg-stone-50 pb-20">
         <div class="max-w-[1080px] mx-auto pt-12">
             <div class="flex gap-8">
                 <div class="w-[260px] p-4">
-                    <div class="sticky top-20" x-data="tocObserver()" x-init="init()">
+                    <div class="sticky top-20">
                         <h3 class="mb-4">Table Of Contents</h3>
-                        <ol class="border-l-3 border-gray-200 pl-4 text-gray-500">
-                            <template x-for="item in items" :key="item.id">
-                                <li class="mb-2">
-                                    <a :href="'#' + item.id" x-text="item.title"
-                                        class="block text-sm transition-colors"
-                                        :class="activeId === item.id ?
-                                            'text-gray-600' :
-                                            'text-gray-600 hover:text-gray-900'"></a>
-                                </li>
-                            </template>
-                        </ol>
+                        <ul id="scrollspy" class="border-l-3 border-gray-200 pl-4 text-gray-500">
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#what-is-co-living-1">What Is Co-Living?</a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#why-co-living-matters-in-singapore-2">Why Co - Living Matters in Singapore </a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#how-co-living-works-key-components-3">How Co-Living Works: Key Components</a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#co-living-in-singapore-key-statistics-trends-4">Co-Living in Singapore: Key
+                                    Statistics
+                                    &amp; Trends</a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#why-people-choose-co-living-5">Why People Choose Co-Living</a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#who-is-co-living-for-6">Who Is Co-Living For?</a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#pros-cons-of-co-living-7">Pros &amp; Cons of Co-Living</a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#pros-8">Pros</a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#cons-things-to-consider-9">Cons / Things to Consider</a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#how-to-choose-a-good-co-living-space-in-singapore-10">How to Choose a Good
+                                    Co-Living
+                                    Space in Singapore</a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#the-future-of-co-living-in-singapore-11">The Future of Co-Living in Singapore</a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="block text-sm transition-colors text-gray-500 hover:text-gray-900"
+                                    href="#summary-12">Summary</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="flex flex-col w-[820px]">
                     <div class="relative flex items-center h-[400px] overflow-hidden">
-                        <img
-                            src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1.png"
-                            alt="">
-                        <h1 class="absolute bottom-[20px] bg-[#B59410] p-2 pr-4 rounded-r-2xl text-white text-4xl font-bold">
+                        <img src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1.png" alt="">
+                        <h1
+                            class="absolute bottom-[20px] bg-[#B59410] p-2 pr-4 rounded-r-2xl text-white text-4xl font-bold">
                             What Is Co-Living? | Singapore’s New Rental Trend
                         </h1>
                     </div>
@@ -385,74 +436,10 @@
             </div>
         </div>
     </div>
+@endsection
 
+@section('script')
     <script>
-        function tocObserver() {
-            return {
-                items: [{
-                    id: 'what-is-co-living-1',
-                    title: 'What Is Co-Living?'
-                }, {
-                    id: 'why-co-living-matters-in-singapore-2',
-                    title: 'Why Co - Living Matters in Singapore '
-                }, {
-                    id: 'how-co-living-works-key-components-3',
-                    title: 'How Co-Living Works: Key Components'
-                }, {
-                    id: 'co-living-in-singapore-key-statistics-trends-4',
-                    title: 'Co-Living in Singapore: Key Statistics & Trends'
-                }, {
-                    id: 'why-people-choose-co-living-5',
-                    title: 'Why People Choose Co-Living'
-                }, {
-                    id: 'who-is-co-living-for-6',
-                    title: 'Who Is Co-Living For?'
-                }, {
-                    id: 'pros-cons-of-co-living-7',
-                    title: 'Pros & Cons of Co-Living'
-                }, {
-                    id: 'pros-8',
-                    title: 'Pros'
-                }, {
-                    id: 'cons-things-to-consider-9',
-                    title: 'Cons / Things to Consider'
-                }, {
-                    id: 'how-to-choose-a-good-co-living-space-in-singapore-10',
-                    title: 'How to Choose a Good Co-Living Space in Singapore'
-                }, {
-                    id: 'the-future-of-co-living-in-singapore-11',
-                    title: 'The Future of Co-Living in Singapore'
-                }, {
-                    id: 'summary-12',
-                    title: 'Summary'
-                }, ],
-                activeId: null,
-
-                init() {
-                    const observer = new IntersectionObserver(
-                        (entries) => {
-                            // Find the entry with the largest visible ratio
-                            let mostVisible = entries.reduce((max, entry) =>
-                                entry.intersectionRatio > max.intersectionRatio ? entry : max
-                            );
-
-                            if (mostVisible.isIntersecting) {
-                                this.activeId = mostVisible.target.id;
-                            }
-                        }, {
-                            threshold: Array.from({
-                                length: 11
-                            }, (_, i) => i / 10), // 0.0 → 1.0 in 0.1 steps
-                        }
-                    );
-
-                    this.items.forEach((item) => {
-                        const el = document.getElementById(item.id);
-                        if (el) observer.observe(el);
-                    });
-                }
-
-            };
-        }
+        var spy = new Gumshoe('#scrollspy a');
     </script>
 @endsection
