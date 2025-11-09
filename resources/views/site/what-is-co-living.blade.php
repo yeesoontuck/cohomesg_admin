@@ -440,6 +440,46 @@
 
 @section('script')
     <script>
-        var spy = new Gumshoe('#scrollspy a');
+        /**
+         * Stops the default browser action (appending #fragment to URL and instant jump)
+         * when a Gumshoe-tracked navigation link is clicked.
+         */
+        function preventDefaultOnNavLinks(selector) {
+            // 1. Select all the navigation links using the Gumshoe selector
+            var navLinks = document.querySelectorAll(selector);
+
+            // 2. Loop through the NodeList of links
+            Array.prototype.forEach.call(navLinks, function(link) {
+
+                // 3. Attach a click event listener to each link
+                link.addEventListener('click', function(event) {
+
+                    // 4. Check if the link's href is a local fragment (starts with #)
+                    // This prevents interfering with external links or non-hash links.
+                    if (link.hash.length > 0) {
+
+                        // This single line is the core requirement: 
+                        // It stops the browser from executing its default action.
+                        event.preventDefault();
+
+                        // Optional but highly recommended: You should now manually scroll
+                        // the user to the section, potentially with smooth animation, 
+                        // since the default jump was prevented.
+                        document.querySelector(link.hash).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }, false);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Call the function with the selector for your navigation links
+            preventDefaultOnNavLinks('#scrollspy a');
+
+            // Initialize Gumshoe as usual
+            var spy = new Gumshoe('#scrollspy a');
+        });
     </script>
 @endsection
