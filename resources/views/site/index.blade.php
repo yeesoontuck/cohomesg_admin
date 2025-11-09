@@ -395,9 +395,35 @@
                 </div>
             </div>
 
-            <div class="mt-12 p-16 flex flex-col items-center">
+            <div class="mt-12 pt-16 flex flex-col items-center">
                 <h2 class="text-center text-4xl font-bold">Who is Co-Living For?</h2>
                 <div class="my-4 w-[200px] border border-gray-300"></div>
+            </div>
+
+            <div class="flex gap-6 w-[1080px] h-[400px] overflow-hidden">
+                <div class="flex items-center rounded-3xl overflow-hidden basis-full hover:basis-3/2 duration-300 group">
+                    <div class="relative">
+                        <div class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center w-9/10 group">
+                            <div class="text-3xl font-bold opacity-0 group-hover:opacity-100 duration-500">Students & Interns</div>
+                            <div class="opacity-0 group-hover:opacity-100 duration-500">Affordable, flexible, and social student accommodation near top universities and internships. Focus on your studies and build a network.</div>
+                        </div>
+                        <img src="/web/images/students-studying-in-a-modern-living-room-singapore-bright-lighting-far-away-shot-768x768.png" alt="" class="group-hover:brightness-50">
+                    </div>
+                </div>
+                <div class="flex items-center rounded-3xl overflow-hidden basis-full hover:basis-3/2 duration-300 group">
+                    <div class="relative">
+                        <div class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center w-9/10 group">
+                            <div class="text-3xl font-bold opacity-0 group-hover:opacity-100 duration-500">Digital Nomads &amp; Expats</div>
+                            <div class="opacity-0 group-hover:opacity-100 duration-500">Enjoy the freedom of flexible leases and a supportive network in one of Asia's most dynamic cities - Singapore.</div>
+                        </div>
+                        <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_man_working_-1-768x768.png" alt="" class="group-hover:brightness-50">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-16 flex flex-col items-center">
+                <h2 class="text-center text-4xl font-bold">Testimonials From Our Residents</h2>
+                <p class="text-center">Real stories from people who found their perfect co-living home with us!</p>
             </div>
         </div>
     </div>
