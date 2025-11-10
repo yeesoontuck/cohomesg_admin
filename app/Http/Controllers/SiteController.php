@@ -52,5 +52,10 @@ class SiteController extends Controller
     {
         return view('site.students');
     }
+
+    public function perks()
+    {
+        return view('site.perks');
+    }
     
 }

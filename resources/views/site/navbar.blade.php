@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li>
-                <a class="link-draw-in" href="https://cohomesg.com/coliving-perks/">
+                <a class="link-draw-in {{ request()->routeIs('perks') ? 'active' : '' }}" href="{{ route('perks') }}">
                     Perks
                 </a>
             </li>

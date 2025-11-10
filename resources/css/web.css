@@ -9,6 +9,7 @@
 
 @theme {
     --color-gold: #D8B06C;
+    --color-gold-dark: #B59410;
 }
 
 @layer base {
@@ -27,6 +28,10 @@
     h5,
     h6 {
         font-family: 'Abhaya Libre', serif;
+    }
+
+    .badscript {
+        font-family: "Bad Script", sans-serif;
     }
 }
 

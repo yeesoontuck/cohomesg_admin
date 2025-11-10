@@ -7,7 +7,7 @@
             <div
                 class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
                 <h1 class="text-white text-6xl font-bold text-center w-full drop-shadow-md/50">
-                    Co-living for for Students &amp; Interns
+                    Co-living for Students &amp; Interns
                 </h1>
                 <div>
                     <a href="#"

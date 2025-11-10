@@ -19,6 +19,7 @@ Route::get('/about-us', [App\Http\Controllers\SiteController::class, 'aboutus'])
 Route::get('/room/{room}', [App\Http\Controllers\SiteController::class, 'room'])->name('room_details');
 Route::get('/expats', [App\Http\Controllers\SiteController::class, 'expats'])->name('expats');
 Route::get('/coliving-for-students-interns', [App\Http\Controllers\SiteController::class, 'students'])->name('students');
+Route::get('/coliving-perks', [App\Http\Controllers\SiteController::class, 'perks'])->name('perks');
 
 Route::get('/{property?}', [App\Http\Controllers\SiteController::class, 'index'])->name('site');
 
