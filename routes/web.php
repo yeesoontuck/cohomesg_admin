@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/test', function () {
-    //     return view('site.test');
-    // })->name('test');
+Route::get('/test', function () {
+        return view('site.test');
+    })->name('test');
 // Route::get('/test', function () {
 //     $rooms = App\Models\Room::all();
     

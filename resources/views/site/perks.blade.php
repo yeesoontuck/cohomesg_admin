@@ -7,13 +7,13 @@
 @section('content')
     <div class="bg-white">
 
-        <div class="relative h-[300px] overflow-hidden">
+        <div class="relative h-[250px] overflow-hidden">
             <div
                 class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
                 <h1 class="text-white text-6xl font-bold text-center w-full drop-shadow-md/50">
                     Co-living perks in Singapore
                 </h1>
-                <div>
+                <div class="text-white text-2xl">
                     More Than Just a Home
                 </div>
             </div>
@@ -22,8 +22,48 @@
 
         <div class="pt-12 flex flex-col max-w-[1195px] mx-auto">
 
+            <a href="#" class="aspect-square flex rounded-md overflow-hidden hover:opacity-80 transition-opacity w-120"
+                x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-4.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-4.jpg' }" x-lightbox="url">
+                <img class="flex-1 object-cover object-center" :src="thumb" alt="">
+            </a>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-6" x-data="{
+                items: [{
+                        url: 'https://www.youtube.com/embed/7yLxxyzGiko?autoplay=1&mute=1',
+                        thumb: 'https://i.ytimg.com/vi/7yLxxyzGiko/hq720.jpg',
+                        type: 'embed',
+                    },
+                    {
+                        url: './assets/6.mp4',
+                        thumb: './assets/6-thumb.jpg',
+                        type: 'video',
+                        autoplay: true,
+                        muted: true,
+                    },
+                    {
+                        url: './assets/7.jpg',
+                        thumb: './assets/7-thumb.jpg',
+                        alt: 'Black & white cat on a bright yellow background',
+                    },
+                    {
+                        url: './assets/8.jpg',
+                        thumb: './assets/8-thumb.jpg',
+                        alt: 'Close-up shot of a tabby cat\'s face',
+                    },
+                ],
+            }">
+                <template x-for="item in items">
+                    <a href="#"
+                        class="aspect-square flex rounded-md overflow-hidden hover:opacity-80 transition-opacity"
+                        x-lightbox="item" x-lightbox:group="config">
+                        <img class="flex-1 object-cover object-center" :src="item.thumb" :alt="item.alt">
+                    </a>
+                </template>
+            </div>
+
             <div class="badscript text-3xl text-gray-600 text-center">more perks coming soon~</div>
 
+            {{-- How Our Privileges Make Co-living More Convenient --}}
             <div class="my-14 p-12 bg-[#F7F7F7] rounded-3xl">
                 <div class="flex flex-col items-center">
                     <h2 class="text-4xl font-bold">
@@ -95,6 +135,7 @@
                 </div>
             </div>
 
+            {{-- Join Our Co-living Community and Enjoy Exclusive Perks! --}}
             <div class="relative h-[500px] overflow-hidden mb-20 rounded-3xl">
                 <div
                     class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
