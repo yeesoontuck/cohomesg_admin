@@ -46,7 +46,7 @@
                         Work &amp; Productivity
                     </p>
 
-                    <div class="flex flex-col gap-8 mt-8">
+                    <div class="flex flex-col gap-4 mt-8">
                         <div class="inline-flex gap-6 items-center">
                             <div class="inline-block p-4 bg-white border-2 border-gold rounded-2xl">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold h-6 w-6"
@@ -114,7 +114,7 @@
                         Living &amp; Convenience
                     </p>
 
-                    <div class="flex flex-col gap-8 mt-8">
+                    <div class="flex flex-col gap-4 mt-8">
                         <div class="inline-flex gap-6 items-center">
                             <div class="inline-block p-4 bg-white border-2 border-gold rounded-2xl">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold h-6 w-6"
