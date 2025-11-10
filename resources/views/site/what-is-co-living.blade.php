@@ -75,7 +75,7 @@
                 </div>
                 <div class="flex flex-col w-[820px]">
                     <div class="relative flex items-center h-[400px] overflow-hidden">
-                        <img src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1.png" alt="">
+                        <img src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1.jpg" alt="">
                         <h1
                             class="absolute bottom-[20px] bg-[#B59410] p-2 pr-4 rounded-r-2xl text-white text-4xl font-bold">
                             What Is Co-Living? | Singapore’s New Rental Trend

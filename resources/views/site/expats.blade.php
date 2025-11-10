@@ -25,7 +25,7 @@
                     </a>
                 </div>
             </div>
-            <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_asian_woman_.png" alt=""
+            <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_asian_woman_.jpg" alt=""
                 class="w-full h-full object-cover blur-[2px] brightness-[0.60]">
         </div>
 

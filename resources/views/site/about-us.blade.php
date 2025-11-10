@@ -46,7 +46,7 @@
                         and every landlord feels confident.
                     </p>
                 </div>
-                <img src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1.png" alt=""
+                <img src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1_400.jpg" alt=""
                     class="w-[362px] h-[362px]">
             </div>
             <div>
