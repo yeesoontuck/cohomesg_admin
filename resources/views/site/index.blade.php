@@ -254,7 +254,7 @@
 
                 <div class="grid grid-cols-5 gap-8">
                     <div class="flex flex-col items-center">
-                        <div class="p-4 bg-white border-2 border-[#D8B06C] rounded-2xl mb-4">
+                        <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold w-6 h-6"
                                 viewBox="0 0 576 512">
                                 <path
@@ -268,7 +268,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div class="p-4 bg-white border-2 border-[#D8B06C] rounded-2xl mb-4">
+                        <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold w-6 h-6"
                                 viewBox="0 0 512 512">
                                 <path
@@ -282,7 +282,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div class="p-4 bg-white border-2 border-[#D8B06C] rounded-2xl mb-4">
+                        <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold w-6 h-6"
                                 viewBox="0 0 320 512">
                                 <path
@@ -297,7 +297,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div class="p-4 bg-white border-2 border-[#D8B06C] rounded-2xl mb-4">
+                        <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold w-6 h-6"
                                 viewBox="0 0 576 512">
                                 <path
@@ -311,7 +311,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div class="p-4 bg-white border-2 border-[#D8B06C] rounded-2xl mb-4">
+                        <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold w-6 h-6"
                                 viewBox="0 0 576 512">
                                 <path
@@ -325,7 +325,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div class="p-4 bg-white border-2 border-[#D8B06C] rounded-2xl mb-4">
+                        <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" id="icon-price-tag" viewBox="0 0 32 32" fill="currentColor" class="text-gold w-6 h-6">
                                 <path
                                     d="M30.5 0h-12c-0.825 0-1.977 0.477-2.561 1.061l-14.879 14.879c-0.583 0.583-0.583 1.538 0 2.121l12.879 12.879c0.583 0.583 1.538 0.583 2.121 0l14.879-14.879c0.583-0.583 1.061-1.736 1.061-2.561v-12c0-0.825-0.675-1.5-1.5-1.5zM23 12c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z">
@@ -338,7 +338,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div class="p-4 bg-white border-2 border-[#D8B06C] rounded-2xl mb-4">
+                        <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold w-6 h-6"
                                 viewBox="0 0 576 512">
                                 <path
@@ -352,7 +352,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div class="p-4 bg-white border-2 border-[#D8B06C] rounded-2xl mb-4">
+                        <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold w-6 h-6"
                                 viewBox="0 0 576 512">
                                 <path
@@ -366,7 +366,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div class="p-4 bg-white border-2 border-[#D8B06C] rounded-2xl mb-4">
+                        <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold w-6 h-6"
                                 viewBox="0 0 640 512">
                                 <path
@@ -380,7 +380,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div class="p-4 bg-white border-2 border-[#D8B06C] rounded-2xl mb-4">
+                        <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" id="icon-phone" viewBox="0 0 32 32" fill="currentColor" class="text-gold w-6 h-6">
                                 <path
                                     d="M22 20c-2 2-2 4-4 4s-4-2-6-4-4-4-4-6 2-2 4-4-4-8-6-8-6 6-6 6c0 4 4.109 12.109 8 16s12 8 16 8c0 0 6-4 6-6s-6-8-8-6z">
