@@ -22,44 +22,44 @@
 
         <div class="pt-12 flex flex-col max-w-[1195px] mx-auto">
 
-            <a href="#" class="aspect-square flex rounded-md overflow-hidden hover:opacity-80 transition-opacity w-120"
-                x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-4.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-4.jpg' }" x-lightbox="url">
-                <img class="flex-1 object-cover object-center" :src="thumb" alt="">
-            </a>
+            {{-- Nana Smith beds --}}
+            <div class="flex gap-8">
+                <div class="basis-full">
+                    <div class="grid grid-cols-3 gap-4">
+                        <a href="#" class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-4.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg' }" x-lightbox="url"
+                            data-lb-url="/web/images/Nana-Smith-Bunk-Bed-4.jpg" data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg">
+                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg" alt="">
+                        </a>
+                        <a href="#" class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-1.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg' }" x-lightbox="url"
+                            data-lb-url="/web/images/Nana-Smith-Bunk-Bed-1.jpg" data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg">
+                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg" alt="">
+                        </a>
+                        <a href="#" class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-2.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg' }" x-lightbox="url"
+                            data-lb-url="/web/images/Nana-Smith-Bunk-Bed-2.jpg" data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg">
+                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg" alt="">
+                        </a>
+                        <a href="#" class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-3.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg' }" x-lightbox="url"
+                            data-lb-url="/web/images/Nana-Smith-Bunk-Bed-3.jpg" data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg">
+                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg" alt="">
+                        </a>
+                        <a href="#" class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/Nana-Smith-Bunk-Bed-1.mp4', thumb: '/web/Nana-Smith-Bunk-Bed-1.jpg', type: 'video', autoplay: true, muted: true }" x-lightbox="url"
+                            data-lb-url="/web/Nana-Smith-Bunk-Bed-1.mp4" data-lb-thumb="/web/Nana-Smith-Bunk-Bed-1.jpg" data-lb-type="video" data-lb-autoplay="true" data-lb-muted="true">
+                            <img class="flex-1 object-cover object-center" src="/web/Nana-Smith-Bunk-Bed-1.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-6" x-data="{
-                items: [{
-                        url: 'https://www.youtube.com/embed/7yLxxyzGiko?autoplay=1&mute=1',
-                        thumb: 'https://i.ytimg.com/vi/7yLxxyzGiko/hq720.jpg',
-                        type: 'embed',
-                    },
-                    {
-                        url: './assets/6.mp4',
-                        thumb: './assets/6-thumb.jpg',
-                        type: 'video',
-                        autoplay: true,
-                        muted: true,
-                    },
-                    {
-                        url: './assets/7.jpg',
-                        thumb: './assets/7-thumb.jpg',
-                        alt: 'Black & white cat on a bright yellow background',
-                    },
-                    {
-                        url: './assets/8.jpg',
-                        thumb: './assets/8-thumb.jpg',
-                        alt: 'Close-up shot of a tabby cat\'s face',
-                    },
-                ],
-            }">
-                <template x-for="item in items">
-                    <a href="#"
-                        class="aspect-square flex rounded-md overflow-hidden hover:opacity-80 transition-opacity"
-                        x-lightbox="item" x-lightbox:group="config">
-                        <img class="flex-1 object-cover object-center" :src="item.thumb" :alt="item.alt">
-                    </a>
-                </template>
+                <div class="basis-full">
+                    <h2 class="text-4xl font-bold">Customised Bunk Beds by Nana Smith</h2>
+                    <p>Small spaces in Singapore require smart solutions. Nana Smith specializes in customized bunk beds and furniture designed to maximize storage and comfort for bomb shelters, helper rooms, and compact apartments.</p>
+                </div>
             </div>
+
 
             <div class="badscript text-3xl text-gray-600 text-center">more perks coming soon~</div>
 
@@ -163,4 +163,5 @@
             </div>
         </div>
     </div>
+    @include('site.partials.lightbox')
 @endsection

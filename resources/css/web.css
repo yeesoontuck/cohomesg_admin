@@ -6,7 +6,7 @@
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
-@source '../../node_modules/alpine-tailwind-lightbox/src/template.html';
+/* @source '../../node_modules/alpine-tailwind-lightbox/src/template.html'; */
 
 @theme {
     --color-gold: #D8B06C;
