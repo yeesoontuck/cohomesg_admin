@@ -30,7 +30,7 @@
                     </a>
                     <a href="https://www.carousell.sg/u/cohomesg/"
                         class="text-gray-400 hover:text-red-400 transition duration-300" aria-label="Carousell">
-                        <img src="/web/icons8-carousell-50.png" alt="" class="h-6">
+                        <img src="/web/images/carousell.svg" alt="" fill="currentColor" class="h-6">
                     </a>
                 </div>
             </div>

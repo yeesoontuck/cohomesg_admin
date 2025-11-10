@@ -37,9 +37,14 @@ class SiteController extends Controller
     {
         return view('site.about-us');
     }
-
+    
     public function room(Room $room)
     {
         return view('site.about-us', compact('room'));
+    }
+
+    public function expats()
+    {
+        return view('site.expats');
     }
 }

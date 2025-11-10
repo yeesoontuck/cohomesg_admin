@@ -8,7 +8,7 @@
 @source '../**/*.js';
 
 @theme {
-    
+    --color-gold: #D8B06C;
 }
 
 @layer base {

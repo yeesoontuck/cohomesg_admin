@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li>
-                <a class="link-draw-in" href="https://cohomesg.com/coliving-for-digital-nomads/">
+                <a class="link-draw-in {{ request()->routeIs('expats') ? 'active' : '' }}" href="{{ route('expats') }}">
                     Expats
                 </a>
             </li>
