@@ -3,16 +3,16 @@
 @section('content')
     <div class="bg-white">
 
-        <div class="relative h-[280px] overflow-hidden">
+        <div class="relative h-[300px] overflow-hidden">
             <div
                 class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
                 <h1 class="text-white text-6xl font-bold text-center w-full drop-shadow-md/50">
-                    Co-living for Expats &amp; Digital Nomads
+                    Co-living for for Students &amp; Interns
                 </h1>
                 <div>
                     <a href="#"
                         class="group self-start px-4 py-2 rounded-full bg-white text-black text-lg inline-flex items-center cursor-pointer">Find
-                        Your Nomad Home
+                        Your Student Room
                         <div
                             class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-blue-700 rounded-full ml-4 -mr-2 -ml-2">
                             <svg class="-rotate-45 text-white w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@
                     </a>
                 </div>
             </div>
-            <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_asian_woman_.png" alt=""
+            <img src="/web/images/students.jpg" alt=""
                 class="w-full h-full object-cover blur-[2px] brightness-[0.60]">
         </div>
 
@@ -35,8 +35,8 @@
                 <h2 class="text-5xl font-bold">Co-living vs. The Traditional Way</h2>
             </div>
             <div class="mt-8 mb-4 flex flex-col items-center">
-                <h2 class="text-4xl font-bold">Benefits of Co-Living for Expats &amp; Digital Nomads</h2>
-                We provide beautifully designed, fully-furnished homes crafted specifically for the digital nomad lifestyle
+                <h2 class="text-4xl font-bold">Benefits of Co-Living for Students &amp; Interns</h2>
+                Cohome SG is Tailored for Your Student Lifestyle
                 <div class="my-4 w-[200px] border border-gray-300"></div>
             </div>
 
@@ -181,7 +181,7 @@
                     <h2 class="text-4xl font-bold">
                         How It Works
                     </h2>
-                    <p class="text-center">Your Journey to a Global Lifestyle Starts Here in 3 Simple Steps</p>
+                    <p class="text-center">Your Hassle-Free Student Rental Journey in Singapore</p>
                     <div class="my-4 w-[200px] border border-gray-300"></div>
                 </div>
 
@@ -233,13 +233,13 @@
             <div class="relative h-[500px] overflow-hidden mb-20 rounded-3xl">
                 <div
                     class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
-                    <h1 class="text-white text-5xl font-bold text-center w-full drop-shadow-md/50">
-                        Ready for Your Best Remote Life in Singapore?
+                    <h1 class="text-white text-4xl font-bold text-center w-full drop-shadow-md/50">
+                        Ready for Your Best Student &amp; Intern Life in Singapore?
                     </h1>
                     <div>
                         <a href="#"
                             class="group self-start px-4 py-2 rounded-full bg-white text-black text-lg inline-flex items-center cursor-pointer">Find
-                            Your Nomad Home
+                            Your Student Room
                             <div
                                 class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-blue-700 rounded-full ml-4 -mr-2 -ml-2">
                                 <svg class="-rotate-45 text-white w-8 h-8" fill="currentColor"

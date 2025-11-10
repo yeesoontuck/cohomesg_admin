@@ -404,7 +404,7 @@
                 <div class="flex items-center rounded-3xl overflow-hidden basis-full hover:basis-3/2 duration-300 group">
                     <div class="relative">
                         <div class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center w-9/10 group">
-                            <div class="text-3xl font-bold opacity-0 group-hover:opacity-100 duration-500">Students & Interns</div>
+                            <div class="text-3xl font-bold opacity-0 group-hover:opacity-100 duration-500">Students &amp; Interns</div>
                             <div class="opacity-0 group-hover:opacity-100 duration-500">Affordable, flexible, and social student accommodation near top universities and internships. Focus on your studies and build a network.</div>
                         </div>
                         <img src="/web/images/students-studying-in-a-modern-living-room-singapore-bright-lighting-far-away-shot-768x768.png" alt="" class="group-hover:brightness-50">

@@ -47,4 +47,10 @@ class SiteController extends Controller
     {
         return view('site.expats');
     }
+
+    public function students()
+    {
+        return view('site.students');
+    }
+    
 }

@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li>
-                <a class="link-draw-in" href="https://cohomesg.com/coliving-for-students-interns/">
+                <a class="link-draw-in {{ request()->routeIs('students') ? 'active' : '' }}" href="{{ route('students') }}">
                     Students
                 </a>
             </li>

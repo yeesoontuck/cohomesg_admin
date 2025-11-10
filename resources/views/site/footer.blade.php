@@ -41,7 +41,7 @@
                     <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">About
                             Us</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">Blog
-                            & Insights</a></li>
+                            &amp; Insights</a></li>
                     <li><a href="#"
                             class="text-gray-400 hover:text-indigo-400 transition duration-300">Careers</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">Press</a>
@@ -53,7 +53,7 @@
                 <h3 class="text-lg font-semibold mb-4 text-white">Support</h3>
                 <ul class="space-y-3 text-sm">
                     <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">FAQ
-                            & Help Center</a></li>
+                            &amp; Help Center</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">Contact
                             Us</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">List your
