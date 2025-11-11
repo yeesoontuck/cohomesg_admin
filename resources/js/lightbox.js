@@ -12,10 +12,11 @@ window.lightbox = function () {
             // build items from DOM elements that have data-lb-url
             const nodes = Array.from(document.querySelectorAll('[data-lb-url]'))
             this.items = nodes.map((el, i) => {
-                // attach click handler
+                const group = el.getAttribute('data-lb-group') || 'default'
+                // attach click handler to open within its group
                 el.addEventListener('click', (ev) => {
                     ev.preventDefault()
-                    this.openAt(i)
+                    this.openGroupAt(group, i)
                 })
 
                 return {
@@ -23,7 +24,8 @@ window.lightbox = function () {
                     thumb: el.getAttribute('data-lb-thumb') || null,
                     type: el.getAttribute('data-lb-type') || 'image',
                     autoplay: el.getAttribute('data-lb-autoplay') === 'true',
-                    muted: el.getAttribute('data-lb-muted') === 'true'
+                    muted: el.getAttribute('data-lb-muted') === 'true',
+                    group
                 }
             })
 
@@ -41,7 +43,20 @@ window.lightbox = function () {
             document.removeEventListener('keydown', this._keydownHandler)
         },
         openAt(i) {
-            this.index = i
+            // legacy: open flat list index (opens default group or first group that contains item)
+            const item = this.items[i]
+            const group = (item && item.group) || 'default'
+            this.openGroupAt(group, i)
+        },
+
+        openGroupAt(group, globalIndex) {
+            this.currentGroup = group || 'default'
+            this.groupItems = this.items.filter(it => it.group === this.currentGroup)
+            // find index within group
+            const globalItem = this.items[globalIndex]
+            const url = globalItem ? globalItem.url : null
+            this.index = Math.max(0, this.groupItems.findIndex(it => it.url === url))
+            if (this.index === -1) this.index = 0
             this.open = true
             this.$nextTick(() => this._playCurrentIfVideo())
         },
@@ -51,16 +66,18 @@ window.lightbox = function () {
         },
         prev() {
             this._pauseCurrentIfVideo()
-            this.index = (this.index - 1 + this.items.length) % this.items.length
+            if (!this.groupItems || !this.groupItems.length) return
+            this.index = (this.index - 1 + this.groupItems.length) % this.groupItems.length
             this.$nextTick(() => this._playCurrentIfVideo())
         },
         next() {
             this._pauseCurrentIfVideo()
-            this.index = (this.index + 1) % this.items.length
+            if (!this.groupItems || !this.groupItems.length) return
+            this.index = (this.index + 1) % this.groupItems.length
             this.$nextTick(() => this._playCurrentIfVideo())
         },
         _currentItem() {
-            return this.items[this.index] || null
+            return (this.groupItems && this.groupItems[this.index]) || null
         },
         _playCurrentIfVideo() {
             this.$nextTick(() => {

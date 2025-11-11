@@ -26,45 +26,128 @@
             <div class="flex gap-8">
                 <div class="basis-full">
                     <div class="grid grid-cols-3 gap-4">
-                        <a href="#" class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
-                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-4.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg' }" x-lightbox="url"
-                            data-lb-url="/web/images/Nana-Smith-Bunk-Bed-4.jpg" data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg">
-                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg" alt="">
+                        <a href="#"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-4.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg' }" x-lightbox="url" data-lb-url="/web/images/Nana-Smith-Bunk-Bed-4.jpg"
+                            data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg" data-lb-group="nana">
+                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg"
+                                alt="">
                         </a>
-                        <a href="#" class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
-                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-1.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg' }" x-lightbox="url"
-                            data-lb-url="/web/images/Nana-Smith-Bunk-Bed-1.jpg" data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg">
-                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg" alt="">
+                        <a href="#"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-1.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg' }" x-lightbox="url" data-lb-url="/web/images/Nana-Smith-Bunk-Bed-1.jpg"
+                            data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg" data-lb-group="nana">
+                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg"
+                                alt="">
                         </a>
-                        <a href="#" class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
-                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-2.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg' }" x-lightbox="url"
-                            data-lb-url="/web/images/Nana-Smith-Bunk-Bed-2.jpg" data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg">
-                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg" alt="">
+                        <a href="#"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-2.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg' }" x-lightbox="url" data-lb-url="/web/images/Nana-Smith-Bunk-Bed-2.jpg"
+                            data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg" data-lb-group="nana">
+                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg"
+                                alt="">
                         </a>
-                        <a href="#" class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
-                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-3.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg' }" x-lightbox="url"
-                            data-lb-url="/web/images/Nana-Smith-Bunk-Bed-3.jpg" data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg">
-                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg" alt="">
+                        <a href="#"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-3.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg' }" x-lightbox="url" data-lb-url="/web/images/Nana-Smith-Bunk-Bed-3.jpg"
+                            data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg" data-lb-group="nana">
+                            <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg"
+                                alt="">
                         </a>
-                        <a href="#" class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
-                            x-data="{ url: '/web/Nana-Smith-Bunk-Bed-1.mp4', thumb: '/web/Nana-Smith-Bunk-Bed-1.jpg', type: 'video', autoplay: true, muted: true }" x-lightbox="url"
-                            data-lb-url="/web/Nana-Smith-Bunk-Bed-1.mp4" data-lb-thumb="/web/Nana-Smith-Bunk-Bed-1.jpg" data-lb-type="video" data-lb-autoplay="true" data-lb-muted="true">
-                            <img class="flex-1 object-cover object-center" src="/web/Nana-Smith-Bunk-Bed-1.jpg" alt="">
+                        <a href="#"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/Nana-Smith-Bunk-Bed-1.mp4', thumb: '/web/Nana-Smith-Bunk-Bed-1.jpg', type: 'video', autoplay: true, muted: true }" x-lightbox="url" data-lb-url="/web/Nana-Smith-Bunk-Bed-1.mp4"
+                            data-lb-thumb="/web/Nana-Smith-Bunk-Bed-1.jpg" data-lb-type="video" data-lb-autoplay="true"
+                            data-lb-muted="true" data-lb-group="nana">
+                            <img class="flex-1 object-cover object-center" src="/web/Nana-Smith-Bunk-Bed-1.jpg"
+                                alt="">
                         </a>
                     </div>
                 </div>
 
-                <div class="basis-full">
-                    <h2 class="text-4xl font-bold">Customised Bunk Beds by Nana Smith</h2>
-                    <p>Small spaces in Singapore require smart solutions. Nana Smith specializes in customized bunk beds and furniture designed to maximize storage and comfort for bomb shelters, helper rooms, and compact apartments.</p>
+                <div class="basis-full flex flex-col items-center">
+                    <div class="flex justify-center mb-8">
+                        <img src="/web/images/nanasmith_logo.jpg" alt="" class="rounded-full w-36 h-36">
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-bold">Customised Bunk Beds by Nana Smith</h2>
+                        <p>Small spaces in Singapore require smart solutions. Nana Smith specializes in customized bunk beds
+                            and furniture designed to maximize storage and comfort for bomb shelters, helper rooms, and
+                            compact apartments.</p>
+                    </div>
+                    <div class="mt-4 bg-[#F3F3F3] rounded-lg px-8 py-4 flex flex-col gap-2">
+                        <p class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-6 h-6"
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                                </path>
+                            </svg>
+                            Custom designs to fit your exact space</p>
+                        <p class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-6 h-6"
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                                </path>
+                            </svg>Built-in storage to maximize room efficiency</p>
+                        <p class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-6 h-6"
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                                </path>
+                            </svg>Comfortable, practical, and high-quality materials</p>
+                    </div>
                 </div>
             </div>
 
+            {{-- laundryheap --}}
+            <div class="mt-20 flex gap-8">
+                <div class="basis-full">
+                    <div class="flex justify-center"><img src="/web/images/laundryheap-logo.webp" alt=""
+                            class="w-64 text-center"></div>
+                    <h2 class="text-4xl font-bold">Laundry Services by Laundryheap</h2>
+                    <p>Managing laundry can take hours out of your week. With Laundryheap, you can reclaim that time while
+                        keeping your clothes clean, pressed, and eco-friendly.</p>
+                </div>
 
-            <div class="badscript text-3xl text-gray-600 text-center">more perks coming soon~</div>
+                <div class="basis-full">
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/laundryheap4.jpg', thumb: '/web/images/laundryheap4.jpg' }" x-lightbox="url" data-lb-url="/web/images/laundryheap4.jpg"
+                            data-lb-thumb="/web/images/laundryheap4.jpg" data-lb-group="laundryheap">
+                            <img class="flex-1 object-cover object-center" src="/web/images/laundryheap4.jpg"
+                                alt="">
+                        </a>
+                        <a href="#"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/laundryheap1.jpg', thumb: '/web/images/laundryheap1.jpg' }" x-lightbox="url" data-lb-url="/web/images/laundryheap1.jpg"
+                            data-lb-thumb="/web/images/laundryheap1.jpg" data-lb-group="laundryheap">
+                            <img class="flex-1 object-cover object-center" src="/web/images/laundryheap1.jpg"
+                                alt="">
+                        </a>
+                        <a href="#"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/laundryheap2.jpg', thumb: '/web/images/laundryheap2.jpg' }" x-lightbox="url" data-lb-url="/web/images/laundryheap2.jpg"
+                            data-lb-thumb="/web/images/laundryheap2.jpg" data-lb-group="laundryheap">
+                            <img class="flex-1 object-cover object-center" src="/web/images/laundryheap2.jpg"
+                                alt="">
+                        </a>
+                        <a href="#"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            x-data="{ url: '/web/images/laundryheap3.jpg', thumb: '/web/images/laundryheap3.jpg' }" x-lightbox="url" data-lb-url="/web/images/laundryheap3.jpg"
+                            data-lb-thumb="/web/images/laundryheap3.jpg" data-lb-group="laundryheap">
+                            <img class="flex-1 object-cover object-center" src="/web/images/laundryheap3.jpg"
+                                alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-12 badscript text-3xl text-gray-600 text-center">more perks coming soon~</div>
 
             {{-- How Our Privileges Make Co-living More Convenient --}}
-            <div class="my-14 p-12 bg-[#F7F7F7] rounded-3xl">
+            <div class="mb-14 p-12 bg-[#F7F7F7] rounded-3xl">
                 <div class="flex flex-col items-center">
                     <h2 class="text-4xl font-bold">
                         How Our Privileges Make Co-living More Convenient
