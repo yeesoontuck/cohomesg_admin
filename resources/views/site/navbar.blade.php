@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li>
-                <a class="link-draw-in" href="https://cohomesg.com/landlords/">
+                <a class="link-draw-in {{ request()->routeIs('landlords') ? 'active' : '' }}" href="{{ route('landlords') }}">
                     List your Property
                 </a>
             </li>

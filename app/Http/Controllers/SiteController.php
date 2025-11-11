@@ -57,5 +57,10 @@ class SiteController extends Controller
     {
         return view('site.perks');
     }
+
+    public function landlords()
+    {
+        return view('site.landlords');
+    }
     
 }
