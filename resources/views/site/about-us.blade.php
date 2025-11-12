@@ -12,12 +12,12 @@
                 class="w-full h-full object-cover blur-[2px] brightness-[0.75]">
         </div>
 
-        <div class="pt-12 flex flex-col max-w-[1195px] mx-auto">
-            <div class="flex gap-8 mb-12">
+        <div class="pt-12 px-4 flex flex-col max-w-[1120px] mx-auto">
+            <div class="flex flex-col md:flex-row gap-8 mb-12">
                 <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_man_working_-1-300x300.png" alt=""
-                    class="w-[362px] h-[362px]">
+                    class="object-cover h-[300px] md:w-[362px] md:h-[362px]">
                 <div>
-                    <h2 class="text-4xl font-bold mt-8 mb-4">Who We Are</h2>
+                    <h2 class="text-4xl font-bold md:mt-8 md:mb-4">Who We Are</h2>
                     <p>
                         We believe that a home is more than four walls—it’s where comfort meets connection. Our mission is
                         to make city
@@ -33,9 +33,9 @@
                     </p>
                 </div>
             </div>
-            <div class="flex gap-8 mb-12">
+            <div class="flex flex-col md:flex-row gap-8 mb-12">
                 <div>
-                    <h2 class="text-4xl font-bold mt-8 mb-4">Our Mission</h2>
+                    <h2 class="text-4xl font-bold md:mt-8 mb-4">Our Mission</h2>
                     <p>
                         To redefine the way people rent by creating co-living communities that offer convenience,
                         connection, and care, while helping landlords maximize returns with hassle-free property management.
@@ -47,12 +47,12 @@
                     </p>
                 </div>
                 <img src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1_400.jpg" alt=""
-                    class="w-[362px] h-[362px]">
+                    class="object-cover h-[300px] md:w-[362px] md:h-[362px]">
             </div>
             <div>
                 <h2 class="text-4xl font-bold my-4">What We Offer</h2>
 
-                <div class="flex gap-8">
+                <div class="flex flex-col md:flex-row gap-8">
                     <div class="p-8 bg-white flex flex-col gap-y-4 rounded-lg drop-shadow-md">
                         <h3 class="text-3xl font-semibold">For Tenants</h3>
 

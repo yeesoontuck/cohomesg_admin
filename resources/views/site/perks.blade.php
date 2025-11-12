@@ -83,15 +83,16 @@
                                     d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
                                 </path>
                             </svg>
-                            Custom designs to fit your exact space</p>
-                        <p class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-6 h-6"
-                                viewBox="0 0 512 512">
+                            Custom designs to fit your exact space
+                        </p>
+                        <p class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="text-green-600 w-6 h-6" viewBox="0 0 512 512">
                                 <path
                                     d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
                                 </path>
                             </svg>Built-in storage to maximize room efficiency</p>
-                        <p class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-6 h-6"
-                                viewBox="0 0 512 512">
+                        <p class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="text-green-600 w-6 h-6" viewBox="0 0 512 512">
                                 <path
                                     d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
                                 </path>
@@ -108,6 +109,35 @@
                     <h2 class="text-4xl font-bold">Laundry Services by Laundryheap</h2>
                     <p>Managing laundry can take hours out of your week. With Laundryheap, you can reclaim that time while
                         keeping your clothes clean, pressed, and eco-friendly.</p>
+
+
+                    <div class="mt-8 bg-[#F3F3F3] p-8 rounded-2xl">
+                        <p class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-5 h-5"
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                                </path>
+                            </svg>
+                            15% off all services for CoHome residents
+                        </p>
+                        <p class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-5 h-5"
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                                </path>
+                            </svg>Free pickup and 48-hour delivery across Singapore
+                        </p>
+                        <p class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-5 h-5"
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                                </path>
+                            </svg>Laundry, dry cleaning, and ironing
+                        </p>
+                    </div>
                 </div>
 
                 <div class="basis-full">

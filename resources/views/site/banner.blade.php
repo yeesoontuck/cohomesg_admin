@@ -1,5 +1,5 @@
-<div class="bg-[#3C3C3C] p-2 w-full text-white">
-    <div class="flex justify-between max-w-[1120px] mx-auto">
+<div class="hidden md:block bg-[#3C3C3C] w-full text-white">
+    <div class="flex justify-between max-w-[1120px] mx-auto px-8 py-2">
         <div class="flex items-center text-[16px]">
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="white"
                 class="mr-3">

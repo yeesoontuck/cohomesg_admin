@@ -1,10 +1,10 @@
-<div class="flex items-center justify-between max-w-[1120px] mx-auto">
+<div class="flex px-8 items-center justify-between max-w-[1120px] mx-auto">
     <div>
         <a href="https://cohomesg.com/">
             <img src="/web/images/cohome-logo-150x150.png" alt="" class="h-[70px]">
         </a>
     </div>
-    <div>
+    <div class="hidden lg:block">
         <ul class="flex gap-5">
             <li>
                 <a class="link-draw-in {{ request()->routeIs('site') ? 'active' : '' }}" href="{{ route('site') }}">

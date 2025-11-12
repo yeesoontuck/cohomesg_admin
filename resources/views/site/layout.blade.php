@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en" x-data="{ darkMode: localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) }" :class="{ 'dark': darkMode }" x-cloak>
+<html class="scroll-smooth" lang="en" x-data x-cloak>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="description"
         content="No Agent Fees, No Landlords, Utilities Included, Flexible Leases, Weekly Cleaning. Cohome makes co-living in Singapore simple and affordable!" />
