@@ -3,7 +3,7 @@
         <div class="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
 
             <div class="col-span-2 space-y-4">
-                <a href="/" class="block text-2xl font-bold text-white tracking-widest">
+                <a href="/" class="block text-5xl font-['Boldpact'] font-bold text-white tracking-widest">
                     COHOME SG
                 </a>
 
@@ -38,7 +38,7 @@
             <div>
                 <h3 class="text-lg font-semibold mb-4 text-white">Company</h3>
                 <ul class="space-y-3 text-sm">
-                    <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">About
+                    <li><a href="{{ route('aboutus') }}" class="text-gray-400 hover:text-indigo-400 transition duration-300">About
                             Us</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">Blog
                             &amp; Insights</a></li>
@@ -56,7 +56,7 @@
                             &amp; Help Center</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">Contact
                             Us</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">List your
+                    <li><a href="{{ route('landlords') }}" class="text-gray-400 hover:text-indigo-400 transition duration-300">List your
                             Property</a>
                     </li>
                     <li><a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">Submit a
