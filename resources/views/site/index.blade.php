@@ -200,8 +200,8 @@
                     How It Works
                 </h2>
                 <p class="text-center">3 Easy Steps to Move In</p>
-                <div class="flex items-center gap-4 mt-8 mb-12">
-                    <div class="p-8 rounded-xl shadow-xl">
+                <div class="flex flex-col md:flex-row items-center gap-4 px-4 mt-8 mb-12">
+                    <div class="p-8 rounded-xl shadow-xl w-full">
                         <p class="mb-2 font-semibold text-blue-600">01</p>
                         <h2 class="text-4xl font-bold mb-3">Find Your Room</h2>
                         <p>
@@ -218,7 +218,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="p-8 rounded-xl shadow-xl">
+                    <div class="p-8 rounded-xl shadow-xl w-full">
                         <p class="mb-2 font-semibold text-blue-600">02</p>
                         <h2 class="text-4xl font-bold mb-3">Book Online</h2>
                         <p>
@@ -235,7 +235,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="p-8 rounded-xl shadow-xl">
+                    <div class="p-8 rounded-xl shadow-xl w-full">
                         <p class="mb-2 font-semibold text-blue-600">03</p>
                         <h2 class="text-4xl font-bold mb-3">Move In</h2>
                         <p>
@@ -247,12 +247,12 @@
 
 
 
-            <div class="p-16 bg-[#EFEFEF] rounded-3xl flex flex-col items-center">
+            <div class="mx-4 p-16 bg-[#EFEFEF] rounded-3xl flex flex-col items-center">
                 <h2 class="text-center text-4xl font-bold">Why Choose Our Co-Living Spaces</h2>
 
                 <div class="my-4 w-[200px] border border-gray-300"></div>
 
-                <div class="grid grid-cols-5 gap-8">
+                <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
                     <div class="flex flex-col items-center">
                         <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold w-6 h-6"
@@ -395,19 +395,20 @@
                 </div>
             </div>
 
+            {{-- Who is Co-Living For? --}}
             <div class="mt-12 pt-16 flex flex-col items-center">
                 <h2 class="text-center text-4xl font-bold">Who is Co-Living For?</h2>
                 <div class="my-4 w-[200px] border border-gray-300"></div>
             </div>
 
-            <div class="flex gap-6 w-[1080px] h-[400px] overflow-hidden">
+            <div class="flex flex-col md:flex-row gap-6 md:w-[1080px] md:h-[400px] overflow-hidden px-4">
                 <div class="flex items-center rounded-3xl overflow-hidden basis-full hover:basis-3/2 duration-300 group">
                     <div class="relative">
                         <div class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center w-9/10 group">
                             <div class="text-3xl font-bold opacity-0 group-hover:opacity-100 duration-500">Students &amp; Interns</div>
                             <div class="opacity-0 group-hover:opacity-100 duration-500">Affordable, flexible, and social student accommodation near top universities and internships. Focus on your studies and build a network.</div>
                         </div>
-                        <img src="/web/images/students-studying-in-a-modern-living-room-singapore-bright-lighting-far-away-shot-768x768.png" alt="" class="group-hover:brightness-50">
+                        <img src="/web/images/students-studying-in-a-modern-living-room-singapore-bright-lighting-far-away-shot-768x768.png" alt="" class="group-hover:brightness-50 aspect-3/2 md:aspect-auto object-cover">
                     </div>
                 </div>
                 <div class="flex items-center rounded-3xl overflow-hidden basis-full hover:basis-3/2 duration-300 group">
@@ -416,7 +417,7 @@
                             <div class="text-3xl font-bold opacity-0 group-hover:opacity-100 duration-500">Digital Nomads &amp; Expats</div>
                             <div class="opacity-0 group-hover:opacity-100 duration-500">Enjoy the freedom of flexible leases and a supportive network in one of Asia's most dynamic cities - Singapore.</div>
                         </div>
-                        <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_man_working_-1-768x768.png" alt="" class="group-hover:brightness-50">
+                        <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_man_working_-1-768x768.png" alt="" class="group-hover:brightness-50 aspect-3/2 md:aspect-auto object-cover">
                     </div>
                 </div>
             </div>
