@@ -10,52 +10,52 @@
         <div class="relative h-[250px] overflow-hidden">
             <div
                 class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
-                <h1 class="text-white text-6xl font-bold text-center w-full drop-shadow-md/50">
+                <h1 class="text-white text-2xl md:text-5xl lg:text-6xl font-bold text-center w-full drop-shadow-md/50">
                     Co-living perks in Singapore
                 </h1>
-                <div class="text-white text-2xl">
+                <div class="text-white text-lg md:text-2xl">
                     More Than Just a Home
                 </div>
             </div>
             <img src="/web/images/students.jpg" alt="" class="w-full h-full object-cover blur-[2px] brightness-[0.60]">
         </div>
 
-        <div class="pt-12 flex flex-col max-w-[1195px] mx-auto">
+        <div class="px-4 pt-12 flex flex-col max-w-[1195px] mx-auto">
 
             {{-- Nana Smith beds --}}
-            <div class="flex gap-8">
-                <div class="basis-full">
-                    <div class="grid grid-cols-3 gap-4">
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="basis-full order-2 md:order-1">
+                    <div class="grid sm:grid-cols-3 gap-4">
                         <a href="#"
-                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px] w-auto"
                             x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-4.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg' }" x-lightbox="url" data-lb-url="/web/images/Nana-Smith-Bunk-Bed-4.jpg"
                             data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg" data-lb-group="nana">
                             <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-4_thumb.jpg"
                                 alt="">
                         </a>
                         <a href="#"
-                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px] w-auto"
                             x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-1.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg' }" x-lightbox="url" data-lb-url="/web/images/Nana-Smith-Bunk-Bed-1.jpg"
                             data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg" data-lb-group="nana">
                             <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-1_thumb.jpg"
                                 alt="">
                         </a>
                         <a href="#"
-                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px] w-auto"
                             x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-2.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg' }" x-lightbox="url" data-lb-url="/web/images/Nana-Smith-Bunk-Bed-2.jpg"
                             data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg" data-lb-group="nana">
                             <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-2_thumb.jpg"
                                 alt="">
                         </a>
                         <a href="#"
-                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px] w-auto"
                             x-data="{ url: '/web/images/Nana-Smith-Bunk-Bed-3.jpg', thumb: '/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg' }" x-lightbox="url" data-lb-url="/web/images/Nana-Smith-Bunk-Bed-3.jpg"
                             data-lb-thumb="/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg" data-lb-group="nana">
                             <img class="flex-1 object-cover object-center" src="/web/images/Nana-Smith-Bunk-Bed-3_thumb.jpg"
                                 alt="">
                         </a>
                         <a href="#"
-                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px] w-auto"
                             x-data="{ url: '/web/Nana-Smith-Bunk-Bed-1.mp4', thumb: '/web/Nana-Smith-Bunk-Bed-1.jpg', type: 'video', autoplay: true, muted: true }" x-lightbox="url" data-lb-url="/web/Nana-Smith-Bunk-Bed-1.mp4"
                             data-lb-thumb="/web/Nana-Smith-Bunk-Bed-1.jpg" data-lb-type="video" data-lb-autoplay="true"
                             data-lb-muted="true" data-lb-group="nana">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class="basis-full flex flex-col items-center">
+                <div class="basis-full order-1 md:order-2 flex flex-col items-center">
                     <div class="flex justify-center mb-8">
                         <img src="/web/images/nanasmith_logo.jpg" alt="" class="rounded-full w-36 h-36">
                     </div>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="mt-4 bg-[#F3F3F3] rounded-lg px-8 py-4 flex flex-col gap-2">
                         <p class="flex gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-6 h-6"
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-[24px] h-[24px] flex-shrink-0"
                                 viewBox="0 0 512 512">
                                 <path
                                     d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
@@ -86,13 +86,13 @@
                             Custom designs to fit your exact space
                         </p>
                         <p class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                class="text-green-600 w-6 h-6" viewBox="0 0 512 512">
+                                class="text-green-600 w-[24px] h-[24px] flex-shrink-0" viewBox="0 0 512 512">
                                 <path
                                     d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
                                 </path>
                             </svg>Built-in storage to maximize room efficiency</p>
                         <p class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                class="text-green-600 w-6 h-6" viewBox="0 0 512 512">
+                                class="text-green-600 w-[24px] h-[24px] flex-shrink-0" viewBox="0 0 512 512">
                                 <path
                                     d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
                                 </path>
@@ -102,18 +102,19 @@
             </div>
 
             {{-- laundryheap --}}
-            <div class="mt-20 flex gap-8">
-                <div class="basis-full">
-                    <div class="flex justify-center"><img src="/web/images/laundryheap-logo.webp" alt=""
-                            class="w-64 text-center"></div>
-                    <h2 class="text-4xl font-bold">Laundry Services by Laundryheap</h2>
-                    <p>Managing laundry can take hours out of your week. With Laundryheap, you can reclaim that time while
-                        keeping your clothes clean, pressed, and eco-friendly.</p>
-
-
-                    <div class="mt-8 bg-[#F3F3F3] p-8 rounded-2xl">
+            <div class="mt-20 flex flex-col md:flex-row gap-8">
+                <div class="basis-full flex flex-col items-center">
+                    <div class="flex justify-center">
+                        <img src="/web/images/laundryheap-logo.webp" alt="" class="w-64 text-center">
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-bold">Laundry Services by Laundryheap</h2>
+                        <p>Managing laundry can take hours out of your week. With Laundryheap, you can reclaim that time while
+                            keeping your clothes clean, pressed, and eco-friendly.</p>
+                    </div>
+                    <div class="mt-4 bg-[#F3F3F3] rounded-lg px-8 py-4 flex flex-col gap-2">
                         <p class="flex gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-5 h-5"
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-[24px] h-[24px] flex-shrink-0"
                                 viewBox="0 0 512 512">
                                 <path
                                     d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
@@ -122,7 +123,7 @@
                             15% off all services for CoHome residents
                         </p>
                         <p class="flex gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-5 h-5"
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-[24px] h-[24px] flex-shrink-0"
                                 viewBox="0 0 512 512">
                                 <path
                                     d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
@@ -130,7 +131,7 @@
                             </svg>Free pickup and 48-hour delivery across Singapore
                         </p>
                         <p class="flex gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-5 h-5"
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-green-600 w-[24px] h-[24px] flex-shrink-0"
                                 viewBox="0 0 512 512">
                                 <path
                                     d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
@@ -141,30 +142,30 @@
                 </div>
 
                 <div class="basis-full">
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid md:grid-cols-2 gap-4">
                         <a href="#"
-                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px] w-auto"
                             x-data="{ url: '/web/images/laundryheap4.jpg', thumb: '/web/images/laundryheap4.jpg' }" x-lightbox="url" data-lb-url="/web/images/laundryheap4.jpg"
                             data-lb-thumb="/web/images/laundryheap4.jpg" data-lb-group="laundryheap">
                             <img class="flex-1 object-cover object-center" src="/web/images/laundryheap4.jpg"
                                 alt="">
                         </a>
                         <a href="#"
-                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px] w-auto"
                             x-data="{ url: '/web/images/laundryheap1.jpg', thumb: '/web/images/laundryheap1.jpg' }" x-lightbox="url" data-lb-url="/web/images/laundryheap1.jpg"
                             data-lb-thumb="/web/images/laundryheap1.jpg" data-lb-group="laundryheap">
                             <img class="flex-1 object-cover object-center" src="/web/images/laundryheap1.jpg"
                                 alt="">
                         </a>
                         <a href="#"
-                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px] w-auto"
                             x-data="{ url: '/web/images/laundryheap2.jpg', thumb: '/web/images/laundryheap2.jpg' }" x-lightbox="url" data-lb-url="/web/images/laundryheap2.jpg"
                             data-lb-thumb="/web/images/laundryheap2.jpg" data-lb-group="laundryheap">
                             <img class="flex-1 object-cover object-center" src="/web/images/laundryheap2.jpg"
                                 alt="">
                         </a>
                         <a href="#"
-                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px]"
+                            class="flex rounded-md overflow-hidden hover:opacity-80 transition-opacity h-[216px] w-auto"
                             x-data="{ url: '/web/images/laundryheap3.jpg', thumb: '/web/images/laundryheap3.jpg' }" x-lightbox="url" data-lb-url="/web/images/laundryheap3.jpg"
                             data-lb-thumb="/web/images/laundryheap3.jpg" data-lb-group="laundryheap">
                             <img class="flex-1 object-cover object-center" src="/web/images/laundryheap3.jpg"
@@ -178,18 +179,18 @@
 
             {{-- How Our Privileges Make Co-living More Convenient --}}
             <div class="mb-14 p-12 bg-[#F7F7F7] rounded-3xl">
-                <div class="flex flex-col items-center">
-                    <h2 class="text-4xl font-bold">
+                <div class="flex flex-col items-center text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold">
                         How Our Privileges Make Co-living More Convenient
                     </h2>
                     <p class="text-center">
-                        Co-living is more than shared spaces; it’s a lifestyle that integrates convenience, community,<br />
+                        Co-living is more than shared spaces; it’s a lifestyle that integrates convenience, community,
                         and care. Our residents enjoy perks that help manage daily routines efficiently, including:
                     </p>
                 </div>
 
-                <div class="flex items-center gap-8 mt-8 mb-12">
-                    <div class="p-8 rounded-xl shadow-xl bg-white h-[240px]">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-8 mt-8 mb-12">
+                    <div class="p-8 rounded-xl shadow-xl bg-white h-[240px] w-full">
                         <div class="inline-block p-2 bg-white border-2 border-gold-dark rounded">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold-dark h-6 w-6"
                                 viewBox="0 0 576 512">
@@ -203,7 +204,7 @@
                             on essential services
                         </p>
                     </div>
-                    <div class="p-8 rounded-xl shadow-xl bg-white h-[240px]">
+                    <div class="p-8 rounded-xl shadow-xl bg-white h-[240px] w-full">
                         <div class="inline-block p-2 bg-white border-2 border-gold-dark rounded">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold-dark h-6 w-6"
                                 viewBox="0 0 640 512">
@@ -217,7 +218,7 @@
                             for laundry and furniture
                         </p>
                     </div>
-                    <div class="p-8 rounded-xl shadow-xl bg-white h-[240px]">
+                    <div class="p-8 rounded-xl shadow-xl bg-white h-[240px] w-full">
                         <div class="inline-block p-2 bg-white border-2 border-gold-dark rounded">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold-dark h-6 w-6"
                                 viewBox="0 0 640 512">
@@ -231,7 +232,7 @@
                             that understand Singapore living
                         </p>
                     </div>
-                    <div class="p-8 rounded-xl shadow-xl bg-white h-[240px]">
+                    <div class="p-8 rounded-xl shadow-xl bg-white h-[240px] w-full">
                         <div class="inline-block p-2 bg-white border-2 border-gold-dark rounded">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-gold-dark h-6 w-6"
                                 viewBox="0 0 576 512">
@@ -251,7 +252,7 @@
             {{-- Join Our Co-living Community and Enjoy Exclusive Perks! --}}
             <div class="relative h-[500px] overflow-hidden mb-20 rounded-3xl">
                 <div
-                    class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
+                    class="px-4 z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
                     <h1 class="text-white text-4xl font-bold text-center w-full drop-shadow-md/50">
                         Join Our Co-living Community and Enjoy Exclusive Perks!
                     </h1>
