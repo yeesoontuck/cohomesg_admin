@@ -6,7 +6,7 @@
         <div class="relative h-[300px] overflow-hidden">
             <div
                 class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
-                <h1 class="text-white text-6xl font-bold text-center w-full drop-shadow-md/50">
+                <h1 class="text-white text-4xl md:text-6xl font-bold text-center w-full drop-shadow-md/50">
                     Co-living for Students &amp; Interns
                 </h1>
                 <div>
@@ -29,18 +29,18 @@
                 class="w-full h-full object-cover blur-[2px] brightness-[0.60]">
         </div>
 
-        <div class="pt-12 flex flex-col max-w-[1195px] mx-auto">
+        <div class="px-4 pt-12 flex flex-col max-w-[1195px] mx-auto">
 
             <div class="my-8 mx-auto text-center">
-                <h2 class="text-5xl font-bold">Co-living vs. The Traditional Way</h2>
+                <h2 class="text-4xl md:text-5xl font-bold">Co-living vs. The Traditional&nbsp;Way</h2>
             </div>
-            <div class="mt-8 mb-4 flex flex-col items-center">
+            <div class="mt-8 mb-4 flex flex-col items-center text-center">
                 <h2 class="text-4xl font-bold">Benefits of Co-Living for Students &amp; Interns</h2>
                 Cohome SG is Tailored for Your Student Lifestyle
                 <div class="my-4 w-[200px] border border-gray-300"></div>
             </div>
 
-            <div class="flex gap-8">
+            <div class="flex flex-col md:flex-row gap-8">
                 <div class="basis-full p-12 bg-[#EFEFEF] rounded-3xl">
                     <p class="inline bg-[#D8E9FF] text-xl font-bold px-3 py-1 rounded-full">
                         Work &amp; Productivity
@@ -185,7 +185,7 @@
                     <div class="my-4 w-[200px] border border-gray-300"></div>
                 </div>
 
-                <div class="flex items-center gap-4 mt-8 mb-12">
+                <div class="flex flex-col md:flex-row items-center gap-4 mt-8 mb-12">
                     <div class="p-8 rounded-xl shadow-xl bg-white">
                         <p class="mb-2 font-semibold text-blue-600">01</p>
                         <h2 class="text-4xl font-bold mb-3">Search &amp; Filter</h2>
@@ -233,7 +233,7 @@
             <div class="relative h-[500px] overflow-hidden mb-20 rounded-3xl">
                 <div
                     class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
-                    <h1 class="text-white text-4xl font-bold text-center w-full drop-shadow-md/50">
+                    <h1 class="text-white text-2xl md:text-4xl md:text-4xl font-bold text-center w-full drop-shadow-md/50">
                         Ready for Your Best Student &amp; Intern Life in Singapore?
                     </h1>
                     <div>
