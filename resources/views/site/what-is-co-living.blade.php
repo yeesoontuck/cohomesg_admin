@@ -12,9 +12,9 @@
 
 @section('content')
     <div class="bg-stone-50 pb-20">
-        <div class="max-w-[1080px] mx-auto pt-12">
+        <div class="max-w-[1080px] mx-auto md:pt-12">
             <div class="flex gap-8">
-                <div class="w-[260px] p-4">
+                <div class="hidden md:block w-[260px] p-4">
                     <div class="sticky top-20">
                         <h3 class="mb-4">Table Of Contents</h3>
                         <ul id="scrollspy" class="border-l-3 border-gray-200 pl-4 text-gray-500">
@@ -77,11 +77,11 @@
                     <div class="relative flex items-center h-[400px] overflow-hidden">
                         <img src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1.jpg" alt="">
                         <h1
-                            class="absolute bottom-[20px] bg-[#B59410] p-2 pr-4 rounded-r-2xl text-white text-4xl font-bold">
+                            class="absolute bottom-[20px] bg-[#B59410] p-2 pr-4 rounded-r-2xl text-white text-2xl md:text-4xl font-bold">
                             What Is Co-Living? | Singapore’s New Rental Trend
                         </h1>
                     </div>
-                    <div class="bde-rich-text-1142-106 bde-rich-text breakdance-rich-text-styles">
+                    <div class="p-4 md:p-0">
                         <h2 class="text-3xl font-bold mt-8 mb-4" id="what-is-co-living-1">What Is Co-Living?</h2>
                         <p class="my-4">Co-living refers to a modern housing model where individuals
                             rent private

@@ -5,7 +5,7 @@
 
         <div class="relative h-[280px] overflow-hidden">
             <h1
-                class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-6xl font-bold text-center w-full max-w-2xl drop-shadow-md/50">
+                class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-4xl md:text-6xl font-bold text-center w-full max-w-2xl drop-shadow-md/50">
                 About Cohome SG
             </h1>
             <img src="/web/images/434788F7-165F-4E32-8615-925597CEC34B-1536x1152.jpg" alt=""
