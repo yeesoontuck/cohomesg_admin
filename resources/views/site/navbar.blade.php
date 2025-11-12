@@ -83,43 +83,43 @@
     <div x-show="mobile_menu_open" class="lg:hidden absolute z-99 left-0 right-0 bg-white/90" x-collapse>
         <div class="w-full">
             <ul class="flex flex-col lg:flex-row">
-                <li class="border-b border-gray-300 px-4 py-3">
-                    <a class="">
+                <li class="border-b border-gray-300">
+                    <a class="block px-4 py-3" href="/">
                         Home
                     </a>
                 </li>
-                <li class="border-b border-gray-300 px-4 py-3">
-                    <a class="" href="https://cohomesg.com/room/">
+                <li class="border-b border-gray-300">
+                    <a class="block px-4 py-3" href="https://cohomesg.com/room/">
                         Find a Room
                     </a>
                 </li>
-                <li class="border-b border-gray-300 px-4 py-3">
-                    <a class="" href="{{ route('landlords') }}">
+                <li class="border-b border-gray-300">
+                    <a class="block px-4 py-3" href="{{ route('landlords') }}">
                         List your Property
                     </a>
                 </li>
-                <li class="border-b border-gray-300 px-4 py-3">
-                    <a class="" href="{{ route('perks') }}">
+                <li class="border-b border-gray-300">
+                    <a class="block px-4 py-3" href="{{ route('perks') }}">
                         Perks
                     </a>
                 </li>
-                <li class="border-b border-gray-300 px-4 py-3">
-                    <a class="" href="{{ route('students') }}">
+                <li class="border-b border-gray-300">
+                    <a class="block px-4 py-3" href="{{ route('students') }}">
                         Students
                     </a>
                 </li>
-                <li class="border-b border-gray-300 px-4 py-3">
-                    <a class="" href="{{ route('expats') }}">
+                <li class="border-b border-gray-300">
+                    <a class="block px-4 py-3" href="{{ route('expats') }}">
                         Expats
                     </a>
                 </li>
-                <li class="border-b border-gray-300 px-4 py-3">
-                    <a class="" href="{{ route('whatiscoliving') }}">
+                <li class="border-b border-gray-300">
+                    <a class="block px-4 py-3" href="{{ route('whatiscoliving') }}">
                         What is Co-living
                     </a>
                 </li>
-                <li class="border-b border-gray-300 px-4 py-3">
-                    <a class="" href="{{ route('aboutus') }}">
+                <li class="border-b border-gray-300">
+                    <a class="block px-4 py-3" href="{{ route('aboutus') }}">
                         About Us
                     </a>
                 </li>
