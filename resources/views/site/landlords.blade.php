@@ -6,7 +6,7 @@
         <div class="relative h-[250px] overflow-hidden">
             <div
                 class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 w-full items-center">
-                <h1 class="text-white text-4xl font-bold text-center w-full drop-shadow-md/50">
+                <h1 class="text-white text-2xl md:text-4xl font-bold text-center w-full drop-shadow-md/50">
                     Partner with Us to Turn Your Extra Space into Extra Income! 💰
                 </h1>
             </div>
@@ -15,7 +15,7 @@
         </div>
 
 
-        <div class="pt-12 flex flex-col max-w-[1195px] mx-auto">
+        <div class="px-4 pt-12 flex flex-col max-w-[1195px] mx-auto">
 
             <div class="mb-16 flex flex-col items-center">
                 <h2 class="text-4xl font-bold">How CohomeSG Co-living Can Benefit Landlords</h2>
@@ -30,7 +30,7 @@
                 <form action="#" method="POST" class="mt-12 w-full">
                     @csrf
 
-                    <div class="flex gap-8 w-full flex-wrap">
+                    <div class="flex gap-4 md:gap-8 w-full flex-wrap">
                         <div class="flex flex-1 min-w-xs flex-col gap-1">
                             <label for="textInputDefault" class="w-fit pl-0.5 text-black">First Name</label>
                             <input id="textInputDefault" type="text"
@@ -60,10 +60,8 @@
                     </div>
 
                     <button type="submit"
-                        class="mt-4 whitespace-nowrap rounded-md bg-indigo-700 border border-indigo-700 px-12 py-2 font-medium tracking-wide text-slate-100 transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-indigo-600 dark:border-indigo-600 dark:text-slate-100 dark:focus-visible:outline-indigo-600">
+                        class="w-full md:w-auto mt-4 whitespace-nowrap rounded-md bg-indigo-700 border border-indigo-700 px-12 py-2 font-medium tracking-wide text-slate-100 transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-indigo-600 dark:border-indigo-600 dark:text-slate-100 dark:focus-visible:outline-indigo-600">
                         Let's talk</button>
-
-
                 </form>
             </div>
         </div>
