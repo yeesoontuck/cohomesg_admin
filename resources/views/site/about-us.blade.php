@@ -172,10 +172,12 @@
                 </div>
             </div>
 
-            <div class="my-20 mx-auto text-center">
+            <div class="my-12 mx-auto text-center">
                 <h2 class="text-4xl font-bold">Testimonials From Our Residents</h2>
                 Real stories from people who found their perfect co-living home with us!
             </div>
+
+            @include('site.partials.reviews')
         </div>
     </div>
 @endsection

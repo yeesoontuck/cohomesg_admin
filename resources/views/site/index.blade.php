@@ -39,7 +39,7 @@
                         </div>
                     </a>
 
-                    <a href="#"
+                    <a href="{{ route('landlords') }}"
                         class="group self-start mt-8 px-4 py-2 rounded-full bg-white text-black text-lg inline-flex items-center cursor-pointer">List
                         my property
 
@@ -112,7 +112,7 @@
                                         S${{ $room->price_month }}/month
                                     </h2>
                                     <p class="flex items-center justify-center text-sm pb-4 border-b-4 border-double">
-                                        <svg xmlns="http://www.w3.org/2000/svg" id="icon-location" viewBox="0 0 32 32" 
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="icon-location" viewBox="0 0 32 32"
                                             fill="currentColor" class="h-4 text-gray-500">
                                             <path
                                                 d="M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z">
@@ -124,7 +124,7 @@
 
                                     <div class="mt-4 ml-2 grid grid-cols-2 gap-2 text-xs">
                                         <div class="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" 
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
                                                 fill="currentColor" class="w-4 h-4 text-gray-500">
                                                 <path
                                                     d="M32 32c17.7 0 32 14.3 32 32V320H288V160c0-17.7 14.3-32 32-32H544c53 0 96 43 96 96V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V416H352 320 64v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V64C0 46.3 14.3 32 32 32zm144 96a80 80 0 1 1 0 160 80 80 0 1 1 0-160z">
@@ -133,7 +133,7 @@
                                             Queen Bed
                                         </div>
                                         <div class="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" 
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
                                                 fill="currentColor" class="w-4 h-4 text-gray-500">
                                                 <path
                                                     d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-.9s11.8-33-.9-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 169-3.3 189.2 8.9 202s32.5 13.2 45.2 .9zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C459.8 219.2 393 192 320 192s-139.8 27.2-190.5 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z">
@@ -143,7 +143,7 @@
                                         </div>
 
                                         <div class="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                 class="w-4 h-4 text-gray-500" viewBox="0 0 448 512">
                                                 <path
                                                     d="M248 48V256h48V58.7c23.9 13.8 40 39.7 40 69.3V256h48V128C384 57.3 326.7 0 256 0H192C121.3 0 64 57.3 64 128V256h48V128c0-29.6 16.1-55.5 40-69.3V256h48V48h48zM48 288c-12.1 0-23.2 6.8-28.6 17.7l-16 32c-5 9.9-4.4 21.7 1.4 31.1S20.9 384 32 384l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32V384H352v96c0 17.7 14.3 32 32 32s32-14.3 32-32V384c11.1 0 21.4-5.7 27.2-15.2s6.4-21.2 1.4-31.1l-16-32C423.2 294.8 412.1 288 400 288H48z">
@@ -152,7 +152,7 @@
                                             Furnishings<br />Included
                                         </div>
                                         <div class="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" 
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                                                 fill="currentColor" class="w-4 h-4 text-gray-500">
                                                 <path
                                                     d="M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z">
@@ -162,7 +162,7 @@
                                         </div>
 
                                         <div class="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" 
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                                                 fill="currentColor" class="w-4 h-4 text-gray-500">
                                                 <path
                                                     d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z">
@@ -326,7 +326,8 @@
                     </div>
                     <div class="flex flex-col items-center">
                         <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="icon-price-tag" viewBox="0 0 32 32" fill="currentColor" class="text-gold w-6 h-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" id="icon-price-tag" viewBox="0 0 32 32"
+                                fill="currentColor" class="text-gold w-6 h-6">
                                 <path
                                     d="M30.5 0h-12c-0.825 0-1.977 0.477-2.561 1.061l-14.879 14.879c-0.583 0.583-0.583 1.538 0 2.121l12.879 12.879c0.583 0.583 1.538 0.583 2.121 0l14.879-14.879c0.583-0.583 1.061-1.736 1.061-2.561v-12c0-0.825-0.675-1.5-1.5-1.5zM23 12c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z">
                                 </path>
@@ -381,7 +382,8 @@
                     </div>
                     <div class="flex flex-col items-center">
                         <div class="p-4 bg-white border-2 border-gold rounded-2xl mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="icon-phone" viewBox="0 0 32 32" fill="currentColor" class="text-gold w-6 h-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" id="icon-phone" viewBox="0 0 32 32"
+                                fill="currentColor" class="text-gold w-6 h-6">
                                 <path
                                     d="M22 20c-2 2-2 4-4 4s-4-2-6-4-4-4-4-6 2-2 4-4-4-8-6-8-6 6-6 6c0 4 4.109 12.109 8 16s12 8 16 8c0 0 6-4 6-6s-6-8-8-6z">
                                 </path>
@@ -404,31 +406,66 @@
             <div class="flex flex-col md:flex-row gap-6 md:w-[1080px] md:h-[400px] overflow-hidden px-4">
                 <div class="flex items-center rounded-3xl overflow-hidden basis-full hover:basis-3/2 duration-300 group">
                     <div class="relative">
-                        <div class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center w-9/10 group">
-                            <div class="text-3xl font-bold opacity-0 group-hover:opacity-100 duration-500">Students &amp; Interns</div>
-                            <div class="opacity-0 group-hover:opacity-100 duration-500">Affordable, flexible, and social student accommodation near top universities and internships. Focus on your studies and build a network.</div>
+                        <div
+                            class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center w-9/10 group">
+                            <div class="text-3xl font-bold opacity-0 group-hover:opacity-100 duration-500">Students &amp;
+                                Interns</div>
+                            <div class="opacity-0 group-hover:opacity-100 duration-500">Affordable, flexible, and social
+                                student accommodation near top universities and internships. Focus on your studies and build
+                                a network.</div>
                         </div>
-                        <img src="/web/images/students-studying-in-a-modern-living-room-singapore-bright-lighting-far-away-shot-768x768.png" alt="" class="group-hover:brightness-50 aspect-3/2 md:aspect-auto object-cover">
+                        <img src="/web/images/students-studying-in-a-modern-living-room-singapore-bright-lighting-far-away-shot-768x768.png"
+                            alt="" class="group-hover:brightness-50 aspect-3/2 md:aspect-auto object-cover">
                     </div>
                 </div>
                 <div class="flex items-center rounded-3xl overflow-hidden basis-full hover:basis-3/2 duration-300 group">
                     <div class="relative">
-                        <div class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center w-9/10 group">
-                            <div class="text-3xl font-bold opacity-0 group-hover:opacity-100 duration-500">Digital Nomads &amp; Expats</div>
-                            <div class="opacity-0 group-hover:opacity-100 duration-500">Enjoy the freedom of flexible leases and a supportive network in one of Asia's most dynamic cities - Singapore.</div>
+                        <div
+                            class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center w-9/10 group">
+                            <div class="text-3xl font-bold opacity-0 group-hover:opacity-100 duration-500">Digital Nomads
+                                &amp; Expats</div>
+                            <div class="opacity-0 group-hover:opacity-100 duration-500">Enjoy the freedom of flexible
+                                leases and a supportive network in one of Asia's most dynamic cities - Singapore.</div>
                         </div>
-                        <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_man_working_-1-768x768.png" alt="" class="group-hover:brightness-50 aspect-3/2 md:aspect-auto object-cover">
+                        <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_man_working_-1-768x768.png"
+                            alt="" class="group-hover:brightness-50 aspect-3/2 md:aspect-auto object-cover">
                     </div>
                 </div>
             </div>
 
-            <div class="mt-12 pt-16 flex flex-col items-center">
+            <div class="my-12 pt-16 flex flex-col items-center">
                 <h2 class="text-center text-4xl font-bold">Testimonials From Our Residents</h2>
                 <p class="text-center">Real stories from people who found their perfect co-living home with us!</p>
             </div>
+
+            @include('site.partials.reviews')
+
+
+            {{-- For landlords --}}
+            <div class="relative bg-[#FFDC5B] m-4 p-12 mb-20 rounded-3xl w-[380px]">
+                FOR LANDLORDS
+                <h3 class="text-4xl font-bold border-b-2 border-white">Earn More With Co-Living!</h3>
+
+                <p class="mt-6">Maximize your property’s earning potential! Enjoy higher returns and lower vacancy rates!
+                </p>
+
+                <a href="{{ route('landlords') }}"
+                    class="group self-start mt-8 px-4 py-2 rounded-full bg-white text-black text-lg inline-flex items-center cursor-pointer">List
+                    your property
+
+                    <div
+                        class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-black rounded-full ml-4 -mr-2 -ml-2">
+                        <svg class="-rotate-45 text-white w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M11.293 4.707 17.586 11H4v2h13.586l-6.293 6.293 1.414 1.414L21.414 12l-8.707-8.707-1.414 1.414z">
+                            </path>
+                        </svg>
+                    </div>
+                </a>
+
+                <img src="/web/images/Earn-More-With-Co-Living-240x300.png" alt="" class="w-[150px] absolute -bottom-16 -right-8">
+            </div>
         </div>
     </div>
-
-
-    <div class="my-20 py-20">...</div>
 @endsection
