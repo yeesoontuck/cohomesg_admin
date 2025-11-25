@@ -12,7 +12,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::orderBy('address')->get();
+        $properties = Property::with('rooms')->orderBy('address')->get();
 
         return view('properties.index', compact('properties'));
     }
