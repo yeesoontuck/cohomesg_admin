@@ -3,6 +3,7 @@
         <div>
             <a href="https://cohomesg.com/">
                 <img src="/web/images/cohome-logo-150x150.png" alt="" class="h-[70px]">
+                {{-- <img src="/cohome-logo.svg" alt="" class="h-[70px] p-2"> --}}
             </a>
         </div>
 
