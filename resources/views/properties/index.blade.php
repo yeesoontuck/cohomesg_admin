@@ -39,7 +39,7 @@
                             <td class="p-4">
                                 {{ $property->address }}<br />
                             </td>
-                            <td class="p-4">{{ $property->district_id }}</td>
+                            <td class="p-4">D{{ $property->district_id }} {{ $property->district->district_name }}</td>
                             <td class="p-4 flex">
                                 @foreach($property->rooms as $room)
                                     @php $occupied = rand(0, 1); @endphp
