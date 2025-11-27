@@ -16,6 +16,7 @@
         <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
         <p>Welcome to your dashboard!</p>
 
+        <a href="#" class="link-draw-in">Link Text</a>
 
         <a href="https://spruecutters.com" class="btn-primary">Save</a>
         <a href="https://spruecutters.com" class="btn-secondary">Cancel</a>

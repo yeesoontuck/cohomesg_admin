@@ -21,10 +21,10 @@
                 <thead
                     class="border-b border-outline bg-surface-alt text-sm text-on-surface-strong dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark-strong">
                     <tr>
+                        <th scope="col" class="p-4">Property</th>
                         <th scope="col" class="p-4">Address</th>
                         <th scope="col" class="p-4">District</th>
-                        <th scope="col" class="p-4">Room</th>
-                        <th scope="col" class="p-4">Status</th>
+                        <th scope="col" class="p-4">Rooms</th>
                         <th scope="col" class="p-4">Actions</th>
                     </tr>
                 </thead>
@@ -33,34 +33,37 @@
                     @foreach ($properties as $property)
                         <tr>
                             <td class="p-4">
-                                {{ $property->address }}<br />
+                                {{ $property->property_name }}<br />
                                 <span class="text-gray-500">({{ $property->property_type }})</span>
                             </td>
-                            <td class="p-4">{{ $property->district_id }}</td>
-                            <td class="p-4">{{ $property->room_type }}</td>
                             <td class="p-4">
+                                {{ $property->address }}<br />
+                            </td>
+                            <td class="p-4">{{ $property->district_id }}</td>
+                            <td class="p-4 flex">
+                                @foreach($property->rooms as $room)
+                                    @php $occupied = rand(0, 1); @endphp
+                                    <div class="{{ $occupied ? 'text-green-600' : '' }}" title="{{ $room->room_number }}">
 
-                                @php $occupied = rand(0, 1); @endphp
-                                <div class="{{ $occupied ? 'text-green-600' : '' }}">
-
-                                    @if ($occupied)
-                                        {{-- occupied --}}
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                            class="size-6">
-                                            <path
-                                                d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
-                                            <path
-                                                d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
-                                        </svg>
-                                    @else
-                                        {{-- empty --}}
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                                        </svg>
-                                    @endif
-                                </div>
+                                        @if ($occupied)
+                                            {{-- occupied --}}
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="size-6">
+                                                <path
+                                                    d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+                                                <path
+                                                    d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+                                            </svg>
+                                        @else
+                                            {{-- empty --}}
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                            </svg>
+                                        @endif
+                                    </div>
+                                @endforeach
                             </td>
                             <td class="p-4"><button type="button" class="btn-primary px-2 py-1 text-xs">
                                     Details

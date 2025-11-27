@@ -7,6 +7,7 @@ import Alpine from 'alpinejs'
 import collapse from '@alpinejs/collapse'
 import mask from '@alpinejs/mask'
 import focus from '@alpinejs/focus'
+import './lightbox'
 
 window.Alpine = Alpine
 

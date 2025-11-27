@@ -5,7 +5,11 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: [
+                'resources/js/app.js',       
+                'resources/css/app.css',     
+                'resources/css/web.css',     
+            ],
             refresh: true,
             detectTls: 'cohomesg.test', // only affects npm run dev, because valet link differs from directory name
         }),

@@ -123,6 +123,40 @@
         @apply whitespace-nowrap rounded-radius bg-success border border-success px-4 py-2 text-sm font-medium tracking-wide text-onSuccess transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-success dark:border-success dark:text-onSuccess dark:focus-visible:outline-success
     }
 
+    .btn-outline-primary {
+        @apply whitespace-nowrap bg-transparent rounded-radius border border-primary px-4 py-2 text-sm font-medium tracking-wide text-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-primary-dark dark:text-primary-dark dark:focus-visible:outline-primary-dark
+    }
+
+    .btn-outline-secondary {
+        @apply whitespace-nowrap bg-transparent rounded-radius border border-secondary px-4 py-2 text-sm font-medium tracking-wide text-secondary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-secondary-dark dark:text-secondary-dark dark:focus-visible:outline-secondary-dark
+    }
+
+    .btn-outline-alternate {
+        @apply whitespace-nowrap bg-transparent rounded-radius border border-outline px-4 py-2 text-sm font-medium tracking-wide text-outline transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-outline active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-outline-dark dark:text-outline-dark dark:focus-visible:outline-outline-dark
+    }
+
+    .btn-outline-inverse {
+        @apply whitespace-nowrap bg-transparent rounded-radius border border-surface-dark px-4 py-2 text-sm font-medium tracking-wide text-surface-dark transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-surface-dark active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-surface dark:text-surface dark:focus-visible:outline-surface
+    }
+
+    .btn-outline-info {
+        @apply whitespace-nowrap bg-transparent rounded-radius border border-info px-4 py-2 text-sm font-medium tracking-wide text-info transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-info active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-info dark:text-info dark:focus-visible:outline-info
+    }
+
+    .btn-outline-danger {
+        @apply whitespace-nowrap bg-transparent rounded-radius border border-danger px-4 py-2 text-sm font-medium tracking-wide text-danger transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-danger active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-danger dark:text-danger dark:focus-visible:outline-danger
+    }
+
+    .btn-outline-warning {
+        @apply whitespace-nowrap bg-transparent rounded-radius border border-warning px-4 py-2 text-sm font-medium tracking-wide text-warning transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warning active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-warning dark:text-warning dark:focus-visible:outline-warning
+    }
+
+    .btn-outline-success {
+        @apply whitespace-nowrap bg-transparent rounded-radius border border-success px-4 py-2 text-sm font-medium tracking-wide text-success transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:border-success dark:text-success dark:focus-visible:outline-success
+    }
+
+
+
     .sidebar-link {
         @apply flex items-center rounded-radius gap-2 px-2 py-1.5 text-sm font-medium text-on-surface underline-offset-2 hover:bg-primary/6 hover:text-on-surface-strong focus-visible:underline focus:outline-hidden dark:text-on-surface-dark dark:hover:bg-primary-dark/20 dark:hover:text-on-surface-dark-strong
     }
@@ -158,11 +192,9 @@
     /* Top-left "tail" for inbound chat bubble */
     .wa-inbound::after {
         content: "";
-        @apply absolute top-0 -left-2 w-0 h-0 z-[1]
-            border-l-8 border-r-8 border-t-8
-            border-l-transparent border-r-transparent
-            border-t-surface-alt;
+        @apply absolute top-0 -left-2 w-0 h-0 z-[1] border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-surface-alt;
     }
+
     .dark .wa-inbound::after {
         @apply border-t-surface-dark-alt;
     }
@@ -170,19 +202,16 @@
     .wa-outbound {
         @apply relative ml-auto flex max-w-[80%] flex-col gap-2 rounded-l-radius rounded-br-radius bg-primary p-4 text-sm text-on-primary md:max-w-[60%] dark:bg-primary-dark dark:text-on-primary-dark
     }
-    
+
     /* Top-right "tail" for outbound chat bubble */
     .wa-outbound::after {
         content: "";
-        @apply absolute top-0 -right-2 w-0 h-0 z-[1]
-            border-l-8 border-r-8 border-t-8
-            border-l-transparent border-r-transparent
-            border-t-primary;
+        @apply absolute top-0 -right-2 w-0 h-0 z-[1] border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-primary;
     }
+
     .dark .wa-outbound::after {
         @apply border-t-primary-dark;
     }
-
 }
 
 @utility text-onInfo {

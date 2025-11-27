@@ -4,13 +4,37 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use \Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Property extends Model
 {
+    use HasSlug;
+
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('property_name')
+            ->saveSlugsTo('slug')
+            ->slugsShouldBeNoLongerThan(255);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     // relation to District
     public function district()
     {
         return $this->belongsTo(District::class, 'district_id');
+    }
+
+    public function rooms(): HasMany
+    {
+        return $this->hasMany(Room::class);
     }
 
     public function scopeIsNear(Builder $query, float $lat, float $lon, int $maxDistanceKm)
