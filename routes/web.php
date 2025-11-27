@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::domain('site.cohomesg.test')->group(function () {
+Route::domain(env('SITE_APP_DOMAIN'))->group(function () {
 
     Route::get('/test', function () {
             return view('site.test');
@@ -28,6 +28,9 @@ Route::domain('site.cohomesg.test')->group(function () {
 });
 
 
+Route::get('/', function () {
+    return redirect(route('home'));
+});
 
 Route::get('/licence', function () {
     return view('licence');

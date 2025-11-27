@@ -22,6 +22,9 @@
             </div>
             <div class="grow"></div>    {{-- spacer --}}
             <div>
+                <a href="https://www.aethel-ai.com" target="_blank" class="ml-2 text-xs text-gray-400">Powered by Aethel AI</a>
+            </div>
+            <div>
                 <a href="{{ route('licence') }}" target="_blank" class="ml-2 text-xs text-gray-400">Licences</a>
             </div>
         </div>
