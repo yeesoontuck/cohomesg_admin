@@ -32,9 +32,7 @@ Route::get('/', function () {
     return redirect(route('home'));
 });
 
-Route::get('/licence', function () {
-    return view('licence');
-})->name('licence');
+Route::view('/licence', 'licence')->name('licence');
 
 // Authenticated routes
 Route::group(['middleware' => ['auth']], function () {
