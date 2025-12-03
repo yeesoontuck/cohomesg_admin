@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::domain(env('SITE_APP_DOMAIN'))->group(function () {
 
-    Route::get('/test', function () {
-            return view('site.test');
-        })->name('test');
+    // Route::get('/test', function () {
+    //         return view('site.test');
+    //     })->name('test');
     // Route::get('/test', function () {
     //     $rooms = App\Models\Room::all();
         
@@ -54,8 +54,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/whatsapp/{user}/latest', [App\Http\Controllers\WhatsappMessageController::class, 'latest'])->name('whatsapp.latest');
     Route::get('/whatsapp/media', [App\Http\Controllers\WhatsappMessageController::class, 'load_media'])->name('media.show');
 
-    Route::resource('properties', App\Http\Controllers\PropertyController::class);
     Route::resource('districts', App\Http\Controllers\DistrictController::class);
+    Route::resource('properties', App\Http\Controllers\PropertyController::class);
+    Route::get('rooms/{property}', [App\Http\Controllers\RoomController::class, 'index'])->name('rooms.index');
+    Route::get('rooms/{property}/{room}/edit', [App\Http\Controllers\RoomController::class, 'edit'])->name('rooms.edit');
+    Route::put('rooms/{property}/{room}', [App\Http\Controllers\RoomController::class, 'update'])->name('rooms.update');
 
     Route::get('openai', [App\Http\Controllers\OpenaiController::class, 'index'])->name('openai.index');
     Route::get('openai/inquiry', [App\Http\Controllers\OpenaiController::class, 'inquiry'])->name('openai.inquiry');

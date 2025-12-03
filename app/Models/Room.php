@@ -29,4 +29,9 @@ class Room extends Model
     {
         return $this->belongsTo(Property::class);
     }
+
+    public function room_detail()
+    {
+        return $this->hasOne(RoomDetail::class);
+    }
 }

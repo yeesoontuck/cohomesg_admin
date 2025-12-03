@@ -65,9 +65,13 @@
                                     </div>
                                 @endforeach
                             </td>
-                            <td class="p-4"><button type="button" class="btn-primary px-2 py-1 text-xs">
+                            <td class="p-4">
+                                <a href="#" class="inline-block btn-primary px-2 py-1 text-xs">
                                     Details
-                                </button>
+                                </a>
+                                <a href="{{ route('rooms.index', $property) }}" class="inline-block btn-success px-2 py-1 text-xs">
+                                    Rooms
+                                </a>
                             </td>
                         </tr>
                     @endforeach
