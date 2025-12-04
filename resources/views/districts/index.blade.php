@@ -16,7 +16,7 @@
         </div>
 
         @if(session('success'))
-        <div class="bg-green-200 dark:bg-green-700 px-4 py-2 mb-8">{{ session('success') }}</div>
+        <x-toast>{{ session('success') }}</x-toast>
         @endif
         
         <div

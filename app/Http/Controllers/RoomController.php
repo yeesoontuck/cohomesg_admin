@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Property;
 use App\Models\Room;
+use App\Models\RoomDetail;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -37,17 +38,50 @@ class RoomController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Property $property)
     {
-        //
+        return view('rooms.create')->with([
+            'property' => $property,
+            'room_types' => $this->room_types,
+            'bed_types' => $this->bed_types,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Property $property)
     {
-        //
+        $validated = $request->validate([
+            'room_number' => 'required|string|max:255',
+            'room_type' => 'required|string|in:' . implode(',', array_keys($this->room_types)),
+            'bed_type' => 'required|string|in:' . implode(',', array_keys($this->bed_types)),
+            'price_month' => 'required|numeric|min:0',
+            'utilities' => 'required|numeric|min:0',
+        ]);
+
+        $room = new Room();
+        $room->property_id = $property->id;
+        $room->room_number = $validated['room_number'];
+        $room->price_month = $validated['price_month'];
+        $room->utilities = $validated['utilities'];
+        $room->save();
+
+        $room_detail = new RoomDetail();
+        $room_detail->room_id = $room->id;
+        $room_detail->details = [
+            'room' => $validated['room_type'],
+            'bed' => $validated['bed_type'],
+            'wi-fi' => $request->has('wi-fi'),
+            'aircon' => $request->has('aircon'),
+            'window' => $request->has('window'),
+            'cleaning' => $request->has('cleaning'),
+            'furnishings' => $request->has('furnishings'),
+        ];
+        $room_detail->save();
+
+
+        return redirect()->route('rooms.index', $property)->with('success', 'Room created successfully.');
     }
 
     /**

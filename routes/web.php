@@ -57,6 +57,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('districts', App\Http\Controllers\DistrictController::class);
     Route::resource('properties', App\Http\Controllers\PropertyController::class);
     Route::get('rooms/{property}', [App\Http\Controllers\RoomController::class, 'index'])->name('rooms.index');
+    Route::get('rooms/{property}/new', [App\Http\Controllers\RoomController::class, 'create'])->name('rooms.create');
+    Route::post('rooms/{property}', [App\Http\Controllers\RoomController::class, 'store'])->name('rooms.store');
     Route::get('rooms/{property}/{room}/edit', [App\Http\Controllers\RoomController::class, 'edit'])->name('rooms.edit');
     Route::put('rooms/{property}/{room}', [App\Http\Controllers\RoomController::class, 'update'])->name('rooms.update');
 
