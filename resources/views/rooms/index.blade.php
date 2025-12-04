@@ -40,6 +40,12 @@
                 </thead>
                 <tbody class="divide-y divide-outline dark:divide-outline-dark">
 
+                    @if ($rooms->isEmpty())
+                        <tr>
+                            <td colspan="7" class="p-4 text-center">-- empty --</td>
+                        </tr>
+                    @endif
+
                     @foreach ($rooms as $room)
                         <tr>
                             <td class="p-4">

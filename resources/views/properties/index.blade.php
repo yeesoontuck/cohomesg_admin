@@ -3,7 +3,7 @@
 
         <div class="flex justify-between mb-4">
             <h1 class="text-2xl font-bold">Properties</h1>
-            <a href="#"
+            <a href="{{ route('properties.create') }}"
                 class="inline-flex justify-center items-center gap-2 whitespace-nowrap rounded-radius bg-primary border border-primary dark:border-primary-dark px-2 py-1 text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark">
                 <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                     class="size-4 fill-on-primary dark:fill-on-primary-dark" fill="currentColor">
@@ -66,7 +66,7 @@
                                 @endforeach
                             </td>
                             <td class="p-4">
-                                <a href="#" class="inline-block btn-primary px-2 py-1 text-xs">
+                                <a href="{{ route('properties.show', $property) }}" class="inline-block btn-primary px-2 py-1 text-xs">
                                     Details
                                 </a>
                                 <a href="{{ route('rooms.index', $property) }}" class="inline-block btn-success px-2 py-1 text-xs">
