@@ -56,6 +56,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('districts', App\Http\Controllers\DistrictController::class);
     Route::resource('properties', App\Http\Controllers\PropertyController::class);
+    Route::post('properties/sort', [App\Http\Controllers\PropertyController::class, 'sort'])->name('properties.sort');
+
     Route::get('rooms/{property}', [App\Http\Controllers\RoomController::class, 'index'])->name('rooms.index');
     Route::get('rooms/{property}/new', [App\Http\Controllers\RoomController::class, 'create'])->name('rooms.create');
     Route::post('rooms/{property}', [App\Http\Controllers\RoomController::class, 'store'])->name('rooms.store');
@@ -64,5 +66,5 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('openai', [App\Http\Controllers\OpenaiController::class, 'index'])->name('openai.index');
     Route::get('openai/inquiry', [App\Http\Controllers\OpenaiController::class, 'inquiry'])->name('openai.inquiry');
-
+    // Route::view('test', 'test');
 });

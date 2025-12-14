@@ -7,6 +7,7 @@ import Alpine from 'alpinejs'
 import collapse from '@alpinejs/collapse'
 import mask from '@alpinejs/mask'
 import focus from '@alpinejs/focus'
+import sort from '@alpinejs/sort'
 import './lightbox'
 
 window.Alpine = Alpine
@@ -14,5 +15,6 @@ window.Alpine = Alpine
 Alpine.plugin(collapse)
 Alpine.plugin(mask)
 Alpine.plugin(focus)
+Alpine.plugin(sort)
 
 Alpine.start()

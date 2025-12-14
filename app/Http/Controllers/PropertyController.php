@@ -23,6 +23,52 @@ class PropertyController extends Controller
         return view('properties.index', compact('properties'));
     }
 
+    public function sort(Request $request)
+    {
+        // array:1 [ // app/Http/Controllers/PropertyController.php:28
+        //     "order" => array:7 [
+        //         0 => array:2 [
+        //         "id" => "7"
+        //         "sort_order" => 1
+        //         ]
+        //         1 => array:2 [
+        //         "id" => "2"
+        //         "sort_order" => 2
+        //         ]
+        //         2 => array:2 [
+        //         "id" => "1"
+        //         "sort_order" => 3
+        //         ]
+        //         3 => array:2 [
+        //         "id" => "4"
+        //         "sort_order" => 4
+        //         ]
+        //         4 => array:2 [
+        //         "id" => "5"
+        //         "sort_order" => 5
+        //         ]
+        //         5 => array:2 [
+        //         "id" => "3"
+        //         "sort_order" => 6
+        //         ]
+        //         6 => array:2 [
+        //         "id" => "6"
+        //         "sort_order" => 7
+        //         ]
+        //     ]
+        // ]
+        $validated = $request->validate([
+            'order' => 'required|array',
+            // 'order.*' => 'numeric',
+        ]);
+        
+        foreach ($validated['order'] as $index => $property) {
+            Property::where('id', $property['id'])->update(['sort_order' => $index + 1]);
+        }
+
+        return response()->json(['message' => 'Properties sorted successfully.']);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -18,6 +18,7 @@
         "@alpinejs/collapse": "^3.15.0",
         "@alpinejs/focus": "^3.15.0",
         "@alpinejs/mask": "^3.15.0",
+        "@alpinejs/sort": "^3.15.2",
         "alpinejs": "^3.15.0"
     }
 }
