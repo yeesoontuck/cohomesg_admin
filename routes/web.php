@@ -67,4 +67,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('openai', [App\Http\Controllers\OpenaiController::class, 'index'])->name('openai.index');
     Route::get('openai/inquiry', [App\Http\Controllers\OpenaiController::class, 'inquiry'])->name('openai.inquiry');
     // Route::view('test', 'test');
+    Route::get('test', [App\Http\Controllers\PdfController::class, 'test']);
+    Route::get('tenancy_agreement/{room_id}', [App\Http\Controllers\PdfController::class, 'tenancy_agreement']);
 });
