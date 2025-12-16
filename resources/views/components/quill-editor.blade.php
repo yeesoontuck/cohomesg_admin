@@ -26,17 +26,21 @@
                                         'header': 1
                                     }, {
                                         'header': 2
+                                    }, {
+                                        'header': 3
+                                    }, {
+                                        'header': 4
                                     }], // custom button values
                                     [{
                                         'list': 'ordered'
                                     }, {
                                         'list': 'bullet'
                                     }],
-                                    // [{
-                                    //     'script': 'sub'
-                                    // }, {
-                                    //     'script': 'super'
-                                    // }], // superscript/subscript
+                                    [{
+                                        'script': 'sub'
+                                    }, {
+                                        'script': 'super'
+                                    }], // superscript/subscript
                                     // [{
                                     //     'indent': '-1'
                                     // }, {
@@ -65,7 +69,7 @@
                                         'align': []
                                     }],
 
-                                    ['clean'] // remove formatting button
+                                    // ['clean'] // remove formatting button
 
                                 ],
                                 handlers: {
@@ -126,7 +130,7 @@
             }
 
             .ql-editor p {
-                margin-bottom: 0.5rem !important;
+                margin-bottom: 1rem !important;
             }
 
             .dark .ql-snow .ql-stroke {
