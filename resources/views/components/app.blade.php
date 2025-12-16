@@ -12,12 +12,16 @@
 
     <title>{{ config('app.name') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @stack('styles')
 </head>
 
 <body>
     <x-sidebar>
         {{ $slot }}
     </x-sidebar>
+
+    @stack('scripts')
 </body>
 
 </html>

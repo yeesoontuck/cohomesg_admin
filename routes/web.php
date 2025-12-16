@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 
 Route::domain(env('SITE_APP_DOMAIN'))->group(function () {
@@ -66,7 +67,15 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('openai', [App\Http\Controllers\OpenaiController::class, 'index'])->name('openai.index');
     Route::get('openai/inquiry', [App\Http\Controllers\OpenaiController::class, 'inquiry'])->name('openai.inquiry');
-    // Route::view('test', 'test');
-    Route::get('test', [App\Http\Controllers\PdfController::class, 'test']);
+    // Route::get('test', [App\Http\Controllers\PdfController::class, 'test']);
     Route::get('tenancy_agreement/{room_id}', [App\Http\Controllers\PdfController::class, 'tenancy_agreement']);
+    
+    
+    Route::prefix('documents')->group(function () {
+        Route::get('{document}/pdf', [App\Http\Controllers\DocumentController::class, 'pdf'])->name('documents.pdf');
+        Route::get('create', [App\Http\Controllers\DocumentController::class, 'create'])->name('documents.create');
+        Route::post('/', [App\Http\Controllers\DocumentController::class, 'store'])->name('documents.store');
+        Route::get('{document}/edit', [App\Http\Controllers\DocumentController::class, 'edit'])->name('documents.edit');
+        Route::put('{document}/edit', [App\Http\Controllers\DocumentController::class, 'update'])->name('documents.update');
+    });
 });

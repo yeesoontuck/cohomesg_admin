@@ -18,3 +18,22 @@ Alpine.plugin(focus)
 Alpine.plugin(sort)
 
 Alpine.start()
+
+
+import Quill from 'quill';
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+// import { Delta } from 'quill';
+// import Link from 'quill/formats/link';
+
+window.Quill = Quill;
+
+// const options = {
+// //   debug: 'info',
+//   modules: {
+//     toolbar: true,
+//   },
+//   placeholder: 'Compose an epic...',
+//   theme: 'snow'
+// };
+// const quill = new Quill('#editor', options);
