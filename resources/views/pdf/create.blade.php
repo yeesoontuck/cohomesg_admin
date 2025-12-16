@@ -49,10 +49,17 @@
                     <input id="name" type="text" name="name" maxlength="255"
                         class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                         value="{{ old('name') }}" placeholder="Document" required />
+                    @error('name')
+                        <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 {{-- Pass the document variables to the editor so toolbar buttons can be generated --}}
                 <x-quill-editor name="content" id="editor" defaultValue="" variables="{!! $variable_string !!}" />
+
+                @error('content')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                @enderror
 
                 <button type="submit" class="inline-block btn-primary mt-2">Save</button>
             </form>

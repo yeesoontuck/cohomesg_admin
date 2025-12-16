@@ -60,10 +60,19 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
+        // validation with custom error messages
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'content' => 'required|string',
+        ], [
+            'name.required' => 'The document name is required.',
+            'content.required' => 'The document content cannot be blank.',
+        ]);
+
         Document::create([
             'template' => 'tenancy_agreement',
-            'name' => $request->input('name'),
-            'contents' => $request->input('content'),
+            'name' => $validated['name'],
+            'contents' => $validated['content'],
         ]);
 
         return redirect()->route('documents.create');
@@ -99,8 +108,17 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
-        $document->contents = $request->input('content');
-        $document->name = $request->input('name');
+        // validation with custom error messages
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'content' => 'required|string',
+        ], [
+            'name.required' => 'The document name is required.',
+            'content.required' => 'The document content cannot be blank.',
+        ]);
+
+        $document->name = $validated['name'];
+        $document->contents = $validated['content'];
         $document->save();
 
         return redirect()->route('documents.edit', $document)

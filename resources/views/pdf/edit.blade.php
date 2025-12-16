@@ -24,7 +24,8 @@
                     @foreach ($document->variables as $var)
                         <tr class="even:bg-surface-alt dark:even:bg-primary-dark/20 border-b-1 border-on-surface/20">
                             <td class="px-4 pt-1">
-                                <button class="copy-btn inline-block text-blue-700 dark:text-blue-400 text-xs cursor-pointer"
+                                <button
+                                    class="copy-btn inline-block text-blue-700 dark:text-blue-400 text-xs cursor-pointer"
                                     title="copy">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -49,15 +50,24 @@
                     <input id="name" type="text" name="name" maxlength="255"
                         class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                         value="{{ old('name', $document->name) }}" placeholder="Document" required />
+                    @error('name')
+                        <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 {{-- Pass the document variables to the editor so toolbar buttons can be generated --}}
-                <x-quill-editor name="content" id="editor" defaultValue="{{ $document->contents }}" variables="{!! $variable_string !!}" />
+                <x-quill-editor name="content" id="editor" defaultValue="{{ $document->contents }}"
+                    variables="{!! $variable_string !!}" />
                 
-                    <button type="submit" class="inline-block btn-primary mt-2">Update</button>
+                @error('content')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                @enderror
+                
+                <button type="submit" class="inline-block btn-primary mt-2">Update</button>
             </form>
 
-            <a class="inline-block btn-info mt-2" href="{{ route('documents.pdf', $document) }}" target="_blank">View PDF</a>
+            <a class="inline-block btn-info mt-2" href="{{ route('documents.pdf', $document) }}" target="_blank">View
+                PDF</a>
 
         </div>
     </main>
