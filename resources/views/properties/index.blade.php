@@ -93,7 +93,7 @@
                     <tbody class="divide-y divide-outline dark:divide-outline-dark" x-sort="handleSort">
                         @foreach ($properties as $property)
                             <tr x-sort:item="{{ $property->id }}" id="{{ $property->id }}">
-                                <td class="bg-primary/6 dark:bg-primary-dark/20 cursor-ns-resize" x-sort:handle>
+                                <td class="bg-primary/6 dark:bg-primary-dark/20 cursor-ns-resize w-4 border-r-1 border-outline dark:border-outline-dark" x-sort:handle>
                                     <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" class="w-4 h-4" 
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5 10H19M14 19L12 21L10 19M14 5L12 3L10 5M5 14H19" stroke="currentColor"
