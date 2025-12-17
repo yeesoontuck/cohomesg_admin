@@ -41,7 +41,7 @@
                 </tbody>
             </table>
 
-            <form action="{{ route('documents.store') }}" method="POST" class="p-8 max-w-4xl">
+            <form action="{{ route('documents.store') }}" method="POST" class="p-8 overflow-hidden w-full max-w-4xl overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
                 @csrf
 
                 <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
