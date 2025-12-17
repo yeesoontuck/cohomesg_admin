@@ -19,7 +19,7 @@ Route::domain(env('SITE_APP_DOMAIN'))->group(function () {
     // });
     Route::get('/what-is-co-living', [App\Http\Controllers\SiteController::class, 'whatiscoliving'])->name('whatiscoliving');
     Route::get('/about-us', [App\Http\Controllers\SiteController::class, 'aboutus'])->name('aboutus');
-    Route::get('/room/{room}', [App\Http\Controllers\SiteController::class, 'room'])->name('room_details');
+    Route::get('/room/{room:slug}', [App\Http\Controllers\SiteController::class, 'room'])->name('room_details');
     Route::get('/expats', [App\Http\Controllers\SiteController::class, 'expats'])->name('expats');
     Route::get('/coliving-for-students-interns', [App\Http\Controllers\SiteController::class, 'students'])->name('students');
     Route::get('/coliving-perks', [App\Http\Controllers\SiteController::class, 'perks'])->name('perks');
@@ -59,11 +59,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('properties', App\Http\Controllers\PropertyController::class);
     Route::post('properties/sort', [App\Http\Controllers\PropertyController::class, 'sort'])->name('properties.sort');
 
-    Route::get('rooms/{property}', [App\Http\Controllers\RoomController::class, 'index'])->name('rooms.index');
-    Route::get('rooms/{property}/new', [App\Http\Controllers\RoomController::class, 'create'])->name('rooms.create');
-    Route::post('rooms/{property}', [App\Http\Controllers\RoomController::class, 'store'])->name('rooms.store');
-    Route::get('rooms/{property}/{room}/edit', [App\Http\Controllers\RoomController::class, 'edit'])->name('rooms.edit');
-    Route::put('rooms/{property}/{room}', [App\Http\Controllers\RoomController::class, 'update'])->name('rooms.update');
+    Route::get('properties/{property}/rooms', [App\Http\Controllers\RoomController::class, 'index'])->name('rooms.index');
+    Route::get('properties/{property}/rooms/new', [App\Http\Controllers\RoomController::class, 'create'])->name('rooms.create');
+    Route::post('properties/{property}/rooms', [App\Http\Controllers\RoomController::class, 'store'])->name('rooms.store');
+    Route::get('properties/{property}/rooms/{room}/edit', [App\Http\Controllers\RoomController::class, 'edit'])->name('rooms.edit');
+    Route::put('properties/{property}/rooms/{room}', [App\Http\Controllers\RoomController::class, 'update'])->name('rooms.update');
 
     Route::get('openai', [App\Http\Controllers\OpenaiController::class, 'index'])->name('openai.index');
     Route::get('openai/inquiry', [App\Http\Controllers\OpenaiController::class, 'inquiry'])->name('openai.inquiry');
