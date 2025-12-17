@@ -20,10 +20,10 @@ class Room extends Model
             ->slugsShouldBeNoLongerThan(255);
     }
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 
     public function property(): BelongsTo
     {

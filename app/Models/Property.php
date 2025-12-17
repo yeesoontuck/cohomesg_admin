@@ -21,10 +21,10 @@ class Property extends Model
             ->slugsShouldBeNoLongerThan(255);
     }
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 
     // relation to District
     public function district()
