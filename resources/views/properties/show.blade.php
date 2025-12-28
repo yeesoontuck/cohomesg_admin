@@ -1,5 +1,5 @@
 <x-app>
-    <main class="flex-1 dark:text-white">
+    <main id="main" class="flex-1 dark:text-white">
 
         <h3 class="text-lg mb-4">Property</h3>
 
@@ -88,9 +88,9 @@
 {{-- 
         "property_amenities": "[\"Communal kitchen with cooking equipment\", \"Laundry facilities\"]", --}}
 
-            <a href="{{ route('properties.edit', $property) }}" class="inline-block btn-info">Edit</a>
+            <a x-target.push="main" href="{{ route('properties.edit', $property) }}" class="inline-block btn-info">Edit</a>
 
-            <a href="{{ route('properties.index') }}" class="inline-block btn-outline-inverse">Back</a>
+            <a x-target.push="main" href="{{ route('properties.index') }}" class="inline-block btn-outline-inverse">Back</a>
 
         </div>
     </main>

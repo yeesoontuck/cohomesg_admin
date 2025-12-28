@@ -81,7 +81,7 @@ class RoomController extends Controller
         $room_detail->save();
 
 
-        return redirect()->route('rooms.index', $property)->with('success', 'Room created successfully.');
+        return to_route('rooms.index', $property)->with('success', 'Room created successfully.');
     }
 
     /**
@@ -139,14 +139,16 @@ class RoomController extends Controller
         $room->utilities = $validated['utilities'];
         $room->save();
 
-        return redirect()->route('rooms.index', $property)->with('success', 'Room updated successfully.');
+        return to_route('rooms.index', $property)->with('success', 'Room updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Room $room)
+    public function destroy(Property $property, Room $room)
     {
-        //
+        $room->delete();
+
+        return to_route('rooms.index', $property)->with('warning', 'Room deleted successfully.');
     }
 }

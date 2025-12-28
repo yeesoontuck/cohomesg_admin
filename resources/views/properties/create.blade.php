@@ -1,11 +1,11 @@
 <x-app>
-    <main class="flex-1 dark:text-white">
+    <main id="main" class="flex-1 dark:text-white">
 
         <h3 class="text-lg mb-4">New Property</h3>
 
         <div class="overflow-hidden w-full overflow-x-auto">
 
-            <form action="{{ route('properties.store') }}" method="POST"
+            <form x-target.push="main" action="{{ route('properties.store') }}" method="POST"
                 class="p-8 overflow-hidden w-full max-w-4xl overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
                 @csrf
 
@@ -114,7 +114,7 @@
 
                 <button type="submit" class="btn-primary">Save</button>
 
-                <a href="{{ route('properties.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
+                <a x-target.push="main" href="{{ route('properties.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
             </form>
         </div>
     </main>

@@ -1,5 +1,5 @@
 <x-app>
-    <main class="flex-1 dark:text-white">
+    <main id="main" class="flex-1 dark:text-white">
 
         <div class="flex justify-between mb-4">
             <h1 class="text-2xl font-bold">Edit Room</h1>
@@ -7,7 +7,7 @@
         <h3 class="text-lg mb-4">{{ $property->property_name }}</h3>
 
         <div class="overflow-hidden w-full overflow-x-auto">
-            <form action="{{ route('rooms.update', [$property, $room]) }}" method="POST"
+            <form x-target="main" action="{{ route('rooms.update', [$property, $room]) }}" method="POST"
                 class="p-8 overflow-hidden w-full max-w-4xl overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
                 @csrf
                 @method('PUT')
@@ -150,11 +150,20 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn-primary">Update</button>
+                <div class="flex justify-between">
+                    <div class="flex gap-2">
+                        <button type="submit" class="btn-primary">Update</button>
+                        <a x-target.push="main" href="{{ route('rooms.index', $property) }}" class="inline-block btn-outline-inverse">Cancel</a>
+                    </div>
 
-                <a href="{{ route('rooms.index', $property) }}" class="inline-block btn-outline-inverse">Cancel</a>
+                    <button form="delete_form" x-target.push="main" class="btn-outline-danger">Delete</button>
+                </div>
             </form>
-
+            
+            <form x-target="main" id="delete_form" @ajax:before="confirm('Are you sure?') || $event.preventDefault()" action="{{ route('rooms.delete', [$property, $room]) }}" method="POST">
+                @csrf
+                @method('delete')
+            </form>
 
 
 

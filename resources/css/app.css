@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@view-transition {
+  navigation: auto;
+}
+
 @font-face {
     font-family: 'Lato';
     src: url('/resources/fonts/Lato/Lato-Regular.ttf') format('truetype');

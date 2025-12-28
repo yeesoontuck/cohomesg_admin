@@ -109,7 +109,7 @@ class PropertyController extends Controller
         $property->sort_order = $max_sort_order + 1;
         $property->save();
 
-        return redirect()->route('properties.show', $property)->with('success', 'Property created successfully.');
+        return to_route('properties.show', $property)->with('success', 'Property created successfully.');
     }
 
     /**
@@ -159,7 +159,7 @@ class PropertyController extends Controller
         $property->longitude = $validated['longitude'];
         $property->save();
 
-        return redirect()->route('properties.show', $property)->with('success', 'Property updated successfully.');
+        return to_route('properties.show', $property)->with('success', 'Property updated successfully.');
     }
 
     /**

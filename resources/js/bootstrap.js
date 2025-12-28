@@ -9,6 +9,7 @@ import mask from '@alpinejs/mask'
 import focus from '@alpinejs/focus'
 import sort from '@alpinejs/sort'
 import './lightbox'
+import ajax from '@imacrayon/alpine-ajax'
 
 window.Alpine = Alpine
 
@@ -16,6 +17,7 @@ Alpine.plugin(collapse)
 Alpine.plugin(mask)
 Alpine.plugin(focus)
 Alpine.plugin(sort)
+Alpine.plugin(ajax)
 
 Alpine.start()
 
