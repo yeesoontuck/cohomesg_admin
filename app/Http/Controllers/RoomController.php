@@ -81,7 +81,10 @@ class RoomController extends Controller
         $room_detail->save();
 
 
-        return to_route('rooms.index', $property)->with('success', 'Room created successfully.');
+        return to_route('rooms.index', $property)->with('toast', [
+            'type' => 'success',
+            'message' => 'Room created successfully.'
+        ]);
     }
 
     /**
@@ -139,7 +142,10 @@ class RoomController extends Controller
         $room->utilities = $validated['utilities'];
         $room->save();
 
-        return to_route('rooms.index', $property)->with('success', 'Room updated successfully.');
+        return to_route('rooms.index', $property)->with('toast', [
+            'type' => 'success',
+            'message' => 'Room updated successfully.'
+        ]);
     }
 
     /**
@@ -149,6 +155,9 @@ class RoomController extends Controller
     {
         $room->delete();
 
-        return to_route('rooms.index', $property)->with('warning', 'Room deleted successfully.');
+        return to_route('rooms.index', $property)->with('toast', [
+            'type' => 'warning',
+            'message' => 'Room deleted successfully.'
+        ]);
     }
 }

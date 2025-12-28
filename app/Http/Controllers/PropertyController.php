@@ -88,12 +88,14 @@ class PropertyController extends Controller
     {
         $validated = $request->validate([
             'estate_name' => 'required|string|max:255',
-            'property_name' => 'required|string|max:255',
+            'property_name' => 'required|string|max:255|unique:properties,property_name',
             'district_id' => 'required|numeric',
             'property_type' => 'required|string|max:50',
             'address' => 'required|string',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
+        ], [
+            'property_name.unique' => 'This property name already exists.',
         ]);
 
         $max_sort_order = Property::max('sort_order') ?? 0;
@@ -109,7 +111,10 @@ class PropertyController extends Controller
         $property->sort_order = $max_sort_order + 1;
         $property->save();
 
-        return to_route('properties.show', $property)->with('success', 'Property created successfully.');
+        return to_route('properties.show', $property)->with('toast', [
+            'type' => 'success',
+            'message' => 'Property created successfully.'
+        ]);
     }
 
     /**
@@ -141,7 +146,7 @@ class PropertyController extends Controller
     {
         $validated = $request->validate([
             'estate_name' => 'required|string|max:255',
-            'property_name' => 'required|string|max:255',
+            'property_name' => 'required|string|max:255|unique:properties,property_name,' . $property->id,
             'district_id' => 'required|numeric',
             'property_type' => 'required|string|max:50',
             'address' => 'required|string',
@@ -159,13 +164,32 @@ class PropertyController extends Controller
         $property->longitude = $validated['longitude'];
         $property->save();
 
-        return to_route('properties.show', $property)->with('success', 'Property updated successfully.');
+        return to_route('properties.show', $property)->with('toast', [
+            'type' => 'success',
+            'message' => 'Property updated successfully.'
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Property $property) {}
+    public function destroy(Property $property) 
+    {
+        // delete rooms and room details
+        $property->rooms()->each(function ($room) {
+            $room->room_detail()->each(function ($detail) {
+                $detail->delete();
+            });
+            $room->delete();
+        });
+
+        $property->delete();
+
+        return to_route('properties.index')->with('toast', [
+            'type' => 'warning',
+            'message' => 'Property deleted successfully.'
+        ]);
+    }
 
     /**
      * Search properties

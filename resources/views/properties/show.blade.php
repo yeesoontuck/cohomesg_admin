@@ -3,8 +3,8 @@
 
         <h3 class="text-lg mb-4">Property</h3>
 
-        @if(session('success'))
-        <x-toast>{{ session('success') }}</x-toast>
+        @if(session('toast'))
+        <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
         @endif
 
         <div class="overflow-hidden w-full overflow-x-auto">
@@ -85,13 +85,25 @@
                 </div>
             </div>
 
-{{-- 
+            {{-- 
         "property_amenities": "[\"Communal kitchen with cooking equipment\", \"Laundry facilities\"]", --}}
 
-            <a x-target.push="main" href="{{ route('properties.edit', $property) }}" class="inline-block btn-info">Edit</a>
+            <div class="flex justify-between">
+                <div class="flex gap-2">
+                    <a x-target.push="main" href="{{ route('properties.edit', $property) }}"
+                        class="inline-block btn-info">Edit</a>
+                    <a x-target.push="main" href="{{ route('properties.index') }}"
+                        class="inline-block btn-outline-inverse">Back</a>
+                </div>
 
-            <a x-target.push="main" href="{{ route('properties.index') }}" class="inline-block btn-outline-inverse">Back</a>
-
+                <button form="delete_form" x-target.push="main"
+                    class="btn-outline-danger bg-red-100 dark:bg-red-950">Delete</button>
+            </div>
         </div>
+        
+        <form x-target.push="main" id="delete_form" @ajax:before="confirm('Are you sure?') || $event.preventDefault()" action="{{ route('properties.destroy', $property) }}" method="POST">
+            @csrf
+            @method('delete')
+        </form>
     </main>
 </x-app>

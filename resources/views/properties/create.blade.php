@@ -14,14 +14,20 @@
                         <label for="estate_name" class="w-fit pl-0.5 text-sm">Estate Name</label>
                         <input id="estate_name" type="text" name="estate_name"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
-                            value="" placeholder="Changi Court" required>
+                            value="{{ old('estate_name') }}" placeholder="Changi Court" required>
+                        @error('estate_name')
+                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
                         <label for="property_name" class="w-fit pl-0.5 text-sm">Property Name</label>
                         <input id="property_name" type="text" name="property_name"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
-                            value="" placeholder="Changi Court 02-07" required>
-                        </p>
+                            value="{{ old('property_name') }}" placeholder="Changi Court 02-07" required>
+                        @error('property_name')
+                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                        @enderror
+                    </p>
                     </div>
                 </div>
 
@@ -38,7 +44,7 @@
                             class="w-full appearance-none rounded-radius border border-outline bg-surface-alt px-4 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark">
                             <option value="" disabled selected>- select -</option>
                             @foreach ($districts as $district)
-                                <option value="{{ $district->id }}" @selected(old('district') == $district->id)>
+                                <option value="{{ $district->id }}" @selected(old('district_id') == $district->id)>
                                     {{ 'D' . $district->id . ' ' . $district->district_name }}
                                 </option>
                             @endforeach

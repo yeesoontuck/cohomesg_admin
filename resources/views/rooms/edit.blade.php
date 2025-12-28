@@ -156,11 +156,11 @@
                         <a x-target.push="main" href="{{ route('rooms.index', $property) }}" class="inline-block btn-outline-inverse">Cancel</a>
                     </div>
 
-                    <button form="delete_form" x-target.push="main" class="btn-outline-danger">Delete</button>
+                    <button form="delete_form" x-target.push="main" class="btn-outline-danger bg-red-100 dark:bg-red-950">Delete</button>
                 </div>
             </form>
             
-            <form x-target="main" id="delete_form" @ajax:before="confirm('Are you sure?') || $event.preventDefault()" action="{{ route('rooms.delete', [$property, $room]) }}" method="POST">
+            <form x-target.push="main" id="delete_form" @submit="confirm('Are you sure?') || $event.preventDefault()" action="{{ route('rooms.delete', [$property, $room]) }}" method="POST">
                 @csrf
                 @method('delete')
             </form>

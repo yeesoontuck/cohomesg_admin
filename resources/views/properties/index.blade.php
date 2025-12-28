@@ -15,6 +15,9 @@
             </a>
         </div>
 
+        @if(session('toast'))
+        <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
+        @endif
 
         <div x-data="{
         

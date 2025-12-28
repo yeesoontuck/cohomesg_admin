@@ -19,8 +19,8 @@
             {{ $property->property_name }} - {{ $property->district->district_name }} (D{{ $property->district->id }})
         </h3>
 
-        @if(session('success'))
-        <x-toast>{{ session('success') }}</x-toast>
+        @if(session('toast'))
+        <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
         @endif
 
         <div

@@ -121,8 +121,10 @@ class DocumentController extends Controller
         $document->contents = $validated['content'];
         $document->save();
 
-        return redirect()->route('documents.edit', $document)
-        ->with('success', 'Document updated successfully.');
+        return redirect()->route('documents.edit', $document)->with('toast', [
+            'type' => 'success',
+            'message' => 'Document updated successfully.'
+        ]);
     }
 
     /**

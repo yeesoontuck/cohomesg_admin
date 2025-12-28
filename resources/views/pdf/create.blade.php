@@ -1,7 +1,7 @@
 <x-app>
 
-    @if (session('success'))
-        <x-toast>{{ session('success') }}</x-toast>
+    @if(session('toast'))
+        <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
     @endif
 
     <main class="flex-1 dark:text-white">

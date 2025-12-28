@@ -40,7 +40,10 @@ class DistrictController extends Controller
         // create new district
         District::create($validated);
 
-        return redirect()->route('districts.index')->with('success', 'District created successfully.');
+        return redirect()->route('districts.index')->with('toast', [
+            'type' => 'success',
+            'message' => 'District created successfully.'
+        ]);
     }
 
     /**
@@ -74,7 +77,10 @@ class DistrictController extends Controller
         // update district
         $district->update($validated);
 
-        return redirect()->route('districts.index')->with('success', 'District updated successfully.');
+        return redirect()->route('districts.index')->with('toast', [
+            'type' => 'success',
+            'message' => 'District updated successfully.'
+        ]);
     }
 
     /**
@@ -84,6 +90,9 @@ class DistrictController extends Controller
     {
         $district->delete();
 
-        return redirect()->route('districts.index')->with('success', 'District deleted successfully.');
+        return redirect()->route('districts.index')->with('toast', [
+            'type' => 'warning',
+            'message' => 'District deleted successfully.'
+        ]);
     }
 }
