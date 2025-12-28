@@ -25,7 +25,7 @@ Route::domain(env('SITE_APP_DOMAIN'))->group(function () {
     Route::get('/coliving-perks', [App\Http\Controllers\SiteController::class, 'perks'])->name('perks');
     Route::get('/landlords', [App\Http\Controllers\SiteController::class, 'landlords'])->name('landlords');
     
-    Route::get('/{property?}', [App\Http\Controllers\SiteController::class, 'index'])->name('site');
+    Route::get('/{property:slug?}', [App\Http\Controllers\SiteController::class, 'index'])->name('site');
 });
 
 

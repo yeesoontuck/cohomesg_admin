@@ -17,7 +17,7 @@
 
         <!-- sidebar links  -->
         <div class="flex flex-col h-full justify-between">
-            <div class="flex flex-col gap-2 overflow-y-auto py-6" x-data="{ current: window.location.href }">
+            <div class="flex flex-col gap-2 overflow-y-auto py-6 antialiased" x-data="{ current: window.location.href }">
                 @include('components.sidebar-links')
             </div>
             <div class="grow"></div>    {{-- spacer --}}
