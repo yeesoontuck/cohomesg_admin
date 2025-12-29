@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use App\Models\Room;
 use App\Models\RoomDetail;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class RoomController extends Controller
 {
@@ -29,6 +31,8 @@ class RoomController extends Controller
      */
     public function index(Request $request, Property $property)
     {
+        Gate::authorize('viewAny', Property::class);
+
         $property->load('district');
         $rooms = Room::with('room_detail')->where('property_id', $property->id)->orderBy('room_number')->get();
         
@@ -40,6 +44,8 @@ class RoomController extends Controller
      */
     public function create(Property $property)
     {
+        Gate::authorize('create', Property::class);
+
         return view('rooms.create')->with([
             'property' => $property,
             'room_types' => $this->room_types,
@@ -52,6 +58,8 @@ class RoomController extends Controller
      */
     public function store(Request $request, Property $property)
     {
+        Gate::authorize('create', Property::class);
+        
         $validated = $request->validate([
             'room_number' => 'required|string|max:255',
             'room_type' => 'required|string|in:' . implode(',', array_keys($this->room_types)),
@@ -100,6 +108,8 @@ class RoomController extends Controller
      */
     public function edit(Property $property, Room $room)
     {
+        Gate::authorize('update', Property::class);
+        
         $room->load('room_detail');
 
         return view('rooms.edit')->with([
@@ -115,6 +125,8 @@ class RoomController extends Controller
      */
     public function update(Request $request, Property $property, Room $room)
     {
+        Gate::authorize('update', Property::class);
+        
         $validated = $request->validate([
             'room_number' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:rooms,slug,' . $room->id,
@@ -153,6 +165,8 @@ class RoomController extends Controller
      */
     public function destroy(Property $property, Room $room)
     {
+        Gate::authorize('delete', Property::class);
+        
         $room->delete();
 
         return to_route('rooms.index', $property)->with('toast', [

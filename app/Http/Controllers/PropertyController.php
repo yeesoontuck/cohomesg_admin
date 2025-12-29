@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\District;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class PropertyController extends Controller
 {
@@ -18,6 +19,8 @@ class PropertyController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', Property::class);
+
         $properties = Property::with(['district', 'rooms'])->orderBy('sort_order')->get();
 
         return view('properties.index', compact('properties'));
@@ -74,6 +77,8 @@ class PropertyController extends Controller
      */
     public function create() 
     {
+        Gate::authorize('create', Property::class);
+
         $districts = District::orderBy('id')->get();
 
         return view('properties.create')
@@ -86,6 +91,8 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create', Property::class);
+
         $validated = $request->validate([
             'estate_name' => 'required|string|max:255',
             'property_name' => 'required|string|max:255|unique:properties,property_name',
@@ -122,6 +129,8 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
+        Gate::authorize('view', $property);
+        
         $property->load('district');
 
         return view('properties.show', compact('property'));
@@ -132,6 +141,8 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
+        Gate::authorize('update', $property);
+
         $districts = District::orderBy('id')->get();
 
         return view('properties.edit')->with('districts', $districts)
@@ -144,6 +155,8 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
+        Gate::authorize('update', $property);
+
         $validated = $request->validate([
             'estate_name' => 'required|string|max:255',
             'property_name' => 'required|string|max:255|unique:properties,property_name,' . $property->id,
@@ -175,6 +188,8 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property) 
     {
+        Gate::authorize('delete', $property);
+
         // delete rooms and room details
         $property->rooms()->each(function ($room) {
             $room->room_detail()->each(function ($detail) {

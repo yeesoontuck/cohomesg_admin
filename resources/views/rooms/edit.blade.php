@@ -157,9 +157,11 @@
                             class="inline-block btn-outline-inverse">Cancel</a>
                     </div>
 
+                    @can('delete', $property)
                     <button type="button"
                         @click="open = true; deleteUrl = '{{ route('rooms.delete', [$property, $room]) }}'"
                         class="btn-outline-danger bg-red-100 dark:bg-red-950">Delete</button>
+                    @endcan
                 </div>
             </form>
 

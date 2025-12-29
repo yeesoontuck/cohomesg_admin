@@ -3,6 +3,8 @@
 
         <div class="flex justify-between mb-4">
             <h1 class="text-2xl font-bold">Properties</h1>
+            
+            @can('create', App\Models\Property::class)
             <a x-target.push="main" href="{{ route('properties.create') }}"
                 class="inline-flex justify-center items-center gap-2 whitespace-nowrap rounded-radius bg-primary border border-primary dark:border-primary-dark px-2 py-1 text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark">
                 <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -13,6 +15,7 @@
                 </svg>
                 New Property
             </a>
+            @endcan
         </div>
 
         @if(session('toast'))
@@ -90,7 +93,9 @@
                             <th scope="col" class="p-4">Address</th>
                             <th scope="col" class="p-4">District</th>
                             <th scope="col" class="p-4">Rooms</th>
-                            <th scope="col" class="p-4">Actions</th>
+                            @can('view', App\Models\Property::class)
+                                <th scope="col" class="p-4">Actions</th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-outline dark:divide-outline-dark" x-sort="handleSort">
@@ -114,7 +119,7 @@
                                 <td class="p-4">D{{ $property->district_id }}
                                     {{ $property->district->district_name }}
                                 </td>
-                                <td>
+                                <td class="p-4">
                                     <div class="flex flex-nowrap">
                                     @foreach ($property->rooms as $room)
                                         @php $occupied = rand(0, 1); @endphp
@@ -142,6 +147,7 @@
                                     @endforeach
                                     </div>
                                 </td>
+                                @can('view', $property)
                                 <td class="p-4">
                                     <div class="flex flex-col lg:flex-row gap-2">
                                         <a x-target.push="main" href="{{ route('properties.show', $property) }}"
@@ -154,6 +160,7 @@
                                         </a>
                                     </div>
                                 </td>
+                                @endcan
                             </tr>
                         @endforeach
                     </tbody>

@@ -90,14 +90,18 @@
 
             <div class="flex justify-between">
                 <div class="flex gap-2">
+                    @can('update', $property)
                     <a x-target.push="main" href="{{ route('properties.edit', $property) }}"
                         class="inline-block btn-info">Edit</a>
+                    @endcan
                     <a x-target.push="main" href="{{ route('properties.index') }}"
                         class="inline-block btn-outline-inverse">Back</a>
                 </div>
 
+                @can('delete', $property)
                 <button type="button" @click="open = true; deleteUrl = '{{ route('properties.destroy', $property) }}'"
                     class="btn-outline-danger bg-red-100 dark:bg-red-950">Delete</button>
+                @endcan
             </div>
 
 
