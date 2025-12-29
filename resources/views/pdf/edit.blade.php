@@ -1,12 +1,14 @@
 <x-app>
-
-    @if(session('toast'))
-        <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
-    @endif
-
-    <main class="flex-1 dark:text-white">
-
-        <h3 class="text-lg mb-4">Edit Tenancy Agreement</h3>
+    <main id="main" class="flex-1 dark:text-white">
+    
+        @if(session('toast'))
+            <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
+        @endif
+        
+        <h3 class="text-lg mb-4">
+            <a x-target.push="main" href="{{ route('documents.index') }}" class="inline-block btn-info text-xs py-1 px-2 mr-2">&lt; Back</a>
+            Edit Tenancy Agreement
+        </h3>
 
         <div class="overflow-hidden w-full overflow-x-auto">
 

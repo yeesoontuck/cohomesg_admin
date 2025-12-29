@@ -38,6 +38,12 @@ class DocumentController extends Controller
 
     }
 
+    public function index()
+    {
+        $documents = Document::orderBy('name')->get();
+        return view('pdf.index', compact('documents'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

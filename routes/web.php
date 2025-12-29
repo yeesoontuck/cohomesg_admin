@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth']], function () {
     
     
     Route::prefix('documents')->group(function () {
+        Route::get('/', [App\Http\Controllers\DocumentController::class, 'index'])->name('documents.index');
         Route::get('{document}/pdf', [App\Http\Controllers\DocumentController::class, 'pdf'])->name('documents.pdf');
         Route::get('create', [App\Http\Controllers\DocumentController::class, 'create'])->name('documents.create');
         Route::post('/', [App\Http\Controllers\DocumentController::class, 'store'])->name('documents.store');
