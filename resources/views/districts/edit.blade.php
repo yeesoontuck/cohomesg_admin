@@ -25,7 +25,7 @@
                 @enderror
             </div>
             <div class="mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                <label for="District Name" class="w-fit pl-0.5 text-sm">Locations</label>
+                <label for="District Name" class="w-fit pl-0.5 text-sm">District Name</label>
                 <input id="District Name" type="text"
                     class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                     name="district_name" value="{{ $district->district_name }}" required />
@@ -33,8 +33,8 @@
                     <div class="text-red-500 text-sm">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                <label for="Locations" class="w-fit pl-0.5 text-sm">Locations</label>
+            <div class="mb-4 flex w-full max-w-lg flex-col gap-1 text-on-surface dark:text-on-surface-dark">
+                <label for="Locations" class="w-fit pl-0.5 text-sm">Locations (Full)</label>
                 <input id="Locations" type="text"
                     class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                     name="districts_full" value="{{ $district->districts_full }}" required />

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\District;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class DistrictController extends Controller
@@ -12,6 +13,8 @@ class DistrictController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', District::class);
+
         $districts = District::orderBy('id')->get();
 
         return view('districts.index', compact('districts'));
@@ -22,6 +25,8 @@ class DistrictController extends Controller
      */
     public function create()
     {
+        Gate::authorize('create', District::class);
+
         return view('districts.create');
     }
 
@@ -30,6 +35,8 @@ class DistrictController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create', District::class);
+        
         // validation
         $validated = $request->validate([
             'id' => 'required|integer|unique:districts,id',
@@ -59,6 +66,8 @@ class DistrictController extends Controller
      */
     public function edit(District $district)
     {
+        Gate::authorize('update', $district);
+        
         return view('districts.edit', compact('district'));
     }
 
@@ -67,6 +76,8 @@ class DistrictController extends Controller
      */
     public function update(Request $request, District $district)
     {
+        Gate::authorize('update', $district);
+        
         // validation
         $validated = $request->validate([
             'id' => 'required|integer|unique:districts,id,' . $district->id,
@@ -88,6 +99,8 @@ class DistrictController extends Controller
      */
     public function destroy(District $district)
     {
+        Gate::authorize('delete', $district);
+
         $district->delete();
 
         return redirect()->route('districts.index')->with('toast', [

@@ -132,10 +132,10 @@
 
     <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="products-btn" id="products" x-ref="productsmenu" class="pl-4">
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
-            {{-- @can('manage-districts') --}}
+            @can('viewAny', App\Models\District::class)
             <a href="{{ route('districts.index') }}" class="sidebar-link-collapsible-subitem"
                 :class="{ 'active': current === $el.getAttribute('href') }">Districts</a>
-            {{-- @endcan --}}
+            @endcan
         </li>
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
             <a href="{{ route('documents.index') }}" class="sidebar-link-collapsible-subitem"
