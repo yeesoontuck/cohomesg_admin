@@ -13,7 +13,7 @@
 
                 <div class="flex flex-col lg:flex-row lg:gap-10">
                     <div class="mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="room_number" class="w-fit pl-0.5 text-sm">Room Number</label>
+                        <label for="room_number" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Room Number</label>
                         <input id="room_number" type="text" min="1" step="1"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             name="room_number" value="{{ old('room_number') }}" required />
@@ -26,7 +26,7 @@
                 <div class="flex flex-col lg:flex-row lg:gap-10">
                     <div
                         class="relative mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="Room Type" class="w-fit pl-0.5 text-sm">Room Type</label>
+                        <label for="Room Type" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Room Type</label>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             class="absolute pointer-events-none right-4 top-8 size-5">
                             <path fill-rule="evenodd"
@@ -47,7 +47,7 @@
                     </div>
                     <div
                         class="relative mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="Bed Type" class="w-fit pl-0.5 text-sm">Bed Type</label>
+                        <label for="Bed Type" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Bed Type</label>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             class="absolute pointer-events-none right-4 top-8 size-5">
                             <path fill-rule="evenodd"
@@ -123,7 +123,7 @@
 
                 <div class="flex flex-col lg:flex-row lg:gap-10">
                     <div class="mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="Price" class="w-fit pl-0.5 text-sm">Price</label>
+                        <label for="Price" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Price</label>
                         <input id="Price" type="number" step="0.01"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             name="price_month" value="{{ old('price_month') }}" required />
@@ -132,7 +132,7 @@
                         @enderror
                     </div>
                     <div class="mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="Utilities" class="w-fit pl-0.5 text-sm">Utilities</label>
+                        <label for="Utilities" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Utilities</label>
                         <input id="Utilities" type="number" step="0.01"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             name="utilities" value="{{ old('utilities') }}" required />

@@ -45,7 +45,7 @@
                 @csrf
 
                 <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                    <label for="name" class="w-fit pl-0.5 text-sm">Document Name</label>
+                    <label for="name" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Document Name</label>
                     <input id="name" type="text" name="name" maxlength="255"
                         class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                         value="{{ old('name') }}" placeholder="Document" required />

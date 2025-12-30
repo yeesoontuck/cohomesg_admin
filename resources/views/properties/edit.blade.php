@@ -11,13 +11,13 @@
                 @method('PUT')
                 <div class="max-w-4xl flex flex-col lg:flex-row lg:gap-10">
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="estate_name" class="w-fit pl-0.5 text-sm">Estate Name</label>
+                        <label for="estate_name" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Estate Name</label>
                         <input id="estate_name" type="text" name="estate_name"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             value="{{ $property->estate_name }}">
                     </div>
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="property_name" class="w-fit pl-0.5 text-sm">Property Name</label>
+                        <label for="property_name" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Property Name</label>
                         <input id="property_name" type="text" name="property_name"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             value="{{ $property->property_name }}">
@@ -27,7 +27,7 @@
 
                 <div class="max-w-4xl flex flex-col lg:flex-row lg:gap-10">
                     <div class="relative mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="District" class="w-fit pl-0.5 text-sm">District</label>
+                        <label for="District" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">District</label>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             class="absolute pointer-events-none right-4 top-8 size-5">
                             <path fill-rule="evenodd"
@@ -47,7 +47,7 @@
                         @enderror
                     </div>
                     <div class="relative mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="Property Type" class="w-fit pl-0.5 text-sm">Property Type</label>
+                        <label for="Property Type" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Property Type</label>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             class="absolute pointer-events-none right-4 top-8 size-5">
                             <path fill-rule="evenodd"
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="mb-4 flex w-full max-w-4xl flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                    <label for="address" class="w-fit pl-0.5 text-sm">Address</label>
+                    <label for="address" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Address</label>
                     <input id="address" type="text" name="address"
                         class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                         value="{{ old('address', $property->address) }}" required maxlength="255">
@@ -78,14 +78,14 @@
 
                 <div class="max-w-4xl flex flex-col lg:flex-row lg:gap-10">
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="latitude" class="w-fit pl-0.5 text-sm">Latitude</label>
+                        <label for="latitude" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Latitude</label>
                         <input id="latitude" type="text" name="latitude"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             value="{{ old('latitude', $property->latitude) }}" required>
                         </p>
                     </div>
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="longitude" class="w-fit pl-0.5 text-sm">Longitude</label>
+                        <label for="longitude" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Longitude</label>
                         <input id="longitude" type="text" name="longitude"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             value="{{ old('longitude', $property->longitude) }}" required>
@@ -95,14 +95,14 @@
 
                 {{-- <div class="max-w-4xl flex flex-col lg:flex-row lg:gap-10">
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="room_number" class="w-fit pl-0.5 text-sm">Web Site Sort Order</label>
+                        <label for="room_number" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Web Site Sort Order</label>
                         <p
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark">
                             {{ $property->sort_order }}
                         </p>
                     </div>
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="slug" class="w-fit pl-0.5 text-sm">URL Slug</label>
+                        <label for="slug" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">URL Slug</label>
                         <input id="slug" type="text" name="slug"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             value="{{ old('slug', $property->slug) }}" required>

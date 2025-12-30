@@ -12,7 +12,7 @@
             @method('PUT')
 
             <div class="mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                <label for="name" class="w-fit pl-0.5 text-sm">Name</label>
+                <label for="name" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Name</label>
                 <input id="name" type="text"
                     class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                     name="name" value="{{ $user->name }}" required />
@@ -21,7 +21,7 @@
                 @enderror
             </div>
             <div class="mb-4 flex w-full max-w-lg flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                <label for="email" class="w-fit pl-0.5 text-sm">Email</label>
+                <label for="email" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Email</label>
                 <input id="email" type="email"
                     class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                     name="email" value="{{ $user->email }}" required />
@@ -30,7 +30,7 @@
                 @enderror
             </div>
             <div class="relative mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                <label for="role_id" class="w-fit pl-0.5 text-sm">Role</label>
+                <label for="role_id" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Role</label>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                     class="absolute pointer-events-none right-4 top-8 size-5">
                     <path fill-rule="evenodd"
