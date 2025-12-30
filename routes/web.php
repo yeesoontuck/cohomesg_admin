@@ -71,8 +71,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('openai/inquiry', [App\Http\Controllers\OpenaiController::class, 'inquiry'])->name('openai.inquiry');
     // Route::get('test', [App\Http\Controllers\PdfController::class, 'test']);
     Route::get('tenancy_agreement/{room_id}', [App\Http\Controllers\PdfController::class, 'tenancy_agreement']);
-    
-    
+
+    Route::resource('roles', App\Http\Controllers\RoleController::class);
+    Route::get('roles/{role}/permissions', [App\Http\Controllers\RoleController::class, 'permissions'])->name('roles.permissions');
+    Route::put('roles/{role}/permissions', [App\Http\Controllers\RoleController::class, 'sync_permissions'])->name('roles.permissions.sync');
+    // Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+
     Route::prefix('documents')->group(function () {
         Route::get('/', [App\Http\Controllers\DocumentController::class, 'index'])->name('documents.index');
         Route::get('{document}/pdf', [App\Http\Controllers\DocumentController::class, 'pdf'])->name('documents.pdf');
