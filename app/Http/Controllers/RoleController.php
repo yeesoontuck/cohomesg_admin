@@ -16,7 +16,7 @@ class RoleController extends Controller
     {
         Gate::authorize('viewAny', Role::class);
 
-        $roles = Role::orderBy('key')->get();
+        $roles = Role::with('users')->orderBy('key')->get();
         return view('roles.index', compact('roles'));
     }
 
@@ -100,6 +100,23 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         Gate::authorize('delete', $role);
+
+        // check any users assigned to this role
+        if ($role->users()->count() > 0) {
+            return to_route('roles.index')->with('toast', [
+                'type' => 'danger',
+                'message' => 'Cannot delete this Role. There are users assigned to it.'
+            ]);
+        }
+        
+        // delete role and permissions mapping
+        $role->permissions()->detach();
+        $role->delete();
+
+        return to_route('roles.index')->with('toast', [
+            'type' => 'warning',
+            'message' => 'Role deleted successfully.'
+        ]);
     }
 
 

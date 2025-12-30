@@ -31,6 +31,7 @@
                         <th scope="col" class="p-4">Name</th>
                         <th scope="col" class="p-4">Key</th>
                         <th scope="col" class="p-4">Description</th>
+                        <th scope="col" class="p-4">Users</th>
                         <th scope="col" class="p-4">Actions</th>
                     </tr>
                 </thead>
@@ -41,6 +42,7 @@
                             <td class="p-4">{{ $role->name }}</td>
                             <td class="p-4">{{ $role->key }}</td>
                             <td class="p-4">{{ $role->description }}</td>
+                            <td class="p-4 text-center">{{ $role->users->count() }}</td>
                             <td class="p-4">
                                 <div class="flex flex-col lg:flex-row gap-2">
                                     @if($role->key != 'super_admin')
