@@ -47,7 +47,7 @@ class PropertyPolicy
      */
     public function update(User $user, ?Property $property = null): bool
     {
-        return $user->hasPermission('property.edit');
+        return $user->hasPermission('property.update');
     }
 
     /**
