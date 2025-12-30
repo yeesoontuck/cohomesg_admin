@@ -54,10 +54,12 @@
 
     <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="user-management-btn" id="user-management"
         x-ref="usermenu" class="pl-4">
+        @can('viewAny', App\Models\User::class)
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
-            <a href="{{ route('users') }}" class="sidebar-link-collapsible-subitem"
+            <a href="{{ route('users.index') }}" class="sidebar-link-collapsible-subitem"
                 :class="{ 'active': current === $el.getAttribute('href') }">Users</a>
         </li>
+        @endcan
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
             <a href="#" class="sidebar-link-collapsible-subitem"
                 :class="{ 'active': current === $el.getAttribute('href') }">Roles</a>

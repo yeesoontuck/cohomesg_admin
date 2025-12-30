@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/whatsapp/{user}/latest', [App\Http\Controllers\WhatsappMessageController::class, 'latest'])->name('whatsapp.latest');
     Route::get('/whatsapp/media', [App\Http\Controllers\WhatsappMessageController::class, 'load_media'])->name('media.show');
 
+    Route::resource('users', App\Http\Controllers\UserController::class);
     Route::resource('districts', App\Http\Controllers\DistrictController::class);
     Route::resource('properties', App\Http\Controllers\PropertyController::class);
     Route::post('properties/sort', [App\Http\Controllers\PropertyController::class, 'sort'])->name('properties.sort');
