@@ -27,8 +27,7 @@
                     d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
             </svg>
             <div class="hidden md:flex flex-col">
-                <span class="text-sm font-bold text-on-surface-strong dark:text-on-surface-dark-strong">Alan</span>
-                <span class="text-xs" aria-hidden="true">@cohomesg</span>
+                <span class="text-sm font-bold text-on-surface-strong dark:text-on-surface-dark-strong">{{ auth()->user()->name }}</span>
                 <span class="sr-only">profile settings</span>
             </div>
         </button>

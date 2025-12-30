@@ -26,7 +26,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        Gate::authorize('create', User::class);
+
+        $roles = Role::orderBy('name')->get();
+
+        return view('users.create')
+            ->with(compact('roles'));
     }
 
     /**
@@ -34,7 +39,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Gate::authorize('create', User::class);
+        
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email',
+            // 'password' => 'required|string|min:8|confirmed',
+            'role_id' => 'required|exists:roles,id',
+        ]);
+
+        $password = bcrypt('password123'); // Default password
+
+        $user = new User();
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->role_id = $validated['role_id'];
+        $user->password = $password;
+        $user->save();
+
+        // email welcome message to user, with password reset link
+
+        return to_route('users.index')->with('toast', [
+            'type' => 'success',
+            'message' => 'User created successfully.'
+        ]);
     }
 
     /**
@@ -50,6 +78,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        Gate::authorize('update', $user);
+
         $roles = Role::orderBy('name')->get();
 
         return view('users.edit')
@@ -62,6 +92,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        Gate::authorize('update', $user);
+        
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $user->id,
@@ -81,6 +113,13 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        Gate::authorize('delete', $user);
+        
+        $user->delete();
+
+        return to_route('users.index')->with('toast', [
+            'type' => 'warning',
+            'message' => 'User deleted successfully.'
+        ]);
     }
 }

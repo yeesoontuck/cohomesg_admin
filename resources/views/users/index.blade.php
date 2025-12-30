@@ -1,5 +1,5 @@
 <x-app>
-    <main class="flex-1 dark:text-white">
+    <main id="main" class="flex-1 dark:text-white">
 
         <div class="flex justify-between mb-4">
             <h1 class="text-2xl font-bold">Users</h1>
