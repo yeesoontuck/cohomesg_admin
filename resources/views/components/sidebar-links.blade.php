@@ -1,4 +1,4 @@
-<a href="{{ route('home') }}" class="sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
+<a href="{{ route('home') }}" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 shrink-0"
         aria-hidden="true">
         <path
@@ -7,7 +7,7 @@
     <span>Dashboard</span>
 </a>
 
-{{-- <a href="{{ route('whatsapp.show', 1) }}" class="sidebar-link"
+{{-- <a href="{{ route('whatsapp.show', 1) }}" class="ml-6 sidebar-link"
     :class="{ 'active': current === $el.getAttribute('href') }">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="size-5 shrink-0"
         aria-hidden="true">
@@ -39,21 +39,21 @@
         x-bind:class="isExpanded ?
             'sidebar-link-collapsible-expanded' :
             'sidebar-link-collapsible-collapsed'">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-3 transition-transform shrink-0"
+            x-bind:class="isExpanded ? 'rotate-0' : '-rotate-90'">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 shrink-0"
             aria-hidden="true">
             <path
                 d="M7 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM14.5 9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM1.615 16.428a1.224 1.224 0 0 1-.569-1.175 6.002 6.002 0 0 1 11.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 0 1 7 18a9.953 9.953 0 0 1-5.385-1.572ZM14.5 16h-.106c.07-.297.088-.611.048-.933a7.47 7.47 0 0 0-1.588-3.755 4.502 4.502 0 0 1 5.874 2.636.818.818 0 0 1-.36.98A7.465 7.465 0 0 1 14.5 16Z" />
         </svg>
         <span class="mr-auto text-left">User Management</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="size-4 transition-transform rotate-0 shrink-0"
-            x-bind:class="isExpanded ? 'rotate-180' : 'rotate-0'">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-        </svg>
     </button>
 
     <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="user-management-btn" id="user-management"
-        x-ref="usermenu" class="pl-4">
+        x-ref="usermenu" class="pl-10">
         @can('viewAny', App\Models\User::class)
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
             <a href="{{ route('users.index') }}" class="sidebar-link-collapsible-subitem"
@@ -72,9 +72,9 @@
 </div>
 
 @can('viewAny', App\Models\Property::class)
-<a href="{{ route('properties.index') }}" class="sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
+<a href="{{ route('properties.index') }}" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-        stroke="currentColor" class="size-6">
+        stroke="currentColor" class="size-5">
         <path stroke-linecap="round" stroke-linejoin="round"
             d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819" />
     </svg>
@@ -82,8 +82,8 @@
 </a>
 @endcan
 
-<a href="#" class="sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+<a href="#" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
         <path fill-rule="evenodd"
             d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
             clip-rule="evenodd" />
@@ -91,9 +91,9 @@
     <span>Landlords</span>
 </a>
 
-<a href="#" class="sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
+<a href="#" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-        class="size-6">
+        class="size-5">
         <path stroke-linecap="round" stroke-linejoin="round"
             d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
     </svg>
@@ -118,6 +118,11 @@
         x-bind:class="isExpanded ?
             'sidebar-link-collapsible-expanded' :
             'sidebar-link-collapsible-collapsed'">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-3 transition-transform shrink-0"
+            x-bind:class="isExpanded ? 'rotate-0' : '-rotate-90'">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 shrink-0"
             aria-hidden="true">
             <path fill-rule="evenodd"
@@ -125,14 +130,9 @@
                 clip-rule="evenodd" />
         </svg>
         <span class="mr-auto text-left">Settings</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="size-4 transition-transform rotate-0 shrink-0"
-            x-bind:class="isExpanded ? 'rotate-180' : 'rotate-0'">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-        </svg>
     </button>
 
-    <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="products-btn" id="products" x-ref="productsmenu" class="pl-4">
+    <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="products-btn" id="products" x-ref="productsmenu" class="pl-10">
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
             @can('viewAny', App\Models\District::class)
             <a href="{{ route('districts.index') }}" class="sidebar-link-collapsible-subitem"

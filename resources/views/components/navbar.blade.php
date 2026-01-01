@@ -56,7 +56,7 @@
                 </a>
             </div>
 
-            <div class="flex flex-col py-1.5">
+            {{-- <div class="flex flex-col py-1.5">
                 <a href="#"
                     class="flex items-center gap-2 px-2 py-1.5 text-sm font-medium text-on-surface underline-offset-2 hover:bg-primary/5 hover:text-on-surface-strong focus-visible:underline focus:outline-hidden dark:text-on-surface-dark dark:hover:bg-primary-dark/5 dark:hover:text-on-surface-dark-strong"
                     role="menuitem">
@@ -79,7 +79,7 @@
                     </svg>
                     <span>Payments</span>
                 </a>
-            </div>
+            </div> --}}
 
             <div class="flex flex-col py-1.5">
                 <form method="POST" action="{{ route('logout') }}"
