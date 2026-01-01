@@ -9,10 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Room extends Model
+use OwenIt\Auditing\Contracts\Auditable;
+
+class Room extends Model implements Auditable
 {
     use SoftDeletes;
     use HasSlug;
+    use \OwenIt\Auditing\Auditable;
     
     public function getSlugOptions() : SlugOptions
     {

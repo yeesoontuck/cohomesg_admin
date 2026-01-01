@@ -64,10 +64,6 @@
             <a href="{{ route('roles.index') }}" class="sidebar-link-collapsible-subitem"
                 :class="{ 'active': current === $el.getAttribute('href') }">Roles</a>
         </li>
-        <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
-            <a href="#" class="sidebar-link-collapsible-subitem"
-                :class="{ 'active': current === $el.getAttribute('href') }">Activity Log</a>
-        </li>
     </ul>
 </div>
 
@@ -142,6 +138,10 @@
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
             <a href="{{ route('documents.index') }}" class="sidebar-link-collapsible-subitem"
                 :class="{ 'active': current === $el.getAttribute('href') }">Documents</a>
+        </li>
+        <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
+            <a href="#" class="sidebar-link-collapsible-subitem"
+                :class="{ 'active': current === $el.getAttribute('href') }">Activity Log</a>
         </li>
     </ul>
 </div>

@@ -174,4 +174,14 @@ class RoomController extends Controller
             'message' => 'Room deleted successfully.'
         ]);
     }
+
+
+    public function audit_history(Property $property, Room $room)
+    {
+        // Gate::authorize('viewAny', Property::class);
+
+        $audits = $room->audits()->with('user')->orderBy('created_at', 'desc')->get();
+
+        return view('rooms.audit_history', compact('property', 'room', 'audits'));
+    }
 }
