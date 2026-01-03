@@ -1,4 +1,4 @@
-<a x-target.push="main" href="{{ route('home') }}" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
+<a href="{{ route('home') }}" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 shrink-0"
         aria-hidden="true">
         <path
@@ -55,27 +55,28 @@
     <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="user-management-btn" id="user-management"
         x-ref="usermenu" class="pl-10">
         @can('viewAny', App\Models\User::class)
-        <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
-            <a x-target.push="main" href="{{ route('users.index') }}" class="sidebar-link-collapsible-subitem"
-                :class="{ 'active': current === $el.getAttribute('href') }">Users</a>
-        </li>
+            <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
+                <a href="{{ route('users.index') }}" class="sidebar-link-collapsible-subitem"
+                    :class="{ 'active': current === $el.getAttribute('href') }">Users</a>
+            </li>
         @endcan
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
-            <a x-target.push="main" href="{{ route('roles.index') }}" class="sidebar-link-collapsible-subitem"
+            <a href="{{ route('roles.index') }}" class="sidebar-link-collapsible-subitem"
                 :class="{ 'active': current === $el.getAttribute('href') }">Roles</a>
         </li>
     </ul>
 </div>
 
 @can('viewAny', App\Models\Property::class)
-<a x-target.push="main" href="{{ route('properties.index') }}" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-        stroke="currentColor" class="size-5">
-        <path stroke-linecap="round" stroke-linejoin="round"
-            d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819" />
-    </svg>
-    <span class="mr-auto text-left">Properties</span>
-</a>
+    <a href="{{ route('properties.index') }}" class="ml-6 sidebar-link"
+        :class="{ 'active': current === $el.getAttribute('href') }">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819" />
+        </svg>
+        <span class="mr-auto text-left">Properties</span>
+    </a>
 @endcan
 
 <a href="#" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
@@ -128,24 +129,23 @@
         <span class="mr-auto text-left">Settings</span>
     </button>
 
-    <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="products-btn" id="products" x-ref="productsmenu" class="pl-10">
+    <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="products-btn" id="products" x-ref="productsmenu"
+        class="pl-10">
+        @can('viewAny', App\Models\District::class)
+            <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
+                <a href="{{ route('districts.index') }}" class="sidebar-link-collapsible-subitem"
+                    :class="{ 'active': current === $el.getAttribute('href') }">Districts</a>
+            </li>
+        @endcan
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
-            @can('viewAny', App\Models\District::class)
-            <a x-target.push="main" href="{{ route('districts.index') }}" class="sidebar-link-collapsible-subitem"
-                :class="{ 'active': current === $el.getAttribute('href') }">Districts</a>
-            @endcan
-        </li>
-        <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
-            <a x-target.push="main" href="{{ route('documents.index') }}" class="sidebar-link-collapsible-subitem"
+            <a href="{{ route('documents.index') }}" class="sidebar-link-collapsible-subitem"
                 :class="{ 'active': current === $el.getAttribute('href') }">Documents</a>
         </li>
+        @can('viewAny', App\Models\Audit::class)
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
-            <a href="#" class="sidebar-link-collapsible-subitem"
+            <a href="{{ route('audits.index') }}" class="sidebar-link-collapsible-subitem"
                 :class="{ 'active': current === $el.getAttribute('href') }">Activity Log</a>
         </li>
+        @endcan
     </ul>
 </div>
-
-
-
-
