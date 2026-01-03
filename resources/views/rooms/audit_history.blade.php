@@ -46,7 +46,11 @@
                             @endforeach
                         </td>
                         {{-- <td class="p-2">{{ $audit->url }}</td> --}}
-                        <td class="p-2 border-r border-outline dark:border-outline-dark">{{ $audit->ip_address }}</td>
+                        <td class="p-2 border-r border-outline dark:border-outline-dark">
+                            <a href="https://who.is/whois-ip/ip-address/{{ $audit->ip_address }}" target="_blank">
+                                {{ $audit->ip_address }}
+                            </a>
+                        </td>
                         <td class="p-2 max-w-md">{{ $audit->url }}<br />{{ $audit->user_agent }}</td>
                         {{-- <td class="p-2">{{ $audit->tags }}</td> --}}
                     </tr>

@@ -4,7 +4,7 @@
         <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
     @endif
 
-    <main class="flex-1 dark:text-white">
+    <main id="main" class="flex-1 dark:text-white">
 
         <h3 class="text-lg mb-4">Create Tenancy Agreement</h3>
 

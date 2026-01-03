@@ -6,7 +6,7 @@
         </div>
 
 
-        <form action="{{ route('roles.store') }}" method="POST"
+        <form x-target.push="main" action="{{ route('roles.store') }}" method="POST"
             class="p-8 overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
             @csrf
 
@@ -38,7 +38,7 @@
             <div class="flex justify-between">
                 <div class="flex gap-2">
                     <button type="submit" class="btn-primary">Save</button>
-                    <a href="{{ route('roles.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
+                    <a x-target.push="main" href="{{ route('roles.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
                 </div>
             </div>
         </form>

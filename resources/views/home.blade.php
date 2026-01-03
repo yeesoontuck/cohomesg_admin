@@ -1,18 +1,18 @@
 <x-app>
+    <main id="main" class="flex-1 dark:text-white">
+        <div x-data="{bannerOpen: true}" x-show="bannerOpen" x-transition:enter="transition ease-out duration-300"
+            class="relative flex border-outline bg-surface-alt p-4 text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark border-b">
+            <p class="px-6 text-xs sm:text-sm text-pretty mx-auto">Limited Time Offer! Explore exclusive <a href="#"
+                    class="font-medium text-primary underline-offset-2 hover:underline focus:underline focus:outline-hidden dark:text-primary-dark">deals
+                    & savings</a> </p>
+            <button class="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer hover:scale-125" aria-label="dismiss banner" title="Close" @click="bannerOpen = false">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor"
+                    fill="none" stroke-width="2.5" class="size-4 shrink-0">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
 
-    <div x-data="{bannerOpen: true}" x-show="bannerOpen" x-transition:enter="transition ease-out duration-300"
-        class="relative flex border-outline bg-surface-alt p-4 text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark border-b">
-        <p class="px-6 text-xs sm:text-sm text-pretty mx-auto">Limited Time Offer! Explore exclusive <a href="#"
-                class="font-medium text-primary underline-offset-2 hover:underline focus:underline focus:outline-hidden dark:text-primary-dark">deals
-                & savings</a> </p>
-        <button class="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer hover:scale-125" aria-label="dismiss banner" title="Close" @click="bannerOpen = false">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor"
-                fill="none" stroke-width="2.5" class="size-4 shrink-0">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-    </div>
-    <main class="flex-1 dark:text-white">
         <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
         <p>Welcome to your dashboard!</p>
 

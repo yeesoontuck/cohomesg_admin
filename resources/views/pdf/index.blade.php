@@ -37,7 +37,8 @@
                             <td class="p-4">{{ $document->name }}</td>
                             <td class="p-4">{{ $document->template }}</td>
                             <td class="p-4">
-                                <a x-target.push="main" href="{{ route('documents.edit', $document) }}" class="inline-block btn-primary px-2 py-1 text-xs rounded">
+                                {{-- do not use Alpine Ajax for the Edit route, Quill cannot initialize --}}
+                                <a href="{{ route('documents.edit', $document) }}" class="inline-block btn-primary px-2 py-1 text-xs rounded">
                                     Edit
                                 </a>
                                 @if($document->id > 28)

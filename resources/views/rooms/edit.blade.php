@@ -196,7 +196,7 @@
             </div>
 
             <a href="{{ route('rooms.audit_history', [$property, $room]) }}"
-                class="ml-4 text-xs underline underline-offset-2 decoration-dashed hover:decoration-solid decoration-1">Activity Log</a>
+                class="ml-4 text-xs underline underline-offset-2 decoration-dashed hover:decoration-solid decoration-1">Activity Log ({{ $room->audits()->count() }})</a>
 
         </div>
     </main>

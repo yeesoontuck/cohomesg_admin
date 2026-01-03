@@ -6,7 +6,7 @@
         </div>
 
 
-        <form action="{{ route('roles.update', $role) }}" method="POST"
+        <form x-target.push="main" action="{{ route('roles.update', $role) }}" method="POST"
             class="p-8 overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
             @csrf
             @method('PUT')
@@ -39,7 +39,7 @@
             <div class="flex justify-between">
                 <div class="flex gap-2">
                     <button type="submit" class="btn-primary">Update</button>
-                    <a href="{{ route('roles.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
+                    <a x-target.push="main" href="{{ route('roles.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
                 </div>
 
                 @can('delete', $role)
@@ -61,6 +61,8 @@
                 </svg>
 
                 <h2 class="text-md font-semibold text-center">Are you sure?</h2>
+
+                <p>The role will be permanently deleted.</p>
 
                 <form x-target.push="main" id="delete_form" :action="deleteUrl" method="POST">
                     @csrf
