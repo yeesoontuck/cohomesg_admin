@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Audit;
 use App\Models\District;
 use App\Models\Property;
 use Illuminate\Http\Request;

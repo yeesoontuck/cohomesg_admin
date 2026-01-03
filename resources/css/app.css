@@ -189,6 +189,10 @@
         @apply bg-primary/6 text-on-surface-strong dark:bg-primary-dark/20 dark:text-on-surface-dark-strong
     }
 
+    .link-underline {
+        @apply underline underline-offset-2 decoration-dashed hover:decoration-solid decoration-1
+    }
+
     .wa-inbound {
         @apply relative mr-auto flex max-w-full flex-col gap-2 rounded-r-radius rounded-bl-radius bg-surface-alt p-4 text-on-surface-strong md:max-w-[60%] dark:bg-surface-dark-alt dark:text-on-surface-dark-strong
     }

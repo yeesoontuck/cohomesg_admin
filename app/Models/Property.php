@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Policies\PropertyPolicy;
-use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Model;
 use \Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,11 +9,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Property extends Model
+class Property extends Model implements Auditable
 {
     use SoftDeletes;
     use HasSlug;
+    use \OwenIt\Auditing\Auditable;
 
     public function getSlugOptions() : SlugOptions
     {

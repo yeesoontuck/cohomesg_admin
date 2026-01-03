@@ -76,5 +76,9 @@
             </div>
         </div>
 
+        <div class="mt-8">
+            <a href="{{ route('audits.show', ['role', $role]) }}" class="text-xs link-underline">Activity Log
+                ({{ $role->audits()->count() }})</a>
+        </div>
     </main>
 </x-app>

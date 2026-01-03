@@ -131,6 +131,11 @@
                     </form>
                 </div>
             </div>
+
+            <div class="mt-8">
+                <a href="{{ route('audits.show', ['property', $property]) }}"
+                    class="text-xs link-underline">Activity Log ({{ $property->audits()->count() }})</a>
+            </div>
         </div>
 
     </main>

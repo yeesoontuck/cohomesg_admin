@@ -7,7 +7,7 @@
         </div>
 
 
-        <form x-target.push="main" action="{{ route('roles.permissions.sync', $role) }}" method="POST"
+        <form action="{{ route('roles.permissions.sync', $role) }}" method="POST"
             class="p-8 overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
             @csrf
             @method('PUT')
@@ -44,6 +44,11 @@
                 <x-permission-checkbox permission_id="11" :value="in_array('user.create', $role_mapped_permissions)">Create</x-permission-checkbox>
                 <x-permission-checkbox permission_id="12" :value="in_array('user.update', $role_mapped_permissions)">Edit</x-permission-checkbox>
                 <x-permission-checkbox permission_id="14" :value="in_array('user.delete', $role_mapped_permissions)">Delete</x-permission-checkbox>
+            </div>
+            
+            <p>Activity Logs</p>
+            <div class="grid grid-cols-6 pb-4 mb-4 border-b border-on-surface/50">
+                <x-permission-checkbox permission_id="19" :value="in_array('audit.view', $role_mapped_permissions)">View</x-permission-checkbox>
             </div>
 
             <div class="flex justify-between">

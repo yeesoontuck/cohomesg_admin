@@ -66,7 +66,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('properties/{property}/rooms/{room}/edit', [App\Http\Controllers\RoomController::class, 'edit'])->name('rooms.edit');
     Route::put('properties/{property}/rooms/{room}', [App\Http\Controllers\RoomController::class, 'update'])->name('rooms.update');
     Route::delete('properties/{property}/rooms/{room}', [App\Http\Controllers\RoomController::class, 'destroy'])->name('rooms.delete');
-    Route::get('properties/{property}/rooms/{room}/audit_history', [App\Http\Controllers\RoomController::class, 'audit_history'])->name('rooms.audit_history');
 
     Route::get('openai', [App\Http\Controllers\OpenaiController::class, 'index'])->name('openai.index');
     Route::get('openai/inquiry', [App\Http\Controllers\OpenaiController::class, 'inquiry'])->name('openai.inquiry');
@@ -86,4 +85,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('{document}/edit', [App\Http\Controllers\DocumentController::class, 'edit'])->name('documents.edit');
         Route::put('{document}/edit', [App\Http\Controllers\DocumentController::class, 'update'])->name('documents.update');
     });
+
+    Route::get('audits', [App\Http\Controllers\AuditController::class, 'index'])->name('audits.index');
+    Route::get('audits/{model}/{id}', [App\Http\Controllers\AuditController::class, 'show'])->name('audits.show');
+
 });

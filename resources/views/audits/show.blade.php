@@ -2,13 +2,10 @@
     <main id="main" class="flex-1 dark:text-white">
 
         <div class="flex justify-between mb-4">
-            <h1 class="text-2xl font-bold">Activity Logs</h1>
+            <h1 class="text-2xl font-bold">Activity Logs - {{ ucfirst($model) }}</h1>
         </div>
-        <h3 class="text-lg mb-4">
-            <a x-target.push="main" href="{{ route('rooms.edit', [$property, $room]) }}"
-                class="inline-block btn-info text-xs py-1 px-2 mr-2">&lt; Back</a>
-            {{ $property->property_name }} - {{ $room->room_number }}
-        </h3>
+        <a href="{{ url()->previous() }}"
+            class="inline-block btn-info text-xs py-1 px-2 mr-2 mb-4">&lt; Back</a>
 
         <div class="overflow-hidden w-full p-4 overflow-x-auto rounded-t-radius border border-outline dark:border-outline-dark">
             <table class="table-auto text-xs w-full">
@@ -36,18 +33,14 @@
                         {{-- <td class="p-2">{{ $audit->auditable_type }}</td> --}}
                         {{-- <td class="p-2">{{ $audit->auditable_id }}</td> --}}
                         <td class="p-2 border-r border-outline dark:border-outline-dark">
-                            @foreach($audit->old_values as $key => $value)
-                            <p class="whitespace-nowrap">{{ $key }}: {{ $value }}</p>
-                            @endforeach
+                            <pre>{{ json_encode($audit->old_values, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
                         </td>
                         <td class="p-2 border-r border-outline dark:border-outline-dark">
-                            @foreach($audit->new_values as $key => $value)
-                            <p class="whitespace-nowrap">{{ $key }}: {{ $value }}</p>
-                            @endforeach
+                            <pre>{{ json_encode($audit->new_values, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
                         </td>
                         {{-- <td class="p-2">{{ $audit->url }}</td> --}}
                         <td class="p-2 border-r border-outline dark:border-outline-dark">
-                            <a href="https://who.is/whois-ip/ip-address/{{ $audit->ip_address }}" target="_blank">
+                            <a href="https://who.is/whois-ip/ip-address/{{ $audit->ip_address }}" target="_blank" class="link-underline">
                                 {{ $audit->ip_address }}
                             </a>
                         </td>

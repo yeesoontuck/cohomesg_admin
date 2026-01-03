@@ -5,9 +5,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Cache;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Role extends Model
+class Role extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+    
     protected $fillable = ['name', 'key', 'description'];
 
     public function users(): HasMany
@@ -45,7 +48,8 @@ class Role extends Model
      */
     public function syncPermissions(array $permissionIds): array
     {
-        $changes = $this->permissions()->sync($permissionIds);
+        // $changes = $this->permissions()->sync($permissionIds);
+        $changes = $this->auditSync('permissions', $permissionIds);
         
         // Manually clear cache because 'sync' doesn't trigger standard model events
         Cache::forget('permissions_role_' . $this->id);
