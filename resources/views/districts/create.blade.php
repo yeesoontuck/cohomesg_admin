@@ -1,12 +1,12 @@
 <x-app>
-    <main class="flex-1 dark:text-white">
+    <main id="main" class="flex-1 dark:text-white">
 
         <div class="flex justify-between mb-4">
             <h1 class="text-2xl font-bold">Districts - New</h1>
         </div>
 
 
-        <form action="{{ route('districts.store') }}" method="POST"
+        <form x-target.push="main" action="{{ route('districts.store') }}" method="POST"
             class="p-8 overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
             @csrf
 
@@ -18,7 +18,7 @@
                 <label for="id" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">District Number</label>
                 <input id="id" type="number" min="1" step="1"
                     class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
-                    name="id" placeholder="14" required />
+                    name="id" value="{{ old('next_id', $next_id) }}" placeholder="{{ $next_id }}" required />
                 @error('id')
                     <div class="text-red-500 text-sm">{{ $message }}</div>
                 @enderror
@@ -44,7 +44,7 @@
 
             <button type="submit" class="btn-primary">Save</button>
 
-            <a href="{{ route('districts.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
+            <a x-target.push="main" href="{{ route('districts.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
         </form>
 
     </main>

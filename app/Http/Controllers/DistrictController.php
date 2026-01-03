@@ -27,7 +27,10 @@ class DistrictController extends Controller
     {
         Gate::authorize('create', District::class);
 
-        return view('districts.create');
+        // next id
+        $next_id = District::max('id') + 1;
+
+        return view('districts.create', compact('next_id'));
     }
 
     /**
@@ -100,6 +103,14 @@ class DistrictController extends Controller
     public function destroy(District $district)
     {
         Gate::authorize('delete', $district);
+
+        // check if district is associated with any properties
+        if ($district->properties()->count() > 0) {
+            return redirect()->route('districts.index')->with('toast', [
+                'type' => 'danger',
+                'message' => 'Cannot delete district ' . $district->id . '. It is associated with existing Properties.'
+            ]);
+        }
 
         $district->delete();
 

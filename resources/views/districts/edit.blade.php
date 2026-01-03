@@ -1,12 +1,12 @@
 <x-app>
-    <main class="flex-1 dark:text-white">
+    <main id="main" class="flex-1 dark:text-white">
 
         <div class="flex justify-between mb-4">
             <h1 class="text-2xl font-bold">Districts - Edit</h1>
         </div>
 
 
-        <form action="{{ route('districts.update', $district) }}" method="POST"
+        <form x-target.push="main" action="{{ route('districts.update', $district) }}" method="POST"
             class="p-8 overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
             @csrf
             @method('PUT')
@@ -45,7 +45,7 @@
 
             <button type="submit" class="btn-primary">Update</button>
 
-            <a href="{{ route('districts.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
+            <a x-target.push="main" href="{{ route('districts.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
         </form>
 
     </main>
