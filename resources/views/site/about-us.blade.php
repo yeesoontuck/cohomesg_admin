@@ -156,7 +156,7 @@
                             </div>
                         </div>
 
-                        <a href="#"
+                        <a href="{{ route('landlords') }}"
                             class="group self-start mt-8 px-4 py-2 rounded-full bg-[#B59410] hover:bg-[#B59410]/90 text-white text-xl inline-flex items-center cursor-pointer">List my property
 
                             <div class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-[#EACA43] rounded-full ml-4 -mr-2 -ml-2">
