@@ -102,6 +102,7 @@ class PropertyController extends Controller
             'address' => 'required|string',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
+            'map_embed' => 'nullable|string',
         ], [
             'property_name.unique' => 'This property name already exists.',
         ]);
@@ -117,6 +118,7 @@ class PropertyController extends Controller
         $property->latitude = $validated['latitude'];
         $property->longitude = $validated['longitude'];
         $property->sort_order = $max_sort_order + 1;
+        $property->map_embed = $validated['map_embed'];
         $property->save();
 
         return to_route('properties.show', $property)->with('toast', [
@@ -166,6 +168,7 @@ class PropertyController extends Controller
             'address' => 'required|string',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
+            'map_embed' => 'nullable|string',
             // 'slug' => 'required|string|max:255|unique:properties,slug,' . $property->id,
         ]);
 
@@ -176,6 +179,7 @@ class PropertyController extends Controller
         $property->address = $validated['address'];
         $property->latitude = $validated['latitude'];
         $property->longitude = $validated['longitude'];
+        $property->map_embed = $validated['map_embed'];
         $property->save();
 
         return to_route('properties.show', $property)->with('toast', [

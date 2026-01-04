@@ -101,6 +101,12 @@
                     </div>
                 </div>
 
+                <div class="mb-4 flex w-full max-w-4xl flex-col gap-1 text-on-surface dark:text-on-surface-dark">
+                    <label for="room_number" class="w-fit pl-0.5 text-sm">Map Embed URL</label>
+                    <textarea name="map_embed" rows="5"
+                        class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"></textarea>
+                </div>
+
                 {{-- <div class="max-w-4xl flex flex-col lg:flex-row lg:gap-10">
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
                         <label for="room_number" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Web Site Sort Order</label>
