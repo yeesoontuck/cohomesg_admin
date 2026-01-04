@@ -32,11 +32,11 @@
                         <td class="p-2 border-r border-outline dark:border-outline-dark">{{ $audit->event }}</td>
                         {{-- <td class="p-2">{{ $audit->auditable_type }}</td> --}}
                         {{-- <td class="p-2">{{ $audit->auditable_id }}</td> --}}
-                        <td class="p-2 border-r border-outline dark:border-outline-dark">
-                            <pre>{{ json_encode($audit->old_values, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
+                        <td class="p-2 border-r border-outline dark:border-outline-dark max-w-md">
+                            <pre class="whitespace-pre-wrap break-words max-h-48 overflow-y-auto text-xs font-mono leading-relaxed">{{ json_encode($audit->old_values, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
                         </td>
-                        <td class="p-2 border-r border-outline dark:border-outline-dark">
-                            <pre>{{ json_encode($audit->new_values, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
+                        <td class="p-2 border-r border-outline dark:border-outline-dar max-w-md">
+                            <pre class="whitespace-pre-wrap break-words max-h-48 overflow-y-auto text-xs font-mono leading-relaxed">{{ json_encode($audit->new_values, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
                         </td>
                         {{-- <td class="p-2">{{ $audit->url }}</td> --}}
                         <td class="p-2 border-r border-outline dark:border-outline-dark">
