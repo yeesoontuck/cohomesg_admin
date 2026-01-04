@@ -15,7 +15,7 @@ class AuditController extends Controller
     {
         Gate::authorize('viewAny', Audit::class);
 
-        $audits = Audit::with('user')->orderBy('created_at', 'desc')->get();
+        $audits = Audit::with('user')->orderBy('created_at', 'desc')->limit(20)->get();
         return view('audits.index', compact('audits'));
     }
 
