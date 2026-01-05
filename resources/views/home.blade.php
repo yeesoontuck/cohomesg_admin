@@ -1,6 +1,8 @@
 <x-app>
     <main id="main" class="flex-1 dark:text-white">
-        <div x-data="{bannerOpen: true}" x-show="bannerOpen" x-transition:enter="transition ease-out duration-300"
+
+
+        {{-- <div x-data="{bannerOpen: true}" x-show="bannerOpen" x-transition:enter="transition ease-out duration-300"
             class="relative flex border-outline bg-surface-alt p-4 text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark border-b">
             <p class="px-6 text-xs sm:text-sm text-pretty mx-auto">Limited Time Offer! Explore exclusive <a href="#"
                     class="font-medium text-primary underline-offset-2 hover:underline focus:underline focus:outline-hidden dark:text-primary-dark">deals
@@ -11,18 +13,18 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-        </div>
+        </div> --}}
 
         <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
         <p>Welcome to your dashboard!</p>
 
-        <a href="#" class="link-draw-in">Link Text</a>
+        {{-- <a href="#" class="link-draw-in">Link Text</a> --}}
 
-        <a href="https://spruecutters.com" class="btn-primary">Save</a>
+        {{-- <a href="https://spruecutters.com" class="btn-primary">Save</a>
         <a href="https://spruecutters.com" class="btn-secondary">Cancel</a>
-        <a href="https://spruecutters.com" class="btn-danger">Delete</a>
+        <a href="https://spruecutters.com" class="btn-danger">Delete</a> --}}
 
-        <div class="mt-8 flex flex-col gap-8">
+        {{-- <div class="mt-8 flex flex-col gap-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
                 <article
                     class="group flex rounded-radius max-w-xs flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
@@ -423,6 +425,6 @@
                 </div>
             </div>
 
-        </div>
+        </div> --}}
     </main>
 </x-app>

@@ -144,7 +144,7 @@
         @can('viewAny', App\Models\Audit::class)
         <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
             <a href="{{ route('audits.index') }}" class="sidebar-link-collapsible-subitem"
-                :class="{ 'active': current === $el.getAttribute('href') }">Activity Log</a>
+                :class="{ 'active': current === $el.getAttribute('href') }">Activity Logs</a>
         </li>
         @endcan
     </ul>

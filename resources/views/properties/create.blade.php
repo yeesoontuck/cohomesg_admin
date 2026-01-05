@@ -102,8 +102,11 @@
                 </div>
 
                 <div class="mb-4 flex w-full max-w-4xl flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                    <label for="room_number" class="w-fit pl-0.5 text-sm">Map Embed URL</label>
-                    <textarea name="map_embed" rows="5"
+                    <label for="map_embed" class="w-fit pl-0.5 text-sm">
+                        Map Embed URL
+                        <a href="{{ route('help.properties.map_url') }}" target="_blank" class="bg-primary text-on-primary rounded-full px-2 py-1">?</a>
+                    </label>
+                    <textarea id="map_embed" name="map_embed" rows="5"
                         class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"></textarea>
                 </div>
 

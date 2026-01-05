@@ -89,4 +89,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('audits', [App\Http\Controllers\AuditController::class, 'index'])->name('audits.index');
     Route::get('audits/{model}/{id}', [App\Http\Controllers\AuditController::class, 'show'])->name('audits.show');
 
+
+    Route::prefix('help')->group(function () {
+        Route::view('/properties/map_url', 'help.properties.map_url')->name('help.properties.map_url');
+    });
 });
