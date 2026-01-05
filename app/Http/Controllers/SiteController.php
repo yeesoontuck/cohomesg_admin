@@ -40,7 +40,9 @@ class SiteController extends Controller
     
     public function room(Room $room)
     {
-        return view('site.about-us', compact('room'));
+        $room->load('property.district', 'room_detail');
+
+        return view('site.room', compact('room'));
     }
 
     public function expats()

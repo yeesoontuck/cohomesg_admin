@@ -7,6 +7,13 @@
     font-style: normal;
     font-display: swap;
 }
+@font-face {
+    font-family: 'Afacad';
+    src: url('/resources/fonts/Afacad-VariableFont_wght.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 
 @custom-variant dark (&:where(.dark, .dark *));
 
