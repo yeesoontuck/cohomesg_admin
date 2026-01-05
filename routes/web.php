@@ -30,7 +30,7 @@ Route::domain(env('SITE_APP_DOMAIN'))->group(function () {
 
 
 Route::get('/', function () {
-    return redirect(route('home'));
+    return redirect(route('dashboard'));
 });
 
 Route::view('/licence', 'licence')->name('licence');
@@ -38,7 +38,7 @@ Route::view('/licence', 'licence')->name('licence');
 // Authenticated routes
 Route::group(['middleware' => ['auth']], function () {
     
-    Route::get('/home', function () {
+    Route::get('/dashboard', function () {
         return view('home');
     })->name('home');
     Route::get('/users', function () {
