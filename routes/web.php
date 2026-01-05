@@ -30,7 +30,7 @@ Route::domain(env('SITE_APP_DOMAIN'))->group(function () {
 
 
 Route::get('/', function () {
-    return redirect(route('dashboard'));
+    return redirect(route('home'));
 });
 
 Route::view('/licence', 'licence')->name('licence');
