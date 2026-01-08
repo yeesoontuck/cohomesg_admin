@@ -56,6 +56,8 @@
 
     @yield('content')
 
+    @include('site.whatsapp-button')
+
     {{-- footer --}}
     @include('site.footer')
 
