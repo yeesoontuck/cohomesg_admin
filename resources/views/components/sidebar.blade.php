@@ -4,7 +4,7 @@
         aria-hidden="true" x-on:click="sidebarIsOpen = false" x-transition.opacity></div>
 
     <nav x-cloak
-        class="fixed left-0 z-30 flex h-svh w-60 shrink-0 flex-col border-r border-outline bg-surface-alt p-4 pl-6 transition-transform duration-300 md:w-64 md:translate-x-0 md:relative dark:border-outline-dark dark:bg-surface-dark-alt"
+        class="fixed left-0 z-30 flex h-svh w-60 shrink-0 flex-col border-r border-outline bg-surface-alt p-4 pl-6 transition-transform duration-300 md:w-48 md:translate-x-0 md:relative dark:border-outline-dark dark:bg-surface-dark-alt"
         x-bind:class="sidebarIsOpen ? 'translate-x-0' : '-translate-x-60'" aria-label="sidebar navigation">
 
         <!-- logo  -->
