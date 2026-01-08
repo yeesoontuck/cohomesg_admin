@@ -25,7 +25,7 @@
                 </div>
             </div>
             <img src="/web/images/imagen-4.0-generate-preview-06-06_2_happy_asian_woman_.jpg" alt=""
-                class="w-full h-full object-cover blur-[2px] brightness-[0.60]">
+                class="w-full h-full object-cover scale-105 blur-[2px] brightness-[0.60]">
         </div>
 
         <div class="px-4 pt-12 flex flex-col max-w-[1195px] mx-auto">

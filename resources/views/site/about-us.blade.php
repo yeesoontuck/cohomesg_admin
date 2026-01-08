@@ -9,7 +9,7 @@
                 About Cohome SG
             </h1>
             <img src="/web/images/434788F7-165F-4E32-8615-925597CEC34B-1536x1152.jpg" alt=""
-                class="w-full h-full object-cover blur-[2px] brightness-[0.75]">
+                class="w-full h-full object-cover scale-105 blur-[2px] brightness-[0.75]">
         </div>
 
         <div class="pt-12 px-4 flex flex-col max-w-[1120px] mx-auto">

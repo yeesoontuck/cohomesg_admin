@@ -14,7 +14,7 @@
         currentIndex = (currentIndex + 1) % slides.length;
     }, interval);">
         <template x-for="(slide, index) in slides" :key="index">
-            <div class="absolute inset-0" x-show="currentIndex === index"
+            <div class="absolute inset-0 overflow-hidden" x-show="currentIndex === index"
                 x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-1000 absolute inset-0"
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
@@ -56,7 +56,7 @@
                 </div>
 
                 <img :src="slide.imgSrc" :alt="'Slide ' + (index + 1) + ' image'"
-                    class="w-full h-full object-cover blur-[2px] brightness-[0.75]">
+                    class="w-full h-full object-cover scale-105 blur-[2px] brightness-[0.75]">
             </div>
 
         </template>

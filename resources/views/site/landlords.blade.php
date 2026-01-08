@@ -11,7 +11,7 @@
                 </h1>
             </div>
             <img src="/web/images/B9F63756-F809-4D41-A426-14A63CCC1F91_banner.jpg" alt=""
-                class="w-full h-full object-cover brightness-[0.60]">
+                class="w-full h-full object-cover brightness-[0.60] scale-105 blur-[2px]">
         </div>
 
 

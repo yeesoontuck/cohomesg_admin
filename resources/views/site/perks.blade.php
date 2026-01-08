@@ -17,7 +17,7 @@
                     More Than Just a Home
                 </div>
             </div>
-            <img src="/web/images/students.jpg" alt="" class="w-full h-full object-cover blur-[2px] brightness-[0.60]">
+            <img src="/web/images/students.jpg" alt="" class="w-full h-full object-cover scale-105 blur-[2px] brightness-[0.60]">
         </div>
 
         <div class="px-4 pt-12 flex flex-col max-w-[1195px] mx-auto">
