@@ -2,11 +2,11 @@
     <main class="flex-1 dark:text-white">
 
         <div class="flex justify-between mb-4">
-            <h1 class="text-2xl font-bold">Create User</h1>
+            <h1 class="text-2xl font-bold">Invite New User</h1>
         </div>
 
 
-        <form action="{{ route('users.store') }}" method="POST"
+        <form action="{{ route('invitations.store') }}" method="POST"
             class="p-8 overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
             @csrf
 
@@ -28,7 +28,12 @@
                     <div class="text-red-500 text-sm">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="relative mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
+
+            {{-- 
+                new user should have no Role until first login
+                in case the invitation email was sent to the wrong person 
+            --}}
+            {{-- <div class="relative mb-4 flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
                 <label for="role_id" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Role</label>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                     class="absolute pointer-events-none right-4 top-8 size-5">
@@ -47,15 +52,9 @@
                 @error('role_id')
                     <div class="text-red-500 text-sm">{{ $message }}</div>
                 @enderror
-            </div>
+            </div> --}}
 
-            <p>
-                User's password will be automatically generated and sent to the email above.
-            </p>
-
-            <small class="block mb-4">* Not implemented yet</small>
-
-            <button type="submit" class="btn-primary">Save</button>
+            <button type="submit" class="btn-primary">Send invitation</button>
 
             <a href="{{ route('users.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
         </form>

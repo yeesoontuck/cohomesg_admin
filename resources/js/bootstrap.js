@@ -10,6 +10,7 @@ import focus from '@alpinejs/focus'
 import sort from '@alpinejs/sort'
 import './lightbox'
 import ajax from '@imacrayon/alpine-ajax'
+import intersect from '@alpinejs/intersect'
 
 window.Alpine = Alpine
 
@@ -18,6 +19,7 @@ Alpine.plugin(mask)
 Alpine.plugin(focus)
 Alpine.plugin(sort)
 Alpine.plugin(ajax)
+Alpine.plugin(intersect)
 
 Alpine.start()
 

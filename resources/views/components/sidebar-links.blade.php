@@ -19,53 +19,58 @@
     <span>WhatsApp</span>
 </a> --}}
 
+@if(auth()->user()->can('viewAny', App\Models\User::class) || 
+    auth()->user()->can('viewAny', App\Models\Role::class))
+    <!-- User Management dropdown  -->
+    <div x-data="{
+        isExpanded: false,
+        init() {
+            const current = window.location.pathname.replace(/\/$/, '');
+            const links = Array.from(this.$refs.usermenu.querySelectorAll('a'))
+                .filter(a => a.getAttribute('href') && a.getAttribute('href') !== '#');
 
-<!-- collapsible item  -->
-<div x-data="{
-    isExpanded: false,
-    init() {
-        const current = window.location.pathname.replace(/\/$/, '');
-        const links = Array.from(this.$refs.usermenu.querySelectorAll('a'))
-            .filter(a => a.getAttribute('href') && a.getAttribute('href') !== '#');
+            this.isExpanded = links.some(a =>
+                new URL(a.href, window.location.origin).pathname.replace(/\/$/, '') === current
+            );
+        }
+    }" class="flex flex-col">
+        <button type="button" x-on:click="isExpanded = ! isExpanded" id="user-management-btn"
+            aria-controls="user-management" x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
+            class="sidebar-link-collapsible-base"
+            x-bind:class="isExpanded ?
+                'sidebar-link-collapsible-expanded' :
+                'sidebar-link-collapsible-collapsed'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-3 transition-transform shrink-0"
+                x-bind:class="isExpanded ? 'rotate-0' : '-rotate-90'">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 shrink-0"
+                aria-hidden="true">
+                <path
+                    d="M7 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM14.5 9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM1.615 16.428a1.224 1.224 0 0 1-.569-1.175 6.002 6.002 0 0 1 11.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 0 1 7 18a9.953 9.953 0 0 1-5.385-1.572ZM14.5 16h-.106c.07-.297.088-.611.048-.933a7.47 7.47 0 0 0-1.588-3.755 4.502 4.502 0 0 1 5.874 2.636.818.818 0 0 1-.36.98A7.465 7.465 0 0 1 14.5 16Z" />
+            </svg>
+            <span class="mr-auto text-left">User Management</span>
+        </button>
 
-        this.isExpanded = links.some(a =>
-            new URL(a.href, window.location.origin).pathname.replace(/\/$/, '') === current
-        );
-    }
-}" class="flex flex-col">
-    <button type="button" x-on:click="isExpanded = ! isExpanded" id="user-management-btn"
-        aria-controls="user-management" x-bind:aria-expanded="isExpanded ? 'true' : 'false'"
-        class="sidebar-link-collapsible-base"
-        x-bind:class="isExpanded ?
-            'sidebar-link-collapsible-expanded' :
-            'sidebar-link-collapsible-collapsed'">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="size-3 transition-transform shrink-0"
-            x-bind:class="isExpanded ? 'rotate-0' : '-rotate-90'">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 shrink-0"
-            aria-hidden="true">
-            <path
-                d="M7 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM14.5 9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM1.615 16.428a1.224 1.224 0 0 1-.569-1.175 6.002 6.002 0 0 1 11.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 0 1 7 18a9.953 9.953 0 0 1-5.385-1.572ZM14.5 16h-.106c.07-.297.088-.611.048-.933a7.47 7.47 0 0 0-1.588-3.755 4.502 4.502 0 0 1 5.874 2.636.818.818 0 0 1-.36.98A7.465 7.465 0 0 1 14.5 16Z" />
-        </svg>
-        <span class="mr-auto text-left">User Management</span>
-    </button>
+        <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="user-management-btn" id="user-management"
+            x-ref="usermenu" class="pl-10">
+            @can('viewAny', App\Models\User::class)
+                <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
+                    <a href="{{ route('users.index') }}" class="sidebar-link-collapsible-subitem"
+                        :class="{ 'active': current === $el.getAttribute('href') }">Users</a>
+                </li>
+            @endcan
 
-    <ul x-cloak x-collapse x-show="isExpanded" aria-labelledby="user-management-btn" id="user-management"
-        x-ref="usermenu" class="pl-10">
-        @can('viewAny', App\Models\User::class)
+            @can('viewAny', App\Models\Role::class)
             <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
-                <a href="{{ route('users.index') }}" class="sidebar-link-collapsible-subitem"
-                    :class="{ 'active': current === $el.getAttribute('href') }">Users</a>
+                <a href="{{ route('roles.index') }}" class="sidebar-link-collapsible-subitem"
+                    :class="{ 'active': current === $el.getAttribute('href') }">Roles</a>
             </li>
-        @endcan
-        <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
-            <a href="{{ route('roles.index') }}" class="sidebar-link-collapsible-subitem"
-                :class="{ 'active': current === $el.getAttribute('href') }">Roles</a>
-        </li>
-    </ul>
-</div>
+            @endcan
+        </ul>
+    </div>
+@endif
 
 @can('viewAny', App\Models\Property::class)
     <a href="{{ route('properties.index') }}" class="ml-6 sidebar-link"

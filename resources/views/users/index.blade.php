@@ -13,7 +13,7 @@
                         d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
                         clip-rule="evenodd" />
                 </svg>
-                New User
+                Invite New User
             </a>
             @endcan
         </div>
@@ -40,7 +40,7 @@
                         <tr>
                             <td class="p-4">{{ $user->name }}</td>
                             <td class="p-4">{{ $user->email }}</td>
-                            <td class="p-4">{{ $user->role->name }}</td>
+                            <td class="p-4">{{ $user->role?->name }}</td>
                             <td class="p-4">
                                 <div class="flex flex-col lg:flex-row gap-2">
                                     @can('update', $user)

@@ -35,6 +35,9 @@ Route::get('/', function () {
 
 Route::view('/licence', 'licence')->name('licence');
 
+Route::get('/join/{email}', [App\Http\Controllers\InvitationController::class, 'accept'])->name('invitations.accept')->middleware('signed');
+
+
 // Authenticated routes
 Route::group(['middleware' => ['auth']], function () {
     
@@ -55,7 +58,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/whatsapp/{user}/latest', [App\Http\Controllers\WhatsappMessageController::class, 'latest'])->name('whatsapp.latest');
     Route::get('/whatsapp/media', [App\Http\Controllers\WhatsappMessageController::class, 'load_media'])->name('media.show');
 
-    Route::resource('users', App\Http\Controllers\UserController::class);
+    
+    Route::resource('users', App\Http\Controllers\UserController::class)->only(['index', 'store', 'edit', 'update', 'destroy']);
+    Route::get('users/invite', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
+    Route::get('invitations', [App\Http\Controllers\InvitationController::class, 'index'])->name('invitations.index');
+    Route::post('invitations', [App\Http\Controllers\InvitationController::class, 'store'])->name('invitations.store');
+    Route::put('invitations/{invitation}/cancel', [App\Http\Controllers\InvitationController::class, 'cancel'])->name('invitations.cancel');
+
+
+
+
     Route::resource('districts', App\Http\Controllers\DistrictController::class);
     Route::resource('properties', App\Http\Controllers\PropertyController::class);
     Route::post('properties/sort', [App\Http\Controllers\PropertyController::class, 'sort'])->name('properties.sort');
@@ -93,4 +105,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('help')->group(function () {
         Route::view('/properties/map_url', 'help.properties.map_url')->name('help.properties.map_url');
     });
+
+    
 });

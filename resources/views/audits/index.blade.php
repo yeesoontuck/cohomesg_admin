@@ -32,7 +32,7 @@
                     <tr class="not-last:border-b border-outline dark:border-outline-dark odd:bg-surface-alt dark:odd:bg-surface-dark-alt" valign="top">
                         <td class="p-2 whitespace-nowrap border-r border-outline dark:border-outline-dark">{{ $audit->created_at }}</td>
                         <td class="p-2 border-r border-outline dark:border-outline-dark">{{ $audit->user->name }}</td>
-                        <td class="p-2 border-r border-outline dark:border-outline-dark">{{ $audit->event }}</td>
+                        <td class="p-2 border-r border-outline dark:border-outline-dark">{{ $audit->event }} <br /> {{ str_replace('App\\Models\\', '', $audit->auditable_type) }}</td>
                         {{-- <td class="p-2">{{ $audit->auditable_type }}</td> --}}
                         {{-- <td class="p-2">{{ $audit->auditable_id }}</td> --}}
                         <td class="p-2 border-r border-outline dark:border-outline-dark max-w-md">
