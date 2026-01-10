@@ -17,6 +17,7 @@
     "dependencies": {
         "@alpinejs/collapse": "^3.15.0",
         "@alpinejs/focus": "^3.15.0",
+        "@alpinejs/intersect": "^3.15.3",
         "@alpinejs/mask": "^3.15.0",
         "@alpinejs/sort": "^3.15.2",
         "@imacrayon/alpine-ajax": "^0.12.6",

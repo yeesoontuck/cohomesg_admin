@@ -196,11 +196,15 @@
             </div>
 
             <div class="mb-14">
-                <h2 class="text-center text-4xl font-bold">
+                <h2 class="text-center text-4xl font-bold reveal-init" x-data="{ isVisible: false }"
+                    x-intersect.once="isVisible = true" :class="{ 'reveal-active': isVisible }">
                     How It Works
                 </h2>
-                <p class="text-center">3 Easy Steps to Move In</p>
-                <div class="flex flex-col md:flex-row items-center gap-4 px-4 mt-8 mb-12">
+                <p class="text-center reveal-init delay-300" x-data="{ isVisible: false }" x-intersect.once="isVisible = true"
+                    :class="{ 'reveal-active': isVisible }">3 Easy Steps to Move In</p>
+
+                <div class="flex flex-col md:flex-row items-center gap-4 px-4 mt-8 mb-12 reveal-init delay-600"
+                    x-data="{ isVisible: false }" x-intersect.once="isVisible = true" :class="{ 'reveal-active': isVisible }">
                     <div class="p-8 rounded-xl shadow-xl w-full">
                         <p class="mb-2 font-semibold text-blue-600">01</p>
                         <h2 class="text-4xl font-bold mb-3">Find Your Room</h2>
@@ -433,12 +437,14 @@
                 </div>
             </div>
 
-            <div class="my-12 pt-16 flex flex-col items-center">
+            <div class="my-12 pt-16 flex flex-col items-center reveal-init" x-data="{ isVisible: false }"
+                x-intersect.once="isVisible = true" :class="{ 'reveal-active': isVisible }">
                 <h2 class="text-center text-4xl font-bold">Testimonials From Our Residents</h2>
                 <p class="text-center">Real stories from people who found their perfect co-living home with us!</p>
             </div>
 
-            @include('site.partials.reviews')
+            <div class="reveal-init delay-300" x-data="{ isVisible: false }" x-intersect.once="isVisible = true"
+                :class="{ 'reveal-active': isVisible }">@include('site.partials.reviews')</div>
 
 
             {{-- For landlords --}}
@@ -464,7 +470,8 @@
                     </div>
                 </a>
 
-                <img src="/web/images/Earn-More-With-Co-Living-240x300.png" alt="" class="w-[150px] absolute -bottom-16 -right-8">
+                <img src="/web/images/Earn-More-With-Co-Living-240x300.png" alt=""
+                    class="w-[150px] absolute -bottom-16 -right-8">
             </div>
         </div>
     </div>

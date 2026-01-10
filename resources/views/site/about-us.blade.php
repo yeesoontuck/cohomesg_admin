@@ -49,11 +49,15 @@
                 <img src="/web/images/imagen-4.0-generate-preview-06-06_3_young_female_asian-1_400.jpg" alt=""
                     class="object-cover h-[300px] md:w-[362px] md:h-[362px]">
             </div>
+
             <div>
-                <h2 class="text-4xl font-bold my-4">What We Offer</h2>
+                <h2 x-data="{ isVisible: false }" x-intersect.once="isVisible = true"
+                    :class="{ 'reveal-active': isVisible }"
+                    class="text-4xl font-bold my-4 reveal-init">What We Offer</h2>
 
                 <div class="flex flex-col md:flex-row gap-8">
-                    <div class="p-8 bg-white flex flex-col gap-y-4 rounded-lg drop-shadow-md">
+                    <div class="p-8 bg-white flex flex-col gap-y-4 rounded-lg drop-shadow-md reveal-init delay-300" x-data="{ isVisible: false }" x-intersect.once="isVisible = true"
+                    :class="{ 'reveal-active': isVisible }">
                         <h3 class="text-3xl font-semibold">For Tenants</h3>
 
                         <div class="flex gap-4 items-center">
@@ -98,10 +102,12 @@
                         </div>
 
                         <a href="#"
-                            class="group self-start mt-8 px-4 py-2 rounded-full bg-[#048DEC] hover:bg-[#048DEC]/90 text-white text-xl inline-flex items-center cursor-pointer">Find rooms
+                            class="group self-start mt-8 px-4 py-2 rounded-full bg-[#048DEC] hover:bg-[#048DEC]/90 text-white text-xl inline-flex items-center cursor-pointer">Find
+                            rooms
                             to rent
 
-                            <div class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-[#6FBAC1] rounded-full ml-4 -mr-2 -ml-2">
+                            <div
+                                class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-[#6FBAC1] rounded-full ml-4 -mr-2 -ml-2">
                                 <svg class="-rotate-45 text-white w-8 h-8" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path
@@ -112,7 +118,8 @@
                         </a>
                     </div>
 
-                    <div class="p-8 bg-white flex flex-col gap-y-4 rounded-lg drop-shadow-md">
+                    <div class="p-8 bg-white flex flex-col gap-y-4 rounded-lg drop-shadow-md reveal-init delay-600" x-data="{ isVisible: false }" x-intersect.once="isVisible = true"
+                    :class="{ 'reveal-active': isVisible }">
                         <h3 class="text-3xl font-semibold">For Landlords</h3>
 
                         <div class="flex gap-4 items-center">
@@ -157,9 +164,11 @@
                         </div>
 
                         <a href="{{ route('landlords') }}"
-                            class="group self-start mt-8 px-4 py-2 rounded-full bg-[#B59410] hover:bg-[#B59410]/90 text-white text-xl inline-flex items-center cursor-pointer">List my property
+                            class="group self-start mt-8 px-4 py-2 rounded-full bg-[#B59410] hover:bg-[#B59410]/90 text-white text-xl inline-flex items-center cursor-pointer">List
+                            my property
 
-                            <div class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-[#EACA43] rounded-full ml-4 -mr-2 -ml-2">
+                            <div
+                                class="flex items-center justify-center w-10 h-10 group-hover:scale-125 duration-300 bg-[#EACA43] rounded-full ml-4 -mr-2 -ml-2">
                                 <svg class="-rotate-45 text-white w-8 h-8" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path
@@ -172,12 +181,16 @@
                 </div>
             </div>
 
-            <div class="my-12 mx-auto text-center">
+            <div class="my-12 mx-auto text-center reveal-init delay-300" x-data="{ isVisible: false }" x-intersect.once="isVisible = true"
+                    :class="{ 'reveal-active': isVisible }">
                 <h2 class="text-4xl font-bold">Testimonials From Our Residents</h2>
                 Real stories from people who found their perfect co-living home with us!
             </div>
 
-            @include('site.partials.reviews')
+            <div class="reveal-init delay-300" x-data="{ isVisible: false }" x-intersect.once="isVisible = true"
+                    :class="{ 'reveal-active': isVisible }">
+                @include('site.partials.reviews')
+            </div>
         </div>
     </div>
 @endsection

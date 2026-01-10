@@ -82,6 +82,27 @@
     .property-pill.active {
         @apply text-white bg-[#0079C1];
     }
+
+
+    /* The starting state and transition settings */
+    .reveal-init {
+        @apply transition-all duration-[2000ms] ease-out;
+        @apply opacity-0 translate-y-16;
+    }
+
+    /* The state when the element is scrolled into view */
+    .reveal-active {
+        @apply opacity-100 translate-y-0;
+    }
+
+
+    .reveal-slideright-init {
+        @apply transition-all duration-[2000ms] ease-out;
+        @apply opacity-0 -translate-x-16;
+    }
+    .reveal-slideright-active {
+        @apply opacity-100 translate-x-0;
+    }
 }
 
 /* fix for screen reader only element issue causing body height */
