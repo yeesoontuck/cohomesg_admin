@@ -47,8 +47,7 @@ class InvitationController extends Controller
             ]
         );
 
-        // $expiration = now()->addHours(24);
-        $expiration = now()->addMinute();
+        $expiration = now()->addHours(24);
 
         // 2. Generate the temporary signed URL (valid for 24 hours)
         $inviteUrl = URL::temporarySignedRoute(
