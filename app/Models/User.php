@@ -19,6 +19,12 @@ class User extends Authenticatable implements Auditable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+
+    protected $auditExclude = [
+        'password',
+    ];
+
+
     /**
      * The attributes that are mass assignable.
      *
