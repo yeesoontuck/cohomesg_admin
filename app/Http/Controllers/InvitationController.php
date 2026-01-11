@@ -8,6 +8,7 @@ use App\Notifications\InviteUserNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Validation\Rule;
 
 class InvitationController extends Controller
 {
@@ -16,7 +17,7 @@ class InvitationController extends Controller
      */
     public function index()
     {
-        //
+        // 
     }
 
     /**
@@ -34,9 +35,17 @@ class InvitationController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:invitations,email'
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users', 'email'),
+                Rule::unique('invitations')->where(function ($query) {
+                    return $query->whereNull('used_at')
+                                ->whereNull('canceled_at');
+                })
+            ],
         ],[
-            'email.unique' => 'An invitation has already been sent to this email address.'
+            'email.unique' => 'This email is already linked to an account or a pending invitation.'
         ]);
 
         // 1. Persist the invitation intent
@@ -60,7 +69,7 @@ class InvitationController extends Controller
         Notification::route('mail', $request->email)
             ->notify(new InviteUserNotification($inviteUrl, $expiration));
 
-        return to_route('invitations.index')->with('toast', [
+        return to_route('users.index')->with('toast', [
             'type' => 'success',
             'message' => 'User invitation sent successfully.'
         ]);
@@ -102,6 +111,7 @@ class InvitationController extends Controller
     {
         $invitation = Invitation::where('email', $email)
             ->whereNull('used_at')
+            ->whereNull('canceled_at')
             ->first();
 
         if (!$invitation) {
@@ -109,20 +119,34 @@ class InvitationController extends Controller
             throw new \Illuminate\Routing\Exceptions\InvalidSignatureException();
         }
 
-        // Mark as used immediately to satisfy "one-time use"
-        $invitation->update(['used_at' => now()]);
-
+        
         // Create the user shell
         $user = User::create(
             [
                 'name' => $invitation->name,
                 'email' => $invitation->email,
                 'password' => bcrypt(str()->random(32))
-            ]
-        );
-
+                ]
+            );
+            
         auth()->login($user);
+        
+        // Mark as used immediately to satisfy "one-time use"
+        $invitation->update(['used_at' => now()]);
 
+        return to_route('home');
         // return redirect()->route('onboarding.password');
+    }
+
+
+    public function cancel(Invitation $invitation)
+    {
+        $invitation->canceled_at = now();
+        $invitation->save();
+
+        return to_route('users.index')->with('toast', [
+            'type' => 'warning',
+            'message' => 'Invitation cancelled successfully.'
+        ]);
     }
 }
