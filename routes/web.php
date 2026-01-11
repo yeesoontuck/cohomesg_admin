@@ -54,6 +54,12 @@ Route::group(['middleware' => ['auth']], function () {
         return view('settings');
     })->name('settings');
 
+    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'my_profile'])->name('profile.my_profile');
+    Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/password', [App\Http\Controllers\ProfileController::class, 'update_password'])->name('profile.update_password');
+
+
+
     Route::get('/whatsapp/{user}/show', [App\Http\Controllers\WhatsappMessageController::class, 'show'])->name('whatsapp.show');
     Route::get('/whatsapp/{user}/latest', [App\Http\Controllers\WhatsappMessageController::class, 'latest'])->name('whatsapp.latest');
     Route::get('/whatsapp/media', [App\Http\Controllers\WhatsappMessageController::class, 'load_media'])->name('media.show');
