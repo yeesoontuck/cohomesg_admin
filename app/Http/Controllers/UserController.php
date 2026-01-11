@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invitation;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,9 +17,11 @@ class UserController extends Controller
     {
         Gate::authorize('viewAny', User::class);
 
-        $users = User::with('role')->orderBy('name')->get();
+        $users = User::with('role')->orderBy('deleted_at')->orderBy('name')->withTrashed()->get();
 
-        return view('users.index', compact('users'));
+        $invitations = Invitation::where('used_at', null)->where('canceled_at', null)->orderBy('name')->get();
+
+        return view('users.index', compact('users', 'invitations'));
     }
 
     /**
