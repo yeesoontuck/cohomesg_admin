@@ -56,7 +56,7 @@ class ProfileController extends Controller
             ]);
         }
 
-        $user->password = bcrypt($validated['new_password']);
+        $user->password = Hash::make($validated['new_password']);
         $user->save();
 
         return redirect()->route('profile.my_profile')->with('toast', [
