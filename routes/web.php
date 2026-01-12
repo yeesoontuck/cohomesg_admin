@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\DocumentController;
+use App\Http\Middleware\ForceOnboarding;
 use Illuminate\Support\Facades\Route;
 
 Route::domain(env('SITE_APP_DOMAIN'))->group(function () {
@@ -39,8 +39,17 @@ Route::get('/join/{email}', [App\Http\Controllers\InvitationController::class, '
 
 
 // Authenticated routes
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
     
+    // New user onboarding
+    Route::prefix('onboarding')->group(function () {
+        Route::get('/password', [App\Http\Controllers\OnboardingController::class, 'password'])->name('onboarding.password');
+        Route::post('/password', [App\Http\Controllers\OnboardingController::class, 'set_password'])->name('onboarding.password.set');
+
+        // Route::get('/2fa', [App\Http\Controllers\OnboardingController::class, 'two_factor'])->name('onboarding.2fa');
+        // Route::post('/2fa', [App\Http\Controllers\OnboardingController::class, 'enable_two_factor'])->name('onboarding.2fa.enable');
+    });
+
     Route::get('/dashboard', function () {
         return view('home');
     })->name('home');

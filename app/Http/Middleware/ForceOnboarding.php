@@ -25,12 +25,13 @@ class ForceOnboarding
                 return redirect()->route('onboarding.password');
             }
         } 
+        
         // Stage 2: Force 2FA
-        elseif (is_null($user->two_factor_confirmed_at)) {
-            if (!$request->is('onboarding/2fa*')) {
-                return redirect()->route('onboarding.2fa');
-            }
-        }
+        // elseif (is_null($user->two_factor_confirmed_at)) {
+        //     if (!$request->is('onboarding/2fa*')) {
+        //         return redirect()->route('onboarding.2fa');
+        //     }
+        // }
 
         return $next($request);
     }
