@@ -3,6 +3,11 @@
 @section('title', 'Login')
 
 @section('content')
+
+    @if (session('toast'))
+        <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
+    @endif
+
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
