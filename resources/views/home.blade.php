@@ -1,7 +1,10 @@
 <x-app>
     <main id="main" class="flex-1 dark:text-white">
 
-
+        @if (session('toast'))
+            <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
+        @endif
+        
         {{-- <div x-data="{bannerOpen: true}" x-show="bannerOpen" x-transition:enter="transition ease-out duration-300"
             class="relative flex border-outline bg-surface-alt p-4 text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark border-b">
             <p class="px-6 text-xs sm:text-sm text-pretty mx-auto">Limited Time Offer! Explore exclusive <a href="#"
