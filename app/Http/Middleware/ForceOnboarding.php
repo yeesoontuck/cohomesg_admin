@@ -34,7 +34,7 @@ class ForceOnboarding
         // }
 
         // Escape Logic: If finished, don't allow access to onboarding
-        if ($request->is('onboarding*')) {
+        elseif ($request->is('onboarding*')) {
             return to_route('home');
         }
 
