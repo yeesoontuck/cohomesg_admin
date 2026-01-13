@@ -20,7 +20,7 @@
             <div class="flex items-center mb-4 ml-1 w-fit text-2xl font-bold text-neutral-900 dark:text-white">
                 <img src="/cohome-logo_light.png" alt="" class="h-[28px] mr-2 dark:hidden">
                 <img src="/cohome-logo_dark.png" alt="" class="h-[28px] mr-2 hidden dark:block">
-                <span class="font-bold text-xl text-black dark:text-gray-200">CoHomeSG</span>
+                <span class="font-bold text-xl text-black dark:text-gray-200">{{ config('app.name') }}</span>
             </div>
             
             <div

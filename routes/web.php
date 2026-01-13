@@ -46,8 +46,8 @@ Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
         Route::get('/password', [App\Http\Controllers\OnboardingController::class, 'password'])->name('onboarding.password');
         Route::post('/password', [App\Http\Controllers\OnboardingController::class, 'set_password'])->name('onboarding.password.set');
 
-        // Route::get('/2fa', [App\Http\Controllers\OnboardingController::class, 'two_factor'])->name('onboarding.2fa');
-        // Route::post('/2fa', [App\Http\Controllers\OnboardingController::class, 'enable_two_factor'])->name('onboarding.2fa.enable');
+        Route::get('/2fa', [App\Http\Controllers\OnboardingController::class, 'two_factor'])->name('onboarding.2fa');
+        Route::post('/2fa', [App\Http\Controllers\OnboardingController::class, 'enable_two_factor'])->name('onboarding.2fa.enable');
     });
 
     Route::get('/dashboard', function () {

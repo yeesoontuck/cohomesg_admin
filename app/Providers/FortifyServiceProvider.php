@@ -13,6 +13,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Responses\FailedPasswordResetLinkResponse;
+use Illuminate\Http\JsonResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -35,24 +37,41 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::redirectUserForTwoFactorAuthenticationUsing(RedirectIfTwoFactorAuthenticatable::class);
 
+        // Login route and rate limiter
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
 
             return Limit::perMinute(5)->by($throttleKey);
         });
-
-        RateLimiter::for('two-factor', function (Request $request) {
-            return Limit::perMinute(5)->by($request->session()->get('login.id'));
-        });
-
-        // Login view
         Fortify::loginView(function () {
             return view('auth.login');
         });
 
+        
         // Registration view
-        Fortify::registerView(function () {
-            return view('auth.register');
+        // Fortify::registerView(function () {
+        //     return view('auth.register');
+        // });
+
+
+        // Forgot password routes and rate limiter
+        RateLimiter::for('forgot-password', function (Request $request) {
+            return Limit::perMinute(13)->by($request->ip());
         });
+        Fortify::requestPasswordResetLinkView(function () {
+            return view('auth.forgot-password');
+        });
+        Fortify::resetPasswordView(function ($request) {
+            return view('auth.reset-password', ['request' => $request]);
+        });
+
+        
+        // 2FA route and rate limiter
+        RateLimiter::for('two-factor', function (Request $request) {
+            return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        });
+
+
+        
     }
 }

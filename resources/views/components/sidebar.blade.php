@@ -4,7 +4,7 @@
         aria-hidden="true" x-on:click="sidebarIsOpen = false" x-transition.opacity></div>
 
     <nav x-cloak
-        class="fixed left-0 z-30 flex h-svh w-60 shrink-0 flex-col border-r border-outline bg-surface-alt p-4 pl-6 transition-transform duration-300 md:w-48 md:translate-x-0 md:relative dark:border-outline-dark dark:bg-surface-dark-alt"
+        class="fixed left-0 z-30 flex h-svh w-60 shrink-0 flex-col border-r border-outline bg-surface-alt p-4 pl-6 transition-transform duration-300 md:w-54 md:translate-x-0 md:relative dark:border-outline-dark dark:bg-surface-dark-alt"
         x-bind:class="sidebarIsOpen ? 'translate-x-0' : '-translate-x-60'" aria-label="sidebar navigation">
 
         <!-- logo  -->
@@ -12,7 +12,7 @@
             class="flex items-center ml-1 w-fit text-2xl font-bold text-neutral-900 dark:text-white">
             <img src="/cohome-logo_light.png" alt="" class="h-[28px] mr-2 dark:hidden">
             <img src="/cohome-logo_dark.png" alt="" class="h-[28px] mr-2 hidden dark:block">
-            <span class="font-bold text-xl text-black dark:text-gray-200">CoHomeSG</span>
+            <span class="font-bold text-xl text-black dark:text-gray-200">{{ config('app.name') }}</span>
         </a>
 
         <!-- sidebar links  -->
