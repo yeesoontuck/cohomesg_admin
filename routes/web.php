@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Route;
 Route::domain(env('SITE_APP_DOMAIN'))->group(function () {
 
     // Route::get('/test', function () {
-    //         return view('site.test');
-    //     })->name('test');
-    // Route::get('/test', function () {
     //     $rooms = App\Models\Room::all();
         
     //     foreach($rooms as $room)
@@ -27,7 +24,6 @@ Route::domain(env('SITE_APP_DOMAIN'))->group(function () {
     
     Route::get('/{property:slug?}', [App\Http\Controllers\SiteController::class, 'index'])->name('site');
 });
-
 
 Route::get('/', function () {
     return redirect(route('home'));
@@ -98,7 +94,6 @@ Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
 
     Route::get('openai', [App\Http\Controllers\OpenaiController::class, 'index'])->name('openai.index');
     Route::get('openai/inquiry', [App\Http\Controllers\OpenaiController::class, 'inquiry'])->name('openai.inquiry');
-    // Route::get('test', [App\Http\Controllers\PdfController::class, 'test']);
     Route::get('tenancy_agreement/{room_id}', [App\Http\Controllers\PdfController::class, 'tenancy_agreement']);
 
     Route::get('roles/create', [App\Http\Controllers\RoleController::class, 'create'])->name('roles.create')->middleware(['password.confirm']);

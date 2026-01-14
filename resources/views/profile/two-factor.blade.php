@@ -77,7 +77,7 @@
                         login.
                     </div>
 
-                    <div class="p-4 mb-8 border border-outline rounded-md max-w-lg">
+                    <div class="p-4 mb-8 border border-outline dark:border-outline-dark rounded-md max-w-lg">
                         <h3 class="text-md font-semibold mb-4 flex flex-row items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="inline size-4">

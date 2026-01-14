@@ -41,7 +41,7 @@
             <p>Users</p>
             <div class="grid grid-cols-6 pb-4 mb-4 border-b border-on-surface/50">
                 <x-permission-checkbox permission_id="10" :value="in_array('user.view', $role_mapped_permissions)">View</x-permission-checkbox>
-                <x-permission-checkbox permission_id="11" :value="in_array('user.create', $role_mapped_permissions)">Create</x-permission-checkbox>
+                <x-permission-checkbox permission_id="11" :value="in_array('user.create', $role_mapped_permissions)">Invite</x-permission-checkbox>
                 <x-permission-checkbox permission_id="12" :value="in_array('user.update', $role_mapped_permissions)">Edit</x-permission-checkbox>
                 <x-permission-checkbox permission_id="14" :value="in_array('user.delete', $role_mapped_permissions)">Delete</x-permission-checkbox>
             </div>

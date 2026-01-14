@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
 
 class InvitationController extends Controller
 {
@@ -33,6 +34,8 @@ class InvitationController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create', User::class);
+        
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => [
@@ -141,6 +144,8 @@ class InvitationController extends Controller
 
     public function cancel(Invitation $invitation)
     {
+        Gate::authorize('create', User::class);
+        
         $invitation->canceled_at = now();
         $invitation->save();
 
