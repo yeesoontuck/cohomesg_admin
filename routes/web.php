@@ -65,7 +65,9 @@ Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
 
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'my_profile'])->name('profile.my_profile');
     Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/password', [App\Http\Controllers\ProfileController::class, 'password'])->name('profile.update_password');
     Route::put('/profile/password', [App\Http\Controllers\ProfileController::class, 'update_password'])->name('profile.update_password');
+    Route::get('/profile/two_factor', [App\Http\Controllers\ProfileController::class, 'two_factor'])->name('profile.two_factor');
 
 
 
@@ -99,10 +101,10 @@ Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
     // Route::get('test', [App\Http\Controllers\PdfController::class, 'test']);
     Route::get('tenancy_agreement/{room_id}', [App\Http\Controllers\PdfController::class, 'tenancy_agreement']);
 
-    Route::resource('roles', App\Http\Controllers\RoleController::class);
-    Route::get('roles/{role}/permissions', [App\Http\Controllers\RoleController::class, 'permissions'])->name('roles.permissions');
+    Route::get('roles/create', [App\Http\Controllers\RoleController::class, 'create'])->name('roles.create')->middleware(['password.confirm']);
+    Route::get('roles/{role}/permissions', [App\Http\Controllers\RoleController::class, 'permissions'])->name('roles.permissions')->middleware(['password.confirm']);
     Route::put('roles/{role}/permissions', [App\Http\Controllers\RoleController::class, 'sync_permissions'])->name('roles.permissions.sync');
-    // Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+    Route::resource('roles', App\Http\Controllers\RoleController::class)->except(['create']);
 
     Route::prefix('documents')->group(function () {
         Route::get('/', [App\Http\Controllers\DocumentController::class, 'index'])->name('documents.index');
@@ -113,7 +115,7 @@ Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
         Route::put('{document}/edit', [App\Http\Controllers\DocumentController::class, 'update'])->name('documents.update');
     });
 
-    Route::get('audits', [App\Http\Controllers\AuditController::class, 'index'])->name('audits.index');
+    Route::get('audits', [App\Http\Controllers\AuditController::class, 'index'])->name('audits.index')->middleware(['password.confirm']);
     Route::get('audits/{model}/{id}', [App\Http\Controllers\AuditController::class, 'show'])->name('audits.show');
 
 

@@ -38,6 +38,14 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function password()
+    {
+        $user = auth()->user();
+        $user->load('role');
+
+        return view('profile.password', compact('user'));
+    }
+
     public function update_password(Request $request)
     {
         $user = auth()->user();
@@ -59,9 +67,17 @@ class ProfileController extends Controller
         $user->password = Hash::make($validated['new_password']);
         $user->save();
 
-        return redirect()->route('profile.my_profile')->with('toast', [
+        return to_route('profile.update_password')->with('toast', [
             'type' => 'success',
             'message' => 'Password updated successfully.'
         ]);
+    }
+
+    public function two_factor()
+    {
+        $user = auth()->user();
+        $user->load('role');
+
+        return view('profile.two-factor', compact('user'));
     }
 }
