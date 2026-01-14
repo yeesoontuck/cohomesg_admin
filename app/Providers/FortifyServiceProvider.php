@@ -48,6 +48,12 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         
+        // for actions that need password confirmation, e.g. setup 2FA
+        Fortify::confirmPasswordView(function () {
+            return view('auth.confirm-password');
+        });
+
+
         // Registration view
         // Fortify::registerView(function () {
         //     return view('auth.register');
@@ -66,9 +72,12 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         
-        // 2FA route and rate limiter
+        // 2FA challenge route and rate limiter
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        });
+        Fortify::twoFactorChallengeView(function () {
+            return view('auth.two-factor-challenge');
         });
 
 

@@ -10,7 +10,7 @@
         </div>
 
         <div class="flex flex-col md:flex-row md:gap-8 p-8 overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
-            <div class="border-b md:border-b-0 mb-4 md:border-r border-outline dark:border-outline-dark">
+            <div class="border-b md:border-b-0 mb-4 md:mb-0 md:border-r border-outline dark:border-outline-dark">
                 <ul class="pr-8 pb-4 md:leading-8 text-sm text-on-surface dark:text-on-surface-dark whitespace-nowrap flex flex-row justify-between md:flex-col">
                     <li><a href="{{ route('profile.my_profile') }}">Profile</a></li>
                     <li class="underline">Password</li>

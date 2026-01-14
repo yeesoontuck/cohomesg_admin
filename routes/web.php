@@ -67,7 +67,7 @@ Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
     Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
     Route::get('/profile/password', [App\Http\Controllers\ProfileController::class, 'password'])->name('profile.update_password');
     Route::put('/profile/password', [App\Http\Controllers\ProfileController::class, 'update_password'])->name('profile.update_password');
-    Route::get('/profile/two_factor', [App\Http\Controllers\ProfileController::class, 'two_factor'])->name('profile.two_factor');
+    Route::get('/profile/two_factor', [App\Http\Controllers\ProfileController::class, 'two_factor'])->name('profile.two_factor')->middleware(['password.confirm']);
 
 
 
