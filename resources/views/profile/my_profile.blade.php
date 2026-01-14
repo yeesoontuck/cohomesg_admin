@@ -13,7 +13,7 @@
             <div class="border-b md:border-b-0 mb-4 md:mb-0 md:border-r border-outline dark:border-outline-dark">
                 <ul class="pr-8 pb-4 md:leading-8 text-sm text-on-surface dark:text-on-surface-dark whitespace-nowrap flex flex-row justify-between md:flex-col">
                     <li class="underline">Profile</li>
-                    <li><a href="{{ route('profile.update_password') }}">Password</a></li>
+                    <li><a href="{{ route('profile.password') }}">Password</a></li>
                     <li><a href="{{ route('profile.two_factor') }}">Two-factor Auth</a></li>
                 </ul>
             </div>

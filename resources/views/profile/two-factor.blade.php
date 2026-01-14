@@ -15,7 +15,7 @@
                 <ul
                     class="pr-8 pb-4 md:leading-8 text-sm text-on-surface dark:text-on-surface-dark whitespace-nowrap flex flex-row justify-between md:flex-col">
                     <li><a href="{{ route('profile.my_profile') }}">Profile</a></li>
-                    <li><a href="{{ route('profile.update_password') }}">Password</a></li>
+                    <li><a href="{{ route('profile.password') }}">Password</a></li>
                     <li class="underline">Two-factor Auth</li>
                 </ul>
             </div>
