@@ -68,7 +68,7 @@
                     </div>
                 </div>
 
-                <div class="my-4 grid grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                     <label for="Wi-fi" class="inline-flex items-center gap-3">
                         <input id="Wi-fi" type="checkbox" name="wi-fi" class="peer sr-only" role="switch"
                             @checked(old('wi-fi')) />
