@@ -71,8 +71,17 @@
                         <button type="submit"
                             class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Login</button>
                     </div>
+
                 </form>
             </div>
         </div>
+
+        @if (!\App::environment('production'))
+        <div
+            class="mt-8 text-red-500 bg-red-100 px-3 py-0.5 rounded-sm border border-red-500 dark:text-red-200 dark:bg-red-900 dark:border-red-200">
+            Demo Environment
+        </div>
+        @endif
+
     </div>
 @endsection
