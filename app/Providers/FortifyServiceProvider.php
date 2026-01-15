@@ -62,7 +62,7 @@ class FortifyServiceProvider extends ServiceProvider
 
         // Forgot password routes and rate limiter
         RateLimiter::for('forgot-password', function (Request $request) {
-            return Limit::perMinute(13)->by($request->ip());
+            return Limit::perMinute(3)->by($request->ip());
         });
         Fortify::requestPasswordResetLinkView(function () {
             return view('auth.forgot-password');
