@@ -17,12 +17,24 @@ class Room extends Model implements Auditable
     use HasSlug;
     use \OwenIt\Auditing\Auditable;
     
+    // public function getSlugOptions() : SlugOptions
+    // {
+    //     return SlugOptions::create()
+    //         ->generateSlugsFrom(['property_id', 'room_number'])
+    //         ->saveSlugsTo('slug')
+    //         ->slugsShouldBeNoLongerThan(255);
+    // }
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom(['property_id', 'room_number'])
+            // We tell the package which fields to use
+            ->generateSlugsFrom(function($model) {
+                // Access the parent property name and the room number
+                return "{$model->property->property_name} {$model->room_number}";
+            })
             ->saveSlugsTo('slug')
-            ->slugsShouldBeNoLongerThan(255);
+            ->usingSeparator('-'); // Results in property-name-room-number
     }
 
     // public function getRouteKeyName()

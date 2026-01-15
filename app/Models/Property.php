@@ -25,6 +25,19 @@ class Property extends Model implements Auditable
             ->slugsShouldBeNoLongerThan(255);
     }
 
+    protected static function booted()
+    {
+        // When a Property is updated, update slugs for related Rooms if property_name changed
+        static::updated(function ($property) {
+            if ($property->isDirty('property_name')) {
+                foreach ($property->rooms as $room) {
+                    $room->generateSlug(); // Forces a refresh
+                    $room->save();
+                }
+            }
+        });
+    }
+
     protected function casts(): array
     {
         return [
