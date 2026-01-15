@@ -76,57 +76,10 @@
                     </div>
                 </div>
 
-                <div class="my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                    <label for="Wi-fi" class="inline-flex items-center gap-3">
-                        <input id="Wi-fi" type="checkbox" name="wi-fi" class="peer sr-only" role="switch"
-                            @checked(old('wi-fi', $room->room_detail->details['wi-fi'])) />
-                        <div class="relative h-6 w-11 after:h-5 after:w-5 peer-checked:after:translate-x-5 rounded-full border border-outline bg-surface-alt after:absolute after:bottom-0 after:left-[0.0625rem] after:top-0 after:my-auto after:rounded-full after:bg-on-surface after:transition-all after:content-[''] peer-checked:bg-success peer-checked:after:bg-on-primary peer-focus:outline-2 peer-focus:outline-offset-2 peer-focus:outline-outline-strong peer-focus:peer-checked:outline-primary peer-active:outline-offset-0 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:border-outline-dark dark:bg-surface-dark-alt dark:after:bg-on-surface-dark dark:peer-checked:bg-success-dark dark:peer-checked:after:bg-on-primary-dark dark:peer-focus:outline-outline-dark-strong dark:peer-focus:peer-checked:outline-primary-dark"
-                            aria-hidden="true"></div>
-                        <span
-                            class="trancking-wide text-sm font-medium text-on-surface peer-checked:text-on-surface-strong peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-on-surface-dark dark:peer-checked:text-on-surface-dark-strong">
-                            Wi-fi
-                        </span>
-                    </label>
-                    <label for="Aircon" class="inline-flex items-center gap-3">
-                        <input id="Aircon" type="checkbox" name="aircon" class="peer sr-only" role="switch"
-                            @checked(old('aircon', $room->room_detail->details['aircon'])) />
-                        <div class="relative h-6 w-11 after:h-5 after:w-5 peer-checked:after:translate-x-5 rounded-full border border-outline bg-surface-alt after:absolute after:bottom-0 after:left-[0.0625rem] after:top-0 after:my-auto after:rounded-full after:bg-on-surface after:transition-all after:content-[''] peer-checked:bg-success peer-checked:after:bg-on-primary peer-focus:outline-2 peer-focus:outline-offset-2 peer-focus:outline-outline-strong peer-focus:peer-checked:outline-primary peer-active:outline-offset-0 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:border-outline-dark dark:bg-surface-dark-alt dark:after:bg-on-surface-dark dark:peer-checked:bg-success-dark dark:peer-checked:after:bg-on-primary-dark dark:peer-focus:outline-outline-dark-strong dark:peer-focus:peer-checked:outline-primary-dark"
-                            aria-hidden="true"></div>
-                        <span
-                            class="trancking-wide text-sm font-medium text-on-surface peer-checked:text-on-surface-strong peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-on-surface-dark dark:peer-checked:text-on-surface-dark-strong">
-                            Aircon
-                        </span>
-                    </label>
-                    <label for="Window" class="inline-flex items-center gap-3">
-                        <input id="Window" type="checkbox" name="window" class="peer sr-only" role="switch"
-                            @checked(old('window', $room->room_detail->details['window'])) />
-                        <div class="relative h-6 w-11 after:h-5 after:w-5 peer-checked:after:translate-x-5 rounded-full border border-outline bg-surface-alt after:absolute after:bottom-0 after:left-[0.0625rem] after:top-0 after:my-auto after:rounded-full after:bg-on-surface after:transition-all after:content-[''] peer-checked:bg-success peer-checked:after:bg-on-primary peer-focus:outline-2 peer-focus:outline-offset-2 peer-focus:outline-outline-strong peer-focus:peer-checked:outline-primary peer-active:outline-offset-0 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:border-outline-dark dark:bg-surface-dark-alt dark:after:bg-on-surface-dark dark:peer-checked:bg-success-dark dark:peer-checked:after:bg-on-primary-dark dark:peer-focus:outline-outline-dark-strong dark:peer-focus:peer-checked:outline-primary-dark"
-                            aria-hidden="true"></div>
-                        <span
-                            class="trancking-wide text-sm font-medium text-on-surface peer-checked:text-on-surface-strong peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-on-surface-dark dark:peer-checked:text-on-surface-dark-strong">
-                            Window
-                        </span>
-                    </label>
-                    <label for="Cleaning" class="inline-flex items-center gap-3">
-                        <input id="Cleaning" type="checkbox" name="cleaning" class="peer sr-only" role="switch"
-                            @checked(old('cleaning', $room->room_detail->details['cleaning'])) />
-                        <div class="relative h-6 w-11 after:h-5 after:w-5 peer-checked:after:translate-x-5 rounded-full border border-outline bg-surface-alt after:absolute after:bottom-0 after:left-[0.0625rem] after:top-0 after:my-auto after:rounded-full after:bg-on-surface after:transition-all after:content-[''] peer-checked:bg-success peer-checked:after:bg-on-primary peer-focus:outline-2 peer-focus:outline-offset-2 peer-focus:outline-outline-strong peer-focus:peer-checked:outline-primary peer-active:outline-offset-0 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:border-outline-dark dark:bg-surface-dark-alt dark:after:bg-on-surface-dark dark:peer-checked:bg-success-dark dark:peer-checked:after:bg-on-primary-dark dark:peer-focus:outline-outline-dark-strong dark:peer-focus:peer-checked:outline-primary-dark"
-                            aria-hidden="true"></div>
-                        <span
-                            class="trancking-wide text-sm font-medium text-on-surface peer-checked:text-on-surface-strong peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-on-surface-dark dark:peer-checked:text-on-surface-dark-strong">
-                            Cleaning
-                        </span>
-                    </label>
-                    <label for="Furnishings" class="inline-flex items-center gap-3">
-                        <input id="Furnishings" type="checkbox" name="furnishings" class="peer sr-only"
-                            role="switch" @checked(old('furnishings', $room->room_detail->details['furnishings'])) />
-                        <div class="relative h-6 w-11 after:h-5 after:w-5 peer-checked:after:translate-x-5 rounded-full border border-outline bg-surface-alt after:absolute after:bottom-0 after:left-[0.0625rem] after:top-0 after:my-auto after:rounded-full after:bg-on-surface after:transition-all after:content-[''] peer-checked:bg-success peer-checked:after:bg-on-primary peer-focus:outline-2 peer-focus:outline-offset-2 peer-focus:outline-outline-strong peer-focus:peer-checked:outline-primary peer-active:outline-offset-0 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:border-outline-dark dark:bg-surface-dark-alt dark:after:bg-on-surface-dark dark:peer-checked:bg-success-dark dark:peer-checked:after:bg-on-primary-dark dark:peer-focus:outline-outline-dark-strong dark:peer-focus:peer-checked:outline-primary-dark"
-                            aria-hidden="true"></div>
-                        <span
-                            class="trancking-wide text-sm font-medium text-on-surface peer-checked:text-on-surface-strong peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-on-surface-dark dark:peer-checked:text-on-surface-dark-strong">
-                            Furnishings
-                        </span>
-                    </label>
+                <div class="my-4 grid grid-cols-1 lg:grid-cols-4 gap-4">
+                    <x-amenity name="aircon" label="Aircon" :status="old('wi-fi', $room->room_detail->details['aircon'])" />
+                    <x-amenity name="window" label="Window" :status="old('wi-fi', $room->room_detail->details['window'])" />
+                    <x-amenity name="furnishings" label="Table & Chair" :status="old('wi-fi', $room->room_detail->details['furnishings'])" />
                 </div>
 
                 <div class="flex flex-col lg:flex-row lg:gap-10">

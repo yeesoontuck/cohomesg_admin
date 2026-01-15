@@ -25,6 +25,13 @@ class Property extends Model implements Auditable
             ->slugsShouldBeNoLongerThan(255);
     }
 
+    protected function casts(): array
+    {
+        return [
+            'amenities' => 'array',
+        ];
+    }
+
     // public function getRouteKeyName()
     // {
     //     return 'slug';

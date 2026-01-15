@@ -115,6 +115,17 @@ class PropertyController extends Controller
         $property->district_id = $validated['district_id'];
         $property->property_type = $validated['property_type'];
         $property->address = $validated['address'];
+
+        $property->amenities = [
+            'wi-fi' => $request->has('wi-fi'),
+            'cleaning' => $request->has('cleaning'),
+            'microwave' => $request->has('microwave'),
+            'induction' => $request->has('induction'),
+            'washer' => $request->has('washer'),
+            'dryer' => $request->has('dryer'),
+            'refrigerator' => $request->has('refrigerator'),
+        ];
+        
         $property->latitude = $validated['latitude'];
         $property->longitude = $validated['longitude'];
         $property->sort_order = $max_sort_order + 1;
@@ -177,6 +188,17 @@ class PropertyController extends Controller
         $property->district_id = $validated['district_id'];
         $property->property_type = $validated['property_type'];
         $property->address = $validated['address'];
+
+        $property->amenities = [
+            'wi-fi' => $request->has('wi-fi'),
+            'cleaning' => $request->has('cleaning'),
+            'microwave' => $request->has('microwave'),
+            'induction' => $request->has('induction'),
+            'washer' => $request->has('washer'),
+            'dryer' => $request->has('dryer'),
+            'refrigerator' => $request->has('refrigerator'),
+        ];
+        
         $property->latitude = $validated['latitude'];
         $property->longitude = $validated['longitude'];
         $property->map_embed = $validated['map_embed'];

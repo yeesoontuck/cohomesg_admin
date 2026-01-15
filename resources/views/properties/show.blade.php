@@ -51,6 +51,17 @@
                 </p>
             </div>
 
+            <label class="block mt-8 w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Property Amenities</label>
+            <div class="mt-2 mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <x-amenity name="wi-fi" label="High Speed Wi-Fi" :status="$property->amenities['wi-fi']" :disabled="true" />
+                <x-amenity name="cleaning" label="Cleaning" :status="$property->amenities['cleaning']" :disabled="true" />
+                <x-amenity name="microwave" label="Microwave" :status="$property->amenities['microwave']" :disabled="true" />
+                <x-amenity name="induction" label="Induction Cooker" :status="$property->amenities['induction']" :disabled="true" />
+                <x-amenity name="washer" label="Washer" :status="$property->amenities['washer']" :disabled="true" />
+                <x-amenity name="dryer" label="Dryer" :status="$property->amenities['dryer']" :disabled="true" />
+                <x-amenity name="refrigerator" label="Refrigerator" :status="$property->amenities['refrigerator']" :disabled="true" />
+            </div>
+
             <div class="max-w-4xl flex flex-col lg:flex-row lg:gap-10">
                 <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
                     <label for="room_number" class="w-fit pl-0.5 text-sm">Latitude</label>
@@ -89,11 +100,11 @@
                 <label for="room_number" class="w-fit pl-0.5 text-sm">Map Embed URL</label>
                 <textarea rows="5"
                     class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark">{{ $property->map_embed }}</textarea>
-            
-                @if($property->map_embed)
+
+                @if ($property->map_embed)
                     {!! $property->map_embed !!}
                 @endif
-            
+
             </div>
 
             {{-- 
@@ -102,16 +113,17 @@
             <div class="flex justify-between">
                 <div class="flex gap-2">
                     @can('update', $property)
-                    <a x-target.push="main" href="{{ route('properties.edit', $property) }}"
-                        class="inline-block btn-info">Edit</a>
+                        <a x-target.push="main" href="{{ route('properties.edit', $property) }}"
+                            class="inline-block btn-info">Edit</a>
                     @endcan
                     <a x-target.push="main" href="{{ route('properties.index') }}"
                         class="inline-block btn-outline-inverse">Back</a>
                 </div>
 
                 @can('delete', $property)
-                <button type="button" @click="open = true; deleteUrl = '{{ route('properties.destroy', $property) }}'"
-                    class="btn-outline-danger bg-red-100 dark:bg-red-950">Delete</button>
+                    <button type="button"
+                        @click="open = true; deleteUrl = '{{ route('properties.destroy', $property) }}'"
+                        class="btn-outline-danger bg-red-100 dark:bg-red-950">Delete</button>
                 @endcan
             </div>
 
@@ -119,7 +131,8 @@
             {{-- delete confirmation modal --}}
             <div x-show="open" class="z-200 fixed inset-0 flex items-center justify-center bg-black/50"
                 x-transition.opacity.duration.300ms x-cloak>
-                <div class="bg-surface dark:bg-surface-dark p-12 rounded-lg shadow-lg flex flex-col items-center gap-4">
+                <div
+                    class="bg-surface dark:bg-surface-dark p-12 rounded-lg shadow-lg flex flex-col items-center gap-4">
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-12 text-danger">
@@ -137,15 +150,16 @@
 
                         <div class="flex justify-end gap-2">
                             <button type="button" @click="open = false" class="btn-outline-inverse">Cancel</button>
-                            <button type="submit" class="btn-outline-danger bg-red-100 dark:bg-red-950">Delete</button>
+                            <button type="submit"
+                                class="btn-outline-danger bg-red-100 dark:bg-red-950">Delete</button>
                         </div>
                     </form>
                 </div>
             </div>
 
             <div class="mt-8">
-                <a href="{{ route('audits.show', ['property', $property]) }}"
-                    class="text-xs link-underline">Activity Log ({{ $property->audits()->count() }})</a>
+                <a href="{{ route('audits.show', ['property', $property]) }}" class="text-xs link-underline">Activity
+                    Log ({{ $property->audits()->count() }})</a>
             </div>
         </div>
 

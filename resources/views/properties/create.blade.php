@@ -11,7 +11,9 @@
 
                 <div class="max-w-4xl flex flex-col lg:flex-row lg:gap-10">
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="estate_name" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Estate Name</label>
+                        <label for="estate_name"
+                            class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Estate
+                            Name</label>
                         <input id="estate_name" type="text" name="estate_name"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             value="{{ old('estate_name') }}" placeholder="Changi Court" required>
@@ -20,20 +22,23 @@
                         @enderror
                     </div>
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="property_name" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Property Name</label>
+                        <label for="property_name"
+                            class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Property
+                            Name</label>
                         <input id="property_name" type="text" name="property_name"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             value="{{ old('property_name') }}" placeholder="Changi Court 02-07" required>
                         @error('property_name')
                             <div class="text-red-500 text-sm">{{ $message }}</div>
                         @enderror
-                    </p>
+                        </p>
                     </div>
                 </div>
 
                 <div class="max-w-4xl flex flex-col lg:flex-row lg:gap-10">
                     <div class="relative mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="District" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">District</label>
+                        <label for="District"
+                            class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">District</label>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             class="absolute pointer-events-none right-4 top-8 size-5">
                             <path fill-rule="evenodd"
@@ -54,7 +59,9 @@
                         @enderror
                     </div>
                     <div class="relative mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="Property Type" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Property Type</label>
+                        <label for="Property Type"
+                            class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Property
+                            Type</label>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             class="absolute pointer-events-none right-4 top-8 size-5">
                             <path fill-rule="evenodd"
@@ -77,23 +84,39 @@
                 </div>
 
                 <div class="mb-4 flex w-full max-w-4xl flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                    <label for="address" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Address</label>
+                    <label for="address"
+                        class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Address</label>
                     <input id="address" type="text" name="address"
                         class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                         value="{{ old('address') }}" required maxlength="255">
                     </p>
                 </div>
 
+                <label for="address"
+                        class="block mt-8 w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Property Amenities</label>
+
+                <div class="mt-2 mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <x-amenity name="wi-fi" label="High Speed Wi-Fi" />
+                    <x-amenity name="cleaning" label="Cleaning" />
+                    <x-amenity name="microwave" label="Microwave" />
+                    <x-amenity name="induction" label="Induction Cooker" />
+                    <x-amenity name="washer" label="Washer" />
+                    <x-amenity name="dryer" label="Dryer" />
+                    <x-amenity name="refrigerator" label="Refrigerator" />
+                </div>
+
                 <div class="max-w-4xl flex flex-col lg:flex-row lg:gap-10">
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="latitude" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Latitude</label>
+                        <label for="latitude"
+                            class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Latitude</label>
                         <input id="latitude" type="text" name="latitude"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             value="{{ old('latitude') }}" placeholder="1.30606445378835300" required>
                         </p>
                     </div>
                     <div class="mb-4 flex w-full flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                        <label for="longitude" class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Longitude</label>
+                        <label for="longitude"
+                            class="w-fit pl-0.5 text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Longitude</label>
                         <input id="longitude" type="text" name="longitude"
                             class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                             value="{{ old('longitude') }}" placeholder="103.89582956700919000" required>
@@ -104,7 +127,8 @@
                 <div class="mb-4 flex w-full max-w-4xl flex-col gap-1 text-on-surface dark:text-on-surface-dark">
                     <label for="map_embed" class="w-fit pl-0.5 text-sm">
                         Map Embed URL
-                        <a href="{{ route('help.properties.map_url') }}" target="_blank" class="bg-primary text-on-primary rounded-full px-2 py-1">?</a>
+                        <a href="{{ route('help.properties.map_url') }}" target="_blank"
+                            class="bg-primary text-on-primary rounded-full px-2 py-1">?</a>
                     </label>
                     <textarea id="map_embed" name="map_embed" rows="5"
                         class="w-full rounded-radius border border-outline bg-surface-alt px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"></textarea>
@@ -129,7 +153,8 @@
 
                 <button type="submit" class="btn-primary">Save</button>
 
-                <a x-target.push="main" href="{{ route('properties.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
+                <a x-target.push="main" href="{{ route('properties.index') }}"
+                    class="inline-block btn-outline-inverse">Cancel</a>
             </form>
         </div>
     </main>

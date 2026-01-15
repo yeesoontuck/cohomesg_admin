@@ -63,16 +63,6 @@
                             </td>
                             <td class="p-4">
                                 <div class="flex gap-1 text-gray-500 dark:text-slate-300">
-                                    @if ($room->room_detail->details['wi-fi'])
-                                        <x-tooltip text="wi-fi" cursor="cursor-help">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
-                                                fill="currentColor" class="w-4 h-4">
-                                                <path
-                                                    d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-.9s11.8-33-.9-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 169-3.3 189.2 8.9 202s32.5 13.2 45.2 .9zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C459.8 219.2 393 192 320 192s-139.8 27.2-190.5 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z">
-                                                </path>
-                                            </svg>
-                                        </x-tooltip>
-                                    @endif
                                     @if ($room->room_detail->details['aircon'])
                                         <x-tooltip text="aircon" cursor="cursor-help">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -90,17 +80,6 @@
                                                 <path
                                                     d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z">
                                                 </path>
-                                            </svg>
-                                        </x-tooltip>
-                                    @endif
-                                    @if ($room->room_detail->details['cleaning'])
-                                        <x-tooltip text="cleaning" cursor="cursor-help">
-                                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 115.82 191.25" fill="currentColor" class="w-4 h-4">
-                                                <path
-                                                    d="M82.27,117.85c5.66,21.64,14.23,40.13,31.7,54.72-2.46,2.77-5.09,5.61-8.37,7.42-12.53,6.95-7.98-4.72-16.6-8.98l-.07,15.71-20.11,2.76-11.15-24.77-3.24,25.13-25-3.11,3.13-12.56c-8.13-2.67-7.92,9.38-11.23,9.61-3.82.26-20.04-7.85-20.02-11.21,17.7-14.22,24.95-33.92,34.34-53.65l46.6-1.08Z" />
-                                                <path
-                                                    d="M65.29,85.88c.42.98,15.62,9.18,16.32,9.94,2.07,2.26-.17,11.26.52,15.27h-46.43c-8.79-16.19,16.14-23.43,16.14-25.22V5.5l7.07-4.67,6.37,4.67v80.38Z" />
                                             </svg>
                                         </x-tooltip>
                                     @endif

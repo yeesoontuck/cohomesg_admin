@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Gate;
 class RoomController extends Controller
 {
     private $room_types = [
-        'budget single' => 'Budget Single Room',
+        'econ single' => 'Econ Single Room',
         'master' => 'Master Room',
         'premium large' => 'Premium Large Room',
         'premium single' => 'Premium Single Room',
         'standard' => 'Standard Room',
+        'single' => 'Single Room',
         'twin sharing' => 'Twin Sharing Room',
     ];
 
@@ -80,10 +81,8 @@ class RoomController extends Controller
         $room_detail->details = [
             'room' => $validated['room_type'],
             'bed' => $validated['bed_type'],
-            'wi-fi' => $request->has('wi-fi'),
             'aircon' => $request->has('aircon'),
             'window' => $request->has('window'),
-            'cleaning' => $request->has('cleaning'),
             'furnishings' => $request->has('furnishings'),
         ];
         $room_detail->save();
@@ -140,10 +139,8 @@ class RoomController extends Controller
         $room_detail->details = [
             'room' => $validated['room_type'],
             'bed' => $validated['bed_type'],
-            'wi-fi' => $request->has('wi-fi'),
             'aircon' => $request->has('aircon'),
             'window' => $request->has('window'),
-            'cleaning' => $request->has('cleaning'),
             'furnishings' => $request->has('furnishings'),
         ];
         $room_detail->save();
