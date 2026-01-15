@@ -41,16 +41,6 @@
                                 <a href="{{ route('documents.edit', $document) }}" class="inline-block btn-primary px-2 py-1 text-xs rounded">
                                     Edit
                                 </a>
-                                @if($document->id > 28)
-                                    <form action="{{ route('documents.destroy', $document) }}" method="post" class="inline"
-                                        @click="if (!confirm('Are you sure you want to proceed?')) $event.preventDefault()">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn-danger px-2 py-1 text-xs rounded">
-                                            Delete
-                                        </button>
-                                    </form>
-                                @endif
                             </td>
                         </tr>
                     @endforeach

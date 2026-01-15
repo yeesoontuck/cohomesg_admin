@@ -16,13 +16,13 @@
     @stack('styles')
 </head>
 
-<body>
+<body x-cloak>
     <x-sidebar>
         {{ $slot }}
     </x-sidebar>
 
     @if(! \App::environment('production'))
-    <div class="absolute top-5 left-10 md:left-56 z-200 text-red-500 bg-red-100 px-3 py-0.5 rounded-sm border border-red-500 dark:text-red-200 dark:bg-red-900 dark:border-red-200">
+    <div class="absolute top-5 left-10 md:left-56 z-199 text-red-500 bg-red-100 px-3 py-0.5 rounded-sm border border-red-500 dark:text-red-200 dark:bg-red-900 dark:border-red-200">
         Demo
     </div>
     @endif

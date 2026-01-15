@@ -125,4 +125,16 @@ class UserController extends Controller
             'message' => 'User deleted successfully.'
         ]);
     }
+
+    public function restore(User $user)
+    {
+        Gate::authorize('restore', $user);
+        
+        $user->restore();
+
+        return to_route('users.index')->with('toast', [
+            'type' => 'success',
+            'message' => 'User restored successfully.'
+        ]);
+    }
 }

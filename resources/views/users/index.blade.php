@@ -9,53 +9,60 @@
         @endif
 
         <div class="overflow-hidden w-full overflow-x-auto">
-            <table
-                class="w-full text-left text-sm text-on-surface dark:text-on-surface-dark border border-outline dark:border-outline-dark">
-                <thead
-                    class="border-b border-outline bg-surface-alt text-sm text-on-surface-strong dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark-strong">
-                    <tr>
-                        <th scope="col" class="p-4">Name</th>
-                        <th scope="col" class="p-4">Email</th>
-                        <th scope="col" class="p-4">Role</th>
-                        <th scope="col" class="p-4">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-outline dark:divide-outline-dark">
 
-                    @foreach ($users as $user)
+            <div x-data="{ open: false, actionUrl: '' }">
+                <table
+                    class="w-full text-left text-sm text-on-surface dark:text-on-surface-dark border border-outline dark:border-outline-dark">
+                    <thead
+                        class="border-b border-outline bg-surface-alt text-sm text-on-surface-strong dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark-strong">
                         <tr>
-                            <td class="p-4 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->name }}</td>
-                            <td class="p-4 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->email }}</td>
-                            <td class="p-4 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->role?->name }}</td>
-                            <td class="p-4">
-                                <div class="flex flex-col lg:flex-row gap-2">
-                                    @if($user->deleted_at)
-                                        @can('restore', $user)
-                                            <form action="" method="post" class="inline"
-                                                @click="if (!confirm('Are you sure you want to restore this account?')) $event.preventDefault()">
-                                                @csrf
-                                                @method('put')
-                                                <button type="submit" class="btn-info px-2 py-1 text-xs rounded">
-                                                    Restore
-                                                </button>
-                                            </form>
-                                        @endcan
-                                        
-                                    @else
-                                        @can('update', $user)
-                                            <a x-target.push="main" href="{{ route('users.edit', $user) }}"
-                                                class="inline-block btn-primary px-2 py-1 text-xs rounded">
-                                                Edit
-                                            </a>
-                                        @endcan
-                                    @endif
-                                </div>
-                            </td>
+                            <th scope="col" class="p-4">Name</th>
+                            <th scope="col" class="p-4">Email</th>
+                            <th scope="col" class="p-4">Role</th>
+                            <th scope="col" class="p-4">Actions</th>
                         </tr>
-                    @endforeach
+                    </thead>
+                    <tbody class="divide-y divide-outline dark:divide-outline-dark">
+                        @foreach ($users as $user)
+                            <tr>
+                                <td class="p-4 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->name }}</td>
+                                <td class="p-4 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->email }}</td>
+                                <td class="p-4 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->role?->name }}
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-col lg:flex-row gap-2">
+                                        @if ($user->deleted_at)
+                                            @can('restore', $user)
+                                                <button type="button"
+                                                    @click="open = true; actionUrl = '{{ route('users.restore', $user) }}'"
+                                                    class="btn-info px-2 py-1 text-xs rounded">Restore</button>
 
-                </tbody>
-            </table>
+                                                {{-- <form action="" method="post" class="inline"
+                                                    @click="if (!confirm('Are you sure you want to restore this account?')) $event.preventDefault()">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button type="submit" class="btn-info px-2 py-1 text-xs rounded">
+                                                        Restore
+                                                    </button>
+                                                </form> --}}
+                                            @endcan
+                                        @else
+                                            @can('update', $user)
+                                                <a x-target.push="main" href="{{ route('users.edit', $user) }}"
+                                                    class="inline-block btn-primary px-2 py-1 text-xs rounded">
+                                                    Edit
+                                                </a>
+                                            @endcan
+                                        @endif
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <x-confirm-modal method="put" message="Restore this account?" />
+            </div>
 
 
             @can('create', App\Models\User::class)
@@ -74,43 +81,41 @@
                     </a>
                 </div>
 
-                <table
-                    class="w-full text-left text-sm text-on-surface dark:text-on-surface-dark border border-outline dark:border-outline-dark">
-                    <thead
-                        class="border-b border-outline bg-surface-alt text-sm text-on-surface-strong dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark-strong">
-                        <tr>
-                            <th scope="col" class="p-4">Name</th>
-                            <th scope="col" class="p-4">Email</th>
-                            <th scope="col" class="p-4">Invited on</th>
-                            <th scope="col" class="p-4">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-outline dark:divide-outline-dark">
+                <div x-data="{ open: false, actionUrl: '' }">
+                    <table
+                        class="w-full text-left text-sm text-on-surface dark:text-on-surface-dark border border-outline dark:border-outline-dark">
+                        <thead
+                            class="border-b border-outline bg-surface-alt text-sm text-on-surface-strong dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark-strong">
+                            <tr>
+                                <th scope="col" class="p-4">Name</th>
+                                <th scope="col" class="p-4">Email</th>
+                                <th scope="col" class="p-4">Invited on</th>
+                                <th scope="col" class="p-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-outline dark:divide-outline-dark">
+                            @forelse ($invitations as $invitation)
+                                <tr>
+                                    <td class="p-4">{{ $invitation->name }}</td>
+                                    <td class="p-4">{{ $invitation->email }}</td>
+                                    <td class="p-4">{{ $invitation->created_at }}</td>
+                                    <td class="p-4">
+                                        <button type="button"
+                                            @click="open = true; actionUrl = '{{ route('invitations.cancel', $invitation) }}'"
+                                            class="btn-inverse px-2 py-1 text-xs">Cancel</button>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4" class="p-4 text-center">- no pending invitations -</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
 
-                        @forelse ($invitations as $invitation)
-                            <tr>
-                                <td class="p-4">{{ $invitation->name }}</td>
-                                <td class="p-4">{{ $invitation->email }}</td>
-                                <td class="p-4">{{ $invitation->created_at }}</td>
-                                <td class="p-4">
-                                    <form action="{{ route('invitations.cancel', $invitation) }}" method="post"
-                                        class="inline"
-                                        @click="if (!confirm('Are you sure you want to proceed?')) $event.preventDefault()">
-                                        @csrf
-                                        @method('put')
-                                        <button type="submit" class="btn-inverse px-2 py-1 text-xs rounded">
-                                            Cancel
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="4" class="p-4 text-center">- no pending invitations -</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                    <x-confirm-modal method="put" message="Cancel this invitation?" />
+                </div>
+
             @endcan
 
 

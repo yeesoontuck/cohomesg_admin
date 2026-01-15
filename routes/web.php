@@ -72,8 +72,10 @@ Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
     Route::get('/whatsapp/media', [App\Http\Controllers\WhatsappMessageController::class, 'load_media'])->name('media.show');
 
     
-    Route::resource('users', App\Http\Controllers\UserController::class)->only(['index', 'store', 'edit', 'update', 'destroy']);
     Route::get('users/invite', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
+    Route::put('users/{user}/restore', [App\Http\Controllers\UserController::class, 'restore'])->withTrashed()->name('users.restore');
+    Route::resource('users', App\Http\Controllers\UserController::class)->only(['index', 'store', 'edit', 'update', 'destroy']);
+
     Route::get('invitations', [App\Http\Controllers\InvitationController::class, 'index'])->name('invitations.index');
     Route::post('invitations', [App\Http\Controllers\InvitationController::class, 'store'])->name('invitations.store');
     Route::put('invitations/{invitation}/cancel', [App\Http\Controllers\InvitationController::class, 'cancel'])->name('invitations.cancel');
