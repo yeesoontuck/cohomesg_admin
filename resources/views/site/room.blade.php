@@ -441,7 +441,7 @@
                 </div>
 
 
-                <div class="md:h-70 md:sticky md:top-8 order-1 md:order-2 md:w-[350px] bg-gray-200 p-4 rounded-xl">
+                <div class="self-center md:self-start md:sticky md:top-8 order-1 md:order-2 md:w-[350px] bg-gray-200 p-4 pb-8 rounded-xl">
                     <h2 class="text-3xl font-bold mb-3">{{ $room->property->property_name }}, <span
                             class="whitespace-nowrap">{{ $room->room_number }}</span></h2>
 
