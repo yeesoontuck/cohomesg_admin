@@ -19,11 +19,15 @@
         body {
             font-family: times, serif;
             font-size: 10pt;
-            line-height: 1.2rem;
+            line-height: 0.5;
         }
 
         /* styles to make Quill.js content display correctly */
-        #quill_contents p {}
+        #quill_contents p {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            line-height: inherit;
+        }
 
         #quill_contents strong {}
 
@@ -53,6 +57,13 @@
             padding-left:0px;
         }
 
+        #quill_contents .pdf-label {
+                display: inline-block;
+                /* This width creates the 'column' effect */
+                width: 180pt;
+                /* Essential for alignment in dompdf */
+                margin-right: 5pt;
+            }
     </style>
 </head>
 
@@ -64,9 +75,9 @@
             $imageData = base64_encode(file_get_contents($imagePath));
             $imageSrc = 'data:image/png;base64,' . $imageData;
         @endphp
-        <img src="{{ $imageSrc }}" alt="" style="width: 1.5cm; float: left;">
+        <img src="{{ $imageSrc }}" alt="" style="width: 1.5cm;">
 
-        <div style="font-size: 14pt; font-weight: bold; margin-top: 0.5cm; text-align: center;">
+        <div style="font-size: 14pt; font-weight: bold; text-align: center;">
             {{ $document->name }}</div>
 
         <div id="quill_contents" style="margin-top: 1rem;">

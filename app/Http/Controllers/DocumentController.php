@@ -20,15 +20,17 @@ class DocumentController extends Controller
             'price_month' => '1,600.00',
             'utilities' => '80.00',
             'property_name' => 'Serenity Park',
-            'room' => 'Room 2'
+            'room' => 'Room 2',
+            'agreement_date' => '08/01/2026'
         ];
 
         // replace {{key}} in $html with $data['key']
         foreach ($data as $key => $value) {
-            $html = str_replace('[' . $key . ']', '<strong>'.$value.'</strong>', $html);
+            // $html = str_replace('[' . $key . ']', '<strong>'.$value.'</strong>', $html);
+            $html = str_replace('[' . $key . ']', $value, $html);
         }
 
-        // return view('pdf.tenancy_agreement2', compact('html'));
+        // return view('pdf.tenancy_agreement2', compact('document', 'html'));
        
         // $pdf = Pdf::loadHtml($html);
         $pdf = Pdf::loadView('pdf.tenancy_agreement2', compact('document', 'html'));

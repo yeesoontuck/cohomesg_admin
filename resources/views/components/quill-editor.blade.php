@@ -11,6 +11,28 @@
         <script defer>
             document.addEventListener('DOMContentLoaded', () => {
                 if (document.getElementById('{{ $id }}')) {
+
+                    const Inline = Quill.import('blots/inline');
+                    class LabelBlot extends Inline {
+                        static blotName = 'label'; // The name used in the Quill API
+                        static tagName = 'span'; // The HTML tag to wrap the text in
+                        static className = 'pdf-label'; // The class dompdf will look for
+
+                        // This is required to tell Quill how to create the DOM node
+                        static create(value) {
+                            let node = super.create();
+                            // You can even add custom logic here if 'value' contained a specific width
+                            return node;
+                        }
+
+                        // This is required so Quill can identify the format when you highlight text
+                        static formats(node) {
+                            return true;
+                        }
+                    }
+                    Quill.register(LabelBlot);
+
+
                     const editor = new Quill('#{{ $id }}', {
                         theme: 'snow',
                         modules: {
@@ -19,6 +41,11 @@
                                     [{
                                         'placeholder': [{!! $variables !!}]
                                     }], // my custom dropdown
+
+                                    ['label'],
+
+
+
                                     ['bold', 'italic', 'underline', 'strike'], // toggled buttons
                                     // ['blockquote', 'code-block'],
 
@@ -69,7 +96,7 @@
                                         'align': []
                                     }],
 
-                                    // ['clean'] // remove formatting button
+                                    ['clean'] // remove formatting button
 
                                 ],
                                 handlers: {
@@ -79,11 +106,30 @@
                                             this.quill.insertText(cursorPosition, value);
                                             this.quill.setSelection(cursorPosition + value.length);
                                         }
+                                    },
+                                    'label': function() {
+                                        const range = this.quill.getSelection();
+                                        if (range) {
+                                            const format = this.quill.getFormat(range);
+                                            // Toggle logic: if already a label, remove it; otherwise, add it
+                                            if (format.label) {
+                                                this.quill.format('label', false);
+                                            } else {
+                                                this.quill.format('label', true);
+                                            }
+                                        }
                                     }
                                 }
                             }
                         },
                     });
+
+                    const labelButton = document.querySelector('.ql-label');
+                    if (labelButton) {
+                        labelButton.innerHTML = '<span>LBL</span>';
+                        labelButton.title = "Align as Label";
+                    }
+
                     const quillEditor = document.getElementById('quill-editor-area-{{ $name }}');
 
                     // Set default value if it's not empty
@@ -130,7 +176,7 @@
             }
 
             .ql-editor p {
-                margin-bottom: 1rem !important;
+                line-height: 1.8;
             }
 
             .dark .ql-snow .ql-stroke {
@@ -147,6 +193,14 @@
 
             .dark .ql-placeholder .ql-picker-label {
                 color: #FFF;
+            }
+
+            .ql-editor .pdf-label {
+                display: inline-block;
+                /* This width creates the 'column' effect */
+                width: 180pt;
+                /* Essential for alignment in dompdf */
+                margin-right: 5pt;
             }
         </style>
     @endpush
