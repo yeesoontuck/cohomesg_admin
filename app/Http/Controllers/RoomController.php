@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\RoomDetail;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class RoomController extends Controller
@@ -164,7 +165,22 @@ class RoomController extends Controller
     {
         Gate::authorize('delete', Property::class);
         
-        $room->delete();
+        DB::beginTransaction();
+        try {
+            // delete room details
+            $room->room_detail()->each(function ($detail) {
+                $detail->delete();
+            });
+            $room->delete();
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return back()->with('toast', [
+                'type' => 'danger',
+                'message' => 'Error deleting room: ' . $th->getMessage()
+            ]);
+        }
+
 
         return to_route('rooms.index', $property)->with('toast', [
             'type' => 'warning',

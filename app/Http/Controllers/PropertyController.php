@@ -6,6 +6,7 @@ use App\Models\Audit;
 use App\Models\District;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class PropertyController extends Controller
@@ -217,16 +218,28 @@ class PropertyController extends Controller
     {
         Gate::authorize('delete', $property);
 
-        // delete rooms and room details
-        $property->rooms()->each(function ($room) {
-            $room->room_detail()->each(function ($detail) {
-                $detail->delete();
+        DB::beginTransaction();
+        try {
+            // delete rooms and room details
+            $property->rooms()->each(function ($room) {
+                $room->room_detail()->each(function ($detail) {
+                    $detail->delete();
+                });
+                $room->delete();
             });
-            $room->delete();
-        });
+    
+            $property->delete();
+            DB::commit();
 
-        $property->delete();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return back()->with('toast', [
+                'type' => 'danger',
+                'message' => 'Error deleting property: ' . $th->getMessage()
+            ]);
+        }
 
+        
         return to_route('properties.index')->with('toast', [
             'type' => 'warning',
             'message' => 'Property deleted successfully.'
