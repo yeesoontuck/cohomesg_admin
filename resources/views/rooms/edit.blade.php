@@ -1,6 +1,10 @@
 <x-app>
     <main id="main" class="flex-1 dark:text-white">
 
+        @if (session('toast'))
+            <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
+        @endif
+        
         <div class="flex justify-between mb-4">
             <h1 class="text-2xl font-bold">Edit Room</h1>
         </div>

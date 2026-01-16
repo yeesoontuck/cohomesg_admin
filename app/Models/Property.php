@@ -28,6 +28,7 @@ class Property extends Model implements Auditable
     protected static function booted()
     {
         // When a Property is updated, update slugs for related Rooms if property_name changed
+        // https://dev.to/itxshakil/laravel-eloquent-when-to-use-boot-vs-booted-the-final-word-3jde
         static::updated(function ($property) {
             if ($property->isDirty('property_name')) {
                 foreach ($property->rooms as $room) {

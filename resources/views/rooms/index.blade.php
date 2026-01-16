@@ -64,7 +64,7 @@
                             <td class="p-4">
                                 <div class="flex gap-1 text-gray-500 dark:text-slate-300">
                                     @if ($room->room_detail->details['aircon'])
-                                        <x-tooltip text="aircon" cursor="cursor-help">
+                                        <x-tooltip text="Aircon" cursor="cursor-help">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                                                 fill="currentColor" class="w-4 h-4">
                                                 <path
@@ -74,7 +74,7 @@
                                         </x-tooltip>
                                     @endif
                                     @if ($room->room_detail->details['window'])
-                                        <x-tooltip text="window" cursor="cursor-help">
+                                        <x-tooltip text="Window" cursor="cursor-help">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                                                 fill="currentColor" class="w-4 h-4">
                                                 <path
@@ -84,7 +84,7 @@
                                         </x-tooltip>
                                     @endif
                                     @if ($room->room_detail->details['furnishings'])
-                                        <x-tooltip text="furnishings" cursor="cursor-help">
+                                        <x-tooltip text="Table & Chair" cursor="cursor-help">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4"
                                                 viewBox="0 0 448 512">
                                                 <path
