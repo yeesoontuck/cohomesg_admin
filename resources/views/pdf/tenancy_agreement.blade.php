@@ -21,8 +21,8 @@
         }
 
         body {
-            font-family: serif;
-            font-size: 9pt;
+            font-family: sans-serif;
+            font-size: 8pt;
             line-height: 1.5;
         }
 
@@ -90,7 +90,7 @@
             <td style="width: 2cm; vertical-align:middle;">
                 @php
                     // base64 encode image and set as src for image
-                    $imagePath = public_path('cropped-cohome-logo-270x270.png');
+                    $imagePath = public_path('cohome-logo_pdf.png');
                     $imageData = base64_encode(file_get_contents($imagePath));
                     $imageSrc = 'data:image/png;base64,' . $imageData;
                 @endphp
@@ -108,7 +108,7 @@
 
 
 
-    <div style="font-size: 14pt; font-weight: bold; margin-top: 0.1cm; margin-bottom: 0.5cm; text-align: center;">
+    <div style="font-family: times, serif; font-size: 14pt; font-weight: bold; margin-top: 0.1cm; margin-bottom: 0.5cm; text-align: center;">
         Room Tenancy Agreement</div>
 
     <div class="section">
@@ -125,7 +125,7 @@
 
     <div class="section">
         <table style="width: 100%; border-none;">
-            <tr>
+            <tr style="background-color: #d5e8ed;">
                 <td style="width: 0.5cm;">2.0</td>
                 <td colspan="3"><strong>PROPERTY MANAGER/CO-LIVING OPERATOR (MASTER TENANT)</strong></td>
             </tr>
@@ -152,7 +152,7 @@
 
     <div class="section">
         <table style="width: 100%; border-none;">
-            <tr>
+            <tr style="background-color: #d5e8ed;">
                 <td style="width: 0.5cm;">3.0</td>
                 <td colspan="3"><strong>ROOM TENANT</strong></td>
             </tr>
@@ -203,7 +203,7 @@
 
     <div class="section">
         <table style="width: 100%; border-none;">
-            <tr>
+            <tr style="background-color: #d5e8ed;">
                 <td style="width: 0.5cm;">4.0</td>
                 <td colspan="3"><strong>PREMISES TO BE RENTED</strong></td>
             </tr>
@@ -232,7 +232,7 @@
 
     <div class="section">
         <table style="width: 100%; border-none;">
-            <tr>
+            <tr style="background-color: #d5e8ed;">
                 <td style="width: 0.5cm;">5.0</td>
                 <td colspan="3"><strong>TENANCY PERIOD</strong></td>
             </tr>
@@ -262,7 +262,7 @@
 
     <div class="section">
         <table style="width: 100%; border-none;">
-            <tr>
+            <tr style="background-color: #d5e8ed;">
                 <td style="width: 0.5cm;">6.0</td>
                 <td colspan="3"><strong>PAYMENT</strong></td>
             </tr>
@@ -341,7 +341,7 @@
 
     <div class="page-break section">
         <table style="width: 100%; border-none;">
-            <tr>
+            <tr style="background-color: #d5e8ed;">
                 <td style="width: 0.5cm;">7.0</td>
                 <td><strong>PROPERTY MANAGER’S RESPONSIBILITIES</strong></td>
             </tr>
@@ -374,7 +374,7 @@
 
     <div class="section">
         <table style="width: 100%; border-none;">
-            <tr>
+            <tr style="background-color: #d5e8ed;">
                 <td style="width: 0.5cm;">8.0</td>
                 <td><strong>TENANT’S RESPONSIBILITIES</strong></td>
             </tr>
@@ -481,7 +481,7 @@
 
     <div class="page-break section">
         <table style="width: 100%; border-none;">
-            <tr>
+            <tr style="background-color: #d5e8ed;">
                 <td style="width: 0.5cm;">9.0</td>
                 <td><strong>HOUSE RULES (Not limiting and Cohome SG has the right to add any
                         additional rules by informing)</strong></td>
