@@ -96,12 +96,16 @@ Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
 
     Route::get('openai', [App\Http\Controllers\OpenaiController::class, 'index'])->name('openai.index');
     Route::get('openai/inquiry', [App\Http\Controllers\OpenaiController::class, 'inquiry'])->name('openai.inquiry');
-    Route::get('tenancy_agreement/{room_id}', [App\Http\Controllers\PdfController::class, 'tenancy_agreement']);
+    // Route::get('tenancy_agreement/{room_id}', [App\Http\Controllers\PdfController::class, 'tenancy_agreement']);
 
     Route::get('roles/create', [App\Http\Controllers\RoleController::class, 'create'])->name('roles.create')->middleware(['password.confirm']);
     Route::get('roles/{role}/permissions', [App\Http\Controllers\RoleController::class, 'permissions'])->name('roles.permissions')->middleware(['password.confirm']);
     Route::put('roles/{role}/permissions', [App\Http\Controllers\RoleController::class, 'sync_permissions'])->name('roles.permissions.sync');
     Route::resource('roles', App\Http\Controllers\RoleController::class)->except(['create']);
+
+    Route::get('tenancy_agreement/create', [App\Http\Controllers\TenancyAgreementController::class, 'create'])->name('tenancy_agreement.create');
+    Route::get('tenancy_agreement/{tenancy_agreement}/pdf', [App\Http\Controllers\TenancyAgreementController::class, 'pdf'])->name('tenancy_agreement.pdf');
+
 
     Route::prefix('documents')->group(function () {
         Route::get('/', [App\Http\Controllers\DocumentController::class, 'index'])->name('documents.index');

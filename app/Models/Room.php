@@ -44,4 +44,9 @@ class Room extends Model implements Auditable
     {
         return $this->hasOne(RoomDetail::class);
     }
+
+    public function tenancy_agreements()
+    {
+        return $this->hasMany(TenancyAgreement::class);
+    }
 }
