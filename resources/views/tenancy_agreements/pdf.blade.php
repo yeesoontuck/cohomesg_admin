@@ -160,7 +160,7 @@
                 <td>3.1</td>
                 <td style="width: 30%;">Name</td>
                 <td style="width: 1rem;">:</td>
-                <td></td>
+                <td>{{ $tenancy_agreement->tenant->name }}</td>
             </tr>
             <tr>
                 <td>3.2</td>
@@ -240,7 +240,7 @@
                 <td style="width: 0.5cm;">5.1</td>
                 <td style="width: 30%;">Term of Tenancy</td>
                 <td style="width: 1rem;">:</td>
-                <td>06 Month</td>
+                <td>{{ $tenancy_agreement->term_of_tenancy }}</td>
             </tr>
             <tr>
                 <td style="width: 0.5cm;">5.2</td>
@@ -279,7 +279,7 @@
                 <td style="width: 0.5cm;">6.2</td>
                 <td style="width: 30%;">Rental Deposit</td>
                 <td style="width: 1rem;">:</td>
-                <td>S$ {{ $tenancy_agreement->data['deposit'] }} (Received on 08/01/2026)
+                <td>S$ {{ $tenancy_agreement->data['deposit'] }} {{ ($tenancy_agreement->data['deposit_received_date'] ?? null) ? '(Received on '. \Carbon\Carbon::parse($tenancy_agreement->data['deposit_received_date'])->format('d / M / Y') . ')' : '(To be collected)' }}
                     <br />
                     (Unless mutually agreed, early lease termination or cancellation will result in forfeiture of
                     deposit. Deposit will be refunded (without interest), at the end of this tenancy, subject to any
@@ -298,26 +298,26 @@
                 <td style="width: 0.5cm;">6.4</td>
                 <td style="width: 30%;">Admin fee</td>
                 <td style="width: 1rem;">:</td>
-                <td>$50 (will be waived if lease term is at least 12 month)</td>
+                <td>S${{ $tenancy_agreement->data['admin_fee'] }} (will be waived if lease term is at least 12 month)</td>
             </tr>
             <tr>
                 <td style="width: 0.5cm;">6.5</td>
                 <td style="width: 30%;">Clear out fee</td>
                 <td style="width: 1rem;">:</td>
-                <td>$120 (It will be deducted from deposit upon end of lease)</td>
+                <td>S${{ $tenancy_agreement->data['clear_out_fee'] }} (It will be deducted from deposit upon end of lease)</td>
             </tr>
             <tr>
                 <td style="width: 0.5cm;">6.6</td>
                 <td style="width: 30%;">Aircon cleaning fee</td>
                 <td style="width: 1rem;">:</td>
-                <td>$30 per quarter (every 3 month) will be collected by Cohome SG</td>
+                <td>S${{ $tenancy_agreement->data['aircon_cleaning_fee'] }} per quarter (every 3 months) will be collected by Cohome SG</td>
             </tr>
             <tr>
                 <td style="width: 0.5cm;">6.7</td>
                 <td style="width: 30%;">Payment mode</td>
                 <td style="width: 1rem;">:</td>
                 <td>
-                    Bank transfer to DBS bank account: <strong>0721339595</strong><br />
+                    Bank transfer to bank account: <strong>{{ $tenancy_agreement->data['payment_mode_id'] }}</strong><br />
                     (add remark: HVG0704rm7) (Acct name: Cohome SG Pte Ltd)<br />
                     or Paynow via <strong>UEN 202342735Z</strong>
                 </td>

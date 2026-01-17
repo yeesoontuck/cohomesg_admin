@@ -103,8 +103,12 @@ Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
     Route::put('roles/{role}/permissions', [App\Http\Controllers\RoleController::class, 'sync_permissions'])->name('roles.permissions.sync');
     Route::resource('roles', App\Http\Controllers\RoleController::class)->except(['create']);
 
-    Route::get('tenancy_agreement/create', [App\Http\Controllers\TenancyAgreementController::class, 'create'])->name('tenancy_agreement.create');
-    Route::get('tenancy_agreement/{tenancy_agreement}/pdf', [App\Http\Controllers\TenancyAgreementController::class, 'pdf'])->name('tenancy_agreement.pdf');
+    Route::prefix('tenancy_agreements')->group(function() {
+        Route::get('create', [App\Http\Controllers\TenancyAgreementController::class, 'create'])->name('tenancy_agreements.create');
+        Route::get('{tenancy_agreement}/pdf', [App\Http\Controllers\TenancyAgreementController::class, 'pdf'])->name('tenancy_agreements.pdf');
+        Route::get('/', [App\Http\Controllers\TenancyAgreementController::class, 'index'])->name('tenancy_agreements.index');
+        Route::post('/', [App\Http\Controllers\TenancyAgreementController::class, 'store'])->name('tenancy_agreements.store');
+    });
 
 
     Route::prefix('documents')->group(function () {
