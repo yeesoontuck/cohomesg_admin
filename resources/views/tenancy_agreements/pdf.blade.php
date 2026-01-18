@@ -62,20 +62,23 @@
 
         .signature {
             position: absolute;
-            bottom: 1cm;
+            bottom: 0.5cm;
             right: 0;
             text-align: center;
         }
+
         .signature table {
             border-collapse: collapse;
             font-size: 8pt;
         }
+
         .signature th {
             border: 1px solid #888;
             background-color: #333;
             color: #FFF;
             width: 3cm;
         }
+
         .signature td {
             border: 1px solid #888;
             width: 2.5cm;
@@ -108,7 +111,8 @@
 
 
 
-    <div style="font-family: times, serif; font-size: 14pt; font-weight: bold; margin-top: 0.1cm; margin-bottom: 0.5cm; text-align: center;">
+    <div
+        style="font-family: times, serif; font-size: 14pt; font-weight: bold; margin-top: 0.1cm; margin-bottom: 0.5cm; text-align: center;">
         Room Tenancy Agreement</div>
 
     <div class="section">
@@ -166,37 +170,37 @@
                 <td>3.2</td>
                 <td style="width: 30%;">FIN </td>
                 <td style="width: 1rem;">:</td>
-                <td></td>
+                <td>{{ $tenancy_agreement->tenant->fin }}</td>
             </tr>
             <tr>
                 <td>3.4</td>
                 <td style="width: 30%;">Passport Number</td>
                 <td style="width: 1rem;">:</td>
-                <td></td>
+                <td>{{ $tenancy_agreement->tenant->passport_number }}</td>
             </tr>
             <tr>
                 <td>3.3</td>
                 <td style="width: 30%;">Passport Expiry</td>
                 <td style="width: 1rem;">:</td>
-                <td></td>
+                <td>{{ $tenancy_agreement->tenant->passport_expiry }}</td>
             </tr>
             <tr>
                 <td>3.3</td>
                 <td style="width: 30%;">Work Permit Expiry</td>
                 <td style="width: 1rem;">:</td>
-                <td></td>
+                <td>{{ $tenancy_agreement->tenant->work_permit_expiry }}</td>
             </tr>
             <tr>
                 <td>3.5</td>
                 <td style="width: 30%;">Email</td>
                 <td style="width: 1rem;">:</td>
-                <td></td>
+                <td>{{ $tenancy_agreement->tenant->email }}</td>
             </tr>
             <tr>
                 <td>3.6</td>
                 <td style="width: 30%;">Phone</td>
                 <td style="width: 1rem;">:</td>
-                <td></td>
+                <td>{{ $tenancy_agreement->tenant->phone }}</td>
             </tr>
         </table>
     </div>
@@ -246,15 +250,27 @@
                 <td style="width: 0.5cm;">5.2</td>
                 <td style="width: 30%;">Start Date</td>
                 <td style="width: 1rem;">:</td>
-                <td>{{ \Carbon\Carbon::parse($tenancy_agreement->start_date)->format('d / M / Y') }}</td>
+                <td>{{ $tenancy_agreement->start_date->format('d / M / Y') }}</td>
             </tr>
             <tr>
                 <td style="width: 0.5cm;">5.3</td>
                 <td style="width: 30%;">End Date</td>
                 <td style="width: 1rem;">:</td>
-                <td>{{ \Carbon\Carbon::parse($tenancy_agreement->end_date)->format('d / M / Y') }}
+                <td>{{ $tenancy_agreement->end_date->format('d / M / Y') }}
                     (or a later date depending on the time the notice is given)
                 </td>
+            </tr>
+            <tr>
+                <td style="width: 0.5cm;">5.4</td>
+                <td style="width: 30%;">Notice Period to be given by Tenant to terminate lease</td>
+                <td style="width: 1rem;">:</td>
+                <td>{{ $tenancy_agreement->data['terminate_notice_tenant'] }}</td>
+            </tr>
+            <tr>
+                <td style="width: 0.5cm;">5.5</td>
+                <td style="width: 30%;">Notice Period to be given by Cohome to terminate lease</td>
+                <td style="width: 1rem;">:</td>
+                <td>{{ $tenancy_agreement->data['terminate_notice_operator'] }}</td>
             </tr>
         </table>
     </div>
@@ -272,14 +288,25 @@
                 <td style="width: 1rem;">:</td>
                 <td>S$ {{ $tenancy_agreement->data['price_month'] }}
                     <br />
-                    (Payable by 7th day of every month starting from 8 Jan 2026)
+                    (Payable by
+                    @php
+                        if ($tenancy_agreement->start_date->format('j') == 1) {
+                            $payment_due = 'last';
+                        } else if ($tenancy_agreement->start_date->format('j') == 2) {
+                            $payment_due = 'first';
+                        } else {
+                            $payment_due = $tenancy_agreement->start_date->subDay()->format('jS');
+                        }
+                    @endphp
+                    {{ 'the ' . $payment_due }} day of every month starting from {{ $tenancy_agreement->start_date->format('d M Y') }})
                 </td>
             </tr>
             <tr>
                 <td style="width: 0.5cm;">6.2</td>
                 <td style="width: 30%;">Rental Deposit</td>
                 <td style="width: 1rem;">:</td>
-                <td>S$ {{ $tenancy_agreement->data['deposit'] }} {{ ($tenancy_agreement->data['deposit_received_date'] ?? null) ? '(Received on '. \Carbon\Carbon::parse($tenancy_agreement->data['deposit_received_date'])->format('d / M / Y') . ')' : '(To be collected)' }}
+                <td>S$ {{ $tenancy_agreement->data['deposit'] }}
+                    {{ $tenancy_agreement->data['deposit_received_date'] ?? null ? '(Received on ' . \Carbon\Carbon::parse($tenancy_agreement->data['deposit_received_date'])->format('d / M / Y') . ')' : '(To be collected)' }}
                     <br />
                     (Unless mutually agreed, early lease termination or cancellation will result in forfeiture of
                     deposit. Deposit will be refunded (without interest), at the end of this tenancy, subject to any
@@ -298,26 +325,35 @@
                 <td style="width: 0.5cm;">6.4</td>
                 <td style="width: 30%;">Admin fee</td>
                 <td style="width: 1rem;">:</td>
-                <td>S${{ $tenancy_agreement->data['admin_fee'] }} (will be waived if lease term is at least 12 month)</td>
+                <td>
+                    @if($tenancy_agreement->data['admin_fee_waived'])
+                        (waived)
+                    @else
+                        S${{ $tenancy_agreement->data['admin_fee'] }} (will be waived if lease term is at least 12 month)
+                    @endif
+                </td>
             </tr>
             <tr>
                 <td style="width: 0.5cm;">6.5</td>
                 <td style="width: 30%;">Clear out fee</td>
                 <td style="width: 1rem;">:</td>
-                <td>S${{ $tenancy_agreement->data['clear_out_fee'] }} (It will be deducted from deposit upon end of lease)</td>
+                <td>S${{ $tenancy_agreement->data['clear_out_fee'] }} (It will be deducted from deposit upon end of
+                    lease)</td>
             </tr>
             <tr>
                 <td style="width: 0.5cm;">6.6</td>
                 <td style="width: 30%;">Aircon cleaning fee</td>
                 <td style="width: 1rem;">:</td>
-                <td>S${{ $tenancy_agreement->data['aircon_cleaning_fee'] }} per quarter (every 3 months) will be collected by Cohome SG</td>
+                <td>S${{ $tenancy_agreement->data['aircon_cleaning_fee'] }} per quarter (every 3 months) will be
+                    collected by Cohome SG</td>
             </tr>
             <tr>
                 <td style="width: 0.5cm;">6.7</td>
                 <td style="width: 30%;">Payment mode</td>
                 <td style="width: 1rem;">:</td>
                 <td>
-                    Bank transfer to bank account: <strong>{{ $tenancy_agreement->data['payment_mode_id'] }}</strong><br />
+                    Bank transfer to bank account:
+                    <strong>{{ $tenancy_agreement->data['payment_mode_id'] }}</strong><br />
                     (add remark: HVG0704rm7) (Acct name: Cohome SG Pte Ltd)<br />
                     or Paynow via <strong>UEN 202342735Z</strong>
                 </td>

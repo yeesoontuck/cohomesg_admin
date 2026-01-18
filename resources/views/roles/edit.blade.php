@@ -1,12 +1,16 @@
 <x-app>
     <main id="main" x-data="{ open: false, deleteUrl: '' }" class="flex-1 dark:text-white">
 
+        @if (session('toast'))
+            <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
+        @endif
+        
         <div class="flex justify-between mb-4">
             <h1 class="text-2xl font-bold">Edit Role</h1>
         </div>
 
 
-        <form x-target.push="main" action="{{ route('roles.update', $role) }}" method="POST"
+        <form action="{{ route('roles.update', $role) }}" method="POST"
             class="p-8 overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
             @csrf
             @method('PUT')
@@ -39,7 +43,7 @@
             <div class="flex justify-between">
                 <div class="flex gap-2">
                     <button type="submit" class="btn-primary">Update</button>
-                    <a x-target.push="main" href="{{ route('roles.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
+                    <a href="{{ route('roles.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
                 </div>
 
                 @can('delete', $role)
@@ -64,7 +68,7 @@
 
                 <p>The role will be permanently deleted.</p>
 
-                <form x-target.push="main" id="delete_form" :action="deleteUrl" method="POST">
+                <form id="delete_form" :action="deleteUrl" method="POST">
                     @csrf
                     @method('delete')
 

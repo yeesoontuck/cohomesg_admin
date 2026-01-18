@@ -1,12 +1,16 @@
 <x-app>
     <main id="main" x-data="{ open: false, deleteUrl: '' }" class="flex-1 dark:text-white">
 
+        @if (session('toast'))
+            <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
+        @endif
+        
         <div class="flex justify-between mb-4">
             <h1 class="text-2xl font-bold">Create Role</h1>
         </div>
 
 
-        <form x-target.push="main" action="{{ route('roles.store') }}" method="POST"
+        <form action="{{ route('roles.store') }}" method="POST"
             class="p-8 overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
             @csrf
 
@@ -38,7 +42,7 @@
             <div class="flex justify-between">
                 <div class="flex gap-2">
                     <button type="submit" class="btn-primary">Save</button>
-                    <a x-target.push="main" href="{{ route('roles.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
+                    <a href="{{ route('roles.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
                 </div>
             </div>
         </form>

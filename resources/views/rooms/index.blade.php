@@ -5,7 +5,7 @@
             <h1 class="text-2xl font-bold">Rooms</h1>
 
             @can('create', $property)
-                <a x-target.push="main" href="{{ route('rooms.create', $property) }}"
+                <a href="{{ route('rooms.create', $property) }}"
                     class="inline-flex justify-center items-center gap-2 whitespace-nowrap rounded-radius bg-primary border border-primary dark:border-primary-dark px-2 py-1 text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark">
                     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                         class="size-4 fill-on-primary dark:fill-on-primary-dark" fill="currentColor">
@@ -18,7 +18,7 @@
             @endcan
         </div>
         <h3 class="text-lg mb-4">
-            <a x-target.push="main" href="{{ route('properties.index') }}"
+            <a href="{{ route('properties.index') }}"
                 class="inline-block btn-info text-xs py-1 px-2 mr-2">&lt; Back</a>
             {{ $property->property_name }} - {{ $property->district->district_name }} (D{{ $property->district->id }})
         </h3>
@@ -101,7 +101,7 @@
                             <td class="p-4">{{ $room->utilities }}</td>
                             <td class="p-4">
                                 @can('update', $property)
-                                    <a x-target.push="main" href="{{ route('rooms.edit', [$property, $room]) }}"
+                                    <a href="{{ route('rooms.edit', [$property, $room]) }}"
                                         class="inline-block btn-primary px-2 py-1 text-xs">
                                         Details
                                     </a>

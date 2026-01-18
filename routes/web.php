@@ -105,11 +105,14 @@ Route::group(['middleware' => ['auth', ForceOnboarding::class]], function () {
 
     Route::prefix('tenancy_agreements')->group(function() {
         Route::get('create', [App\Http\Controllers\TenancyAgreementController::class, 'create'])->name('tenancy_agreements.create');
+        Route::get('{tenancy_agreement}/edit', [App\Http\Controllers\TenancyAgreementController::class, 'edit'])->name('tenancy_agreements.edit');
+        Route::put('{tenancy_agreement}', [App\Http\Controllers\TenancyAgreementController::class, 'update'])->name('tenancy_agreements.update');
         Route::get('{tenancy_agreement}/pdf', [App\Http\Controllers\TenancyAgreementController::class, 'pdf'])->name('tenancy_agreements.pdf');
         Route::get('/', [App\Http\Controllers\TenancyAgreementController::class, 'index'])->name('tenancy_agreements.index');
         Route::post('/', [App\Http\Controllers\TenancyAgreementController::class, 'store'])->name('tenancy_agreements.store');
     });
 
+    Route::resource('tenants', App\Http\Controllers\TenantController::class);
 
     Route::prefix('documents')->group(function () {
         Route::get('/', [App\Http\Controllers\DocumentController::class, 'index'])->name('documents.index');

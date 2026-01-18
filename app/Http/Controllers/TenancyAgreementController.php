@@ -14,7 +14,13 @@ class TenancyAgreementController extends Controller
 {
     public function pdf(TenancyAgreement $tenancy_agreement)
     {
-        $tenancy_agreement->load('room.room_detail', 'room.property');
+        $tenancy_agreement->load([
+            'room.room_detail',
+            'room.property',
+            'tenant' => function ($query) {
+                $query->withTrashed();
+            }]
+        );
 
         // term of tenancy
         $start = $tenancy_agreement->start_date;    // Carbon
@@ -36,13 +42,27 @@ class TenancyAgreementController extends Controller
         return $pdf->stream('document.pdf');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $tenancy_agreements = TenancyAgreement::with('room.property')
-        ->with('tenant')
-        ->orderBy('start_date', 'desc')->get();
+        $query = TenancyAgreement::with([
+            'room.property',
+            'tenant' => function ($query) {
+                $query->withTrashed();
+            }
+        ])
+        ->orderBy('start_date', 'desc');
+        
+        $query->when($request->filled('tenant_id'), function ($q) use ($request) {
+            return $q->where('tenant_id', $request->tenant_id);
+        } );
 
-        return view('tenancy_agreements.index', compact('tenancy_agreements'));
+        $tenancy_agreements = $query->get();
+
+        $tenant = $request->filled('tenant_id') 
+            ? Tenant::findOrFail($request->tenant_id)
+            : null;
+            
+        return view('tenancy_agreements.index', compact('tenancy_agreements', 'tenant'));
     }
 
     /**
@@ -50,31 +70,6 @@ class TenancyAgreementController extends Controller
      */
     public function create(Request $request)
     {
-        $variables = [
-            'admin_fee_waived',
-            'admin_fee',
-            'agreement_date',
-            'aircon_cleaning_fee',
-            'clear_out_fee',
-            'deposit_received_date',
-            'deposit',
-            'occupiers',
-            'payment_mode_id',
-            'price_month',
-            'terminate_notice_operator',
-            'terminate_notice_tenant',
-        ];
-
-        $tenants = [
-            'name',
-            'fin',
-            'passport_number',
-            'passport_expiry',
-            'work_permit_expiry',
-            'email',
-            'phone',
-        ];
-
         $properties = Property::with(['rooms' => function ($query) {
             $query->orderBy('room_number');
         }])
@@ -83,8 +78,7 @@ class TenancyAgreementController extends Controller
 
         $tenants = Tenant::orderBy('name')->get();
 
-        return view('tenancy_agreements.create', compact('properties', 'tenants', 'variables'));
-
+        return view('tenancy_agreements.create', compact('properties', 'tenants'));
     }
 
     /**
@@ -104,8 +98,8 @@ class TenancyAgreementController extends Controller
         $validated = $request->validate([
             'room_id' => 'required|exists:rooms,id',
             'tenant_id' => 'required|exists:tenants,id',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date',
+            'start_date' => 'required|date|before_or_equal:end_date',
+            'end_date' => 'required|date|after_or_equal:start_date',
             'admin_fee_waived' => 'nullable',
             'admin_fee' => '',
             'agreement_date' => 'required|date',
@@ -118,7 +112,10 @@ class TenancyAgreementController extends Controller
             'price_month' => '',
             'terminate_notice_operator' => '',
             'terminate_notice_tenant' => '',
-        ], [  ]);
+        ], [ 
+            'start_date.before_or_equal' => 'Start date cannot be later than End date',
+            'end_date.after_or_equal' => 'End date cannnot be earlier than Start date',
+         ]);
 
         // read Room details
         $room = Room::findOrFail($validated['room_id']);
@@ -135,6 +132,8 @@ class TenancyAgreementController extends Controller
             'admin_fee_waived' => $request->has('admin_fee_waived'),
             'clear_out_fee' => $validated['clear_out_fee'],
             'aircon_cleaning_fee' => $validated['aircon_cleaning_fee'],
+            'terminate_notice_operator' => $validated['terminate_notice_operator'],
+            'terminate_notice_tenant' => $validated['terminate_notice_tenant'],
         ];
         $tenancy_agreement->tenant_id = $validated['tenant_id'];
         $tenancy_agreement->start_date = $validated['start_date'];
@@ -161,16 +160,25 @@ class TenancyAgreementController extends Controller
      */
     public function edit(TenancyAgreement $tenancy_agreement)
     {
-        $tenancy_agreement->load('variables');
-
-        // '[price_month]','[utilities]'
-        $variable_string = '';
-        foreach($tenancy_agreement->variables as $variable) {
-            $variable->placeholder = '\'[' . $variable->variable . ']\'';
-            $variable_string .= $variable->placeholder . ',';
+        // if ended, cannot edit
+        if ($tenancy_agreement->current_status == 'ended') {
+            return back()->with('toast', [
+                'type' => 'danger',
+                'message' => 'This Tenancy Agreement cannot be edited.'
+            ]);
         }
 
-        return view('pdf.edit', compact('document', 'variable_string'));
+        $tenancy_agreement->load('room', 'tenant');
+
+        $properties = Property::with(['rooms' => function ($query) {
+            $query->orderBy('room_number');
+        }])
+        ->orderBy('property_name')
+        ->get();
+
+        $tenants = Tenant::orderBy('name')->get();
+
+        return view('tenancy_agreements.edit', compact('tenancy_agreement', 'properties', 'tenants'));
     }
 
     /**
@@ -178,20 +186,61 @@ class TenancyAgreementController extends Controller
      */
     public function update(Request $request, TenancyAgreement $tenancy_agreement)
     {
+        // if ended, cannot edit
+        if ($tenancy_agreement->current_status == 'ended') {
+            return back()->with('toast', [
+                'type' => 'danger',
+                'message' => 'This Tenancy Agreement cannot be edited.'
+            ]);
+        }
+
         // validation with custom error messages
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'content' => 'required|string',
-        ], [
-            'name.required' => 'The document name is required.',
-            'content.required' => 'The document content cannot be blank.',
+            'room_id' => 'required|exists:rooms,id',
+            'tenant_id' => 'required|exists:tenants,id',
+            'start_date' => 'required|date|before_or_equal:end_date',
+            'end_date' => 'required|date|after_or_equal:start_date',
+            'admin_fee_waived' => 'nullable',
+            'admin_fee' => '',
+            'agreement_date' => 'required|date',
+            'aircon_cleaning_fee' => '',
+            'clear_out_fee' => '',
+            'deposit_received_date' => 'nullable|date',
+            'deposit' => '',
+            'occupiers' => 'nullable|array',
+            'payment_mode_id' => 'required',
+            'price_month' => '',
+            'terminate_notice_operator' => '',
+            'terminate_notice_tenant' => '',
+        ], [ 
+            'start_date.before_or_equal' => 'Start date cannot be later than End date',
+            'end_date.after_or_equal' => 'End date cannnot be earlier than Start date',
         ]);
 
-        $tenancy_agreement->name = $validated['name'];
-        $tenancy_agreement->contents = $validated['content'];
+        // read Room details
+        $room = Room::findOrFail($validated['room_id']);
+
+        $tenancy_agreement->room_id = $validated['room_id'];
+        $tenancy_agreement->data = [
+            'agreement_date' => $validated['agreement_date'],
+            'price_month' => $room->price_month,
+            'deposit' => $validated['deposit'],
+            'deposit_received_date' => $validated['deposit_received_date'] ??  null,
+            'payment_mode_id' => $validated['payment_mode_id'],
+            'admin_fee' => $validated['admin_fee'],
+            'admin_fee_waived' => $request->has('admin_fee_waived'),
+            'clear_out_fee' => $validated['clear_out_fee'],
+            'aircon_cleaning_fee' => $validated['aircon_cleaning_fee'],
+            'terminate_notice_operator' => $validated['terminate_notice_operator'],
+            'terminate_notice_tenant' => $validated['terminate_notice_tenant'],
+        ];
+        $tenancy_agreement->tenant_id = $validated['tenant_id'];
+        $tenancy_agreement->start_date = $validated['start_date'];
+        $tenancy_agreement->end_date = $validated['end_date'];
+
         $tenancy_agreement->save();
 
-        return redirect()->route('documents.edit', $tenancy_agreement)->with('toast', [
+        return redirect()->route('tenancy_agreements.index')->with('toast', [
             'type' => 'success',
             'message' => 'Document updated successfully.'
         ]);

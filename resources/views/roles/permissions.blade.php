@@ -1,6 +1,10 @@
 <x-app>
     <main id="main" x-data="{ open: false, deleteUrl: '' }" class="flex-1 dark:text-white">
 
+        @if (session('toast'))
+            <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
+        @endif
+        
         <div class="flex flex-col justify-between mb-4">
             <h1 class="text-2xl font-bold">Permissions</h1>
             <h2 class="text-lg font-semibold">Role: {{ $role->name }}</h2>
@@ -54,7 +58,7 @@
             <div class="flex justify-between">
                 <div class="flex gap-2">
                     <button type="submit" class="btn-primary">Update</button>
-                    <a x-target.push="main" href="{{ route('roles.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
+                    <a href="{{ route('roles.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
                 </div>
             </div>
         </form>

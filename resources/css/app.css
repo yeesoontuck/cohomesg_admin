@@ -70,7 +70,7 @@
     --color-on-danger: var(--color-white);
 
     /* border radius */
-    --radius-radius: var(--radius-lg);
+    --radius-radius: var(--radius-sm);
 }
 
 @layer base {
@@ -89,6 +89,10 @@
     h5,
     h6 {
         font-family: var(--font-title);
+    }
+
+    .dark ::-webkit-calendar-picker-indicator {
+        filter: invert(1);
     }
 }
 

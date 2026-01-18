@@ -6,7 +6,7 @@
         </div>
 
 
-        <form x-target.push="main" action="{{ route('districts.update', $district) }}" method="POST"
+        <form action="{{ route('districts.update', $district) }}" method="POST"
             class="p-8 overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
             @csrf
             @method('PUT')
@@ -45,7 +45,7 @@
 
             <button type="submit" class="btn-primary">Update</button>
 
-            <a x-target.push="main" href="{{ route('districts.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
+            <a href="{{ route('districts.index') }}" class="inline-block btn-outline-inverse">Cancel</a>
         </form>
 
     </main>

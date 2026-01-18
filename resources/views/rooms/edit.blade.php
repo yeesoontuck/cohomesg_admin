@@ -11,7 +11,7 @@
         <h3 class="text-lg mb-4">{{ $property->property_name }}</h3>
 
         <div x-data="{ open: false, deleteUrl: '' }" class="overflow-hidden w-full overflow-x-auto">
-            <form x-target="main" action="{{ route('rooms.update', [$property, $room]) }}" method="POST"
+            <form action="{{ route('rooms.update', [$property, $room]) }}" method="POST"
                 class="p-8 overflow-hidden w-full max-w-4xl overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
                 @csrf
                 @method('PUT')
@@ -110,7 +110,7 @@
                 <div class="flex justify-between">
                     <div class="flex gap-2">
                         <button type="submit" class="btn-primary">Update</button>
-                        <a x-target.push="main" href="{{ route('rooms.index', $property) }}"
+                        <a href="{{ route('rooms.index', $property) }}"
                             class="inline-block btn-outline-inverse">Cancel</a>
                     </div>
 
@@ -139,7 +139,7 @@
 
                     <h2 class="text-md font-semibold text-center">Are you sure?</h2>
 
-                    <form x-target.push="main" id="delete_form" :action="deleteUrl" method="POST">
+                    <form id="delete_form" :action="deleteUrl" method="POST">
                         @csrf
                         @method('delete')
 

@@ -1,7 +1,7 @@
-import axios from 'axios';
-window.axios = axios;
+// import axios from 'axios';
+// window.axios = axios;
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+// window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 import Alpine from 'alpinejs'
 import collapse from '@alpinejs/collapse'
@@ -41,3 +41,5 @@ window.Quill = Quill;
 //   theme: 'snow'
 // };
 // const quill = new Quill('#editor', options);
+
+import '@tailwindplus/elements';

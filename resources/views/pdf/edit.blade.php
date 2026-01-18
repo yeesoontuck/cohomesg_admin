@@ -6,7 +6,7 @@
         @endif
         
         <h3 class="text-lg mb-4">
-            <a x-target.push="main" href="{{ route('documents.index') }}" class="inline-block btn-info text-xs py-1 px-2 mr-2">&lt; Back</a>
+            <a href="{{ route('documents.index') }}" class="inline-block btn-info text-xs py-1 px-2 mr-2">&lt; Back</a>
             Edit Tenancy Agreement
         </h3>
 

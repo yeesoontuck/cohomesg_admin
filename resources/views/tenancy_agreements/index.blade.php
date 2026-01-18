@@ -2,8 +2,12 @@
     <main id="main" class="flex-1 dark:text-white">
 
         <div class="flex justify-between mb-4">
-            <h1 class="text-2xl font-bold">Tenancy Agreements</h1>
-            <a href="{{ route('tenancy_agreements.create') }}"
+            <h1 class="text-2xl font-bold">Tenancy Agreements
+                @if($tenant)
+                <span class="border-l border-outline-strong dark:border-outline-dark-strong ml-2 pl-2">{{ $tenant->name }}</span>
+                @endif
+            </h1>
+            <a href="{{ route('tenancy_agreements.create', array_merge(request()->all())) }}"
                 class="inline-flex justify-center items-center gap-2 whitespace-nowrap rounded-radius bg-primary border border-primary dark:border-primary-dark px-2 py-1 text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark">
                 <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                     class="size-4 fill-on-primary dark:fill-on-primary-dark" fill="currentColor">
@@ -29,12 +33,13 @@
                         <th scope="col" class="p-4">Property / Room</th>
                         <th scope="col" class="p-4">Tenant / Occupier</th>
                         <th scope="col" class="p-4">Dates</th>
+                        <th scope="col" class="p-4">Status</th>
                         <th scope="col" class="p-4">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-outline dark:divide-outline-dark">
 
-                    @foreach ($tenancy_agreements as $tenancy_agreement)
+                    @forelse ($tenancy_agreements as $tenancy_agreement)
                         <tr>
                             <td class="p-4">
                                 {{ \Carbon\Carbon::parse($tenancy_agreement->data['agreement_date'])->format('d M Y') }}
@@ -44,24 +49,37 @@
                                 {{ $tenancy_agreement->room->room_number }}
                             </td>
                             <td class="p-4">
-                                {{ $tenancy_agreement->tenant->name }}
+                                <a href="{{ route('tenancy_agreements.index', ['tenant_id' => $tenancy_agreement->tenant]) }}" class="link-underline">{{ $tenancy_agreement->tenant->name }}</a>
                             </td>
-                            <td class="p-4">
+                            <td class="p-4 whitespace-nowrap">
                                 {{ $tenancy_agreement->start_date->format('d M Y') }}<br />
                                 {{ $tenancy_agreement->end_date->format('d M Y') }}
                             </td>
+                            <td class="p-4 {{ $tenancy_agreement->status_color }}">
+                                {{ $tenancy_agreement->current_status }}
+                            </td>
                             <td class="p-4">
-                                <a href="{{ route('tenancy_agreements.pdf', $tenancy_agreement) }}" target="_blank"
-                                    class="inline-block btn-primary px-2 py-1 text-xs rounded">
-                                    PDF
-                                </a>
-                                <a href="{{ route('tenancy_agreements.pdf', $tenancy_agreement) }}"
-                                    class="inline-block btn-info px-2 py-1 text-xs rounded">
-                                    Edit
-                                </a>
+                                <div class="flex flex-col lg:flex-row gap-2">
+                                    <a href="{{ route('tenancy_agreements.pdf', $tenancy_agreement) }}" target="_blank"
+                                        class="inline-block btn-primary px-2 py-1 text-xs rounded">
+                                        PDF
+                                    </a>
+
+                                    @if($tenancy_agreement->current_status != 'ended')
+                                    <a href="{{ route('tenancy_agreements.edit', $tenancy_agreement) }}"
+                                        class="inline-block btn-info px-2 py-1 text-xs rounded">
+                                        Edit
+                                    </a>
+                                    @endif
+                                    
+                                </div>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="5" class="p-4 text-center">- no records -</td>
+                        </tr>
+                    @endforelse
 
                 </tbody>
             </table>

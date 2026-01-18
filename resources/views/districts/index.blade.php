@@ -5,7 +5,7 @@
             <h1 class="text-2xl font-bold">Districts</h1>
 
             @can('create', App\Models\District::class)
-                <a x-target.push="main" href="{{ route('districts.create') }}"
+                <a href="{{ route('districts.create') }}"
                     class="inline-flex justify-center items-center gap-2 whitespace-nowrap rounded-radius bg-primary border border-primary dark:border-primary-dark px-2 py-1 text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark">
                     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                         class="size-4 fill-on-primary dark:fill-on-primary-dark" fill="currentColor">
@@ -38,13 +38,13 @@
 
                     @foreach ($districts as $district)
                         <tr>
-                            <td class="p-4">{{ $district->id }}</td>
-                            <td class="p-4">{{ $district->district_name }}</td>
-                            <td class="p-4">{{ $district->districts_full }}</td>
-                            <td class="p-4">
+                            <td class="px-4 py-2">{{ $district->id }}</td>
+                            <td class="px-4 py-2">{{ $district->district_name }}</td>
+                            <td class="px-4 py-2">{{ $district->districts_full }}</td>
+                            <td class="px-4 py-2">
                                 <div class="flex flex-col lg:flex-row gap-2">
                                     @can('update', $district)
-                                        <a x-target.push="main" href="{{ route('districts.edit', $district) }}"
+                                        <a href="{{ route('districts.edit', $district) }}"
                                             class="inline-block btn-primary px-2 py-1 text-xs rounded">
                                             Edit
                                         </a>
@@ -79,7 +79,7 @@
 
                     <p>This district will be permanently deleted.</p>
 
-                    <form x-target.push="main" id="delete_form" :action="deleteUrl" method="POST">
+                    <form id="delete_form" :action="deleteUrl" method="POST">
                         @csrf
                         @method('delete')
 

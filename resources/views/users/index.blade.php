@@ -25,11 +25,11 @@
                     <tbody class="divide-y divide-outline dark:divide-outline-dark">
                         @foreach ($users as $user)
                             <tr>
-                                <td class="p-4 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->name }}</td>
-                                <td class="p-4 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->email }}</td>
-                                <td class="p-4 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->role?->name }}
+                                <td class="px-4 py-2 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->name }}</td>
+                                <td class="px-4 py-2 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->email }}</td>
+                                <td class="px-4 py-2 {{ $user->deleted_at ? 'line-through' : '' }}">{{ $user->role?->name }}
                                 </td>
-                                <td class="p-4">
+                                <td class="px-4 py-2">
                                     <div class="flex flex-col lg:flex-row gap-2">
                                         @if ($user->deleted_at)
                                             @can('restore', $user)
@@ -48,7 +48,7 @@
                                             @endcan
                                         @else
                                             @can('update', $user)
-                                                <a x-target.push="main" href="{{ route('users.edit', $user) }}"
+                                                <a href="{{ route('users.edit', $user) }}"
                                                     class="inline-block btn-primary px-2 py-1 text-xs rounded">
                                                     Edit
                                                 </a>
@@ -69,7 +69,7 @@
                 <div class="mt-12 flex justify-between mb-4">
                     <h2 class="text-xl font-semibold">User Invitations</h2>
 
-                    <a x-target.push="main" href="{{ route('users.create') }}"
+                    <a href="{{ route('users.create') }}"
                         class="inline-flex justify-center items-center gap-2 whitespace-nowrap rounded-radius bg-primary border border-primary dark:border-primary-dark px-2 py-1 text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark">
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             class="size-4 fill-on-primary dark:fill-on-primary-dark" fill="currentColor">
@@ -96,10 +96,10 @@
                         <tbody class="divide-y divide-outline dark:divide-outline-dark">
                             @forelse ($invitations as $invitation)
                                 <tr>
-                                    <td class="p-4">{{ $invitation->name }}</td>
-                                    <td class="p-4">{{ $invitation->email }}</td>
-                                    <td class="p-4">{{ $invitation->created_at }}</td>
-                                    <td class="p-4">
+                                    <td class="px-4 py-2">{{ $invitation->name }}</td>
+                                    <td class="px-4 py-2">{{ $invitation->email }}</td>
+                                    <td class="px-4 py-2">{{ $invitation->created_at }}</td>
+                                    <td class="px-4 py-2">
                                         <button type="button"
                                             @click="open = true; actionUrl = '{{ route('invitations.cancel', $invitation) }}'"
                                             class="btn-inverse px-2 py-1 text-xs">Cancel</button>

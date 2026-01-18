@@ -1,4 +1,4 @@
-<a href="{{ route('home') }}" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
+<a href="{{ route('home') }}" class="ml-6 sidebar-link" :class="{ 'active': current.startsWith($el.getAttribute('href')) }">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 shrink-0"
         aria-hidden="true">
         <path
@@ -8,7 +8,7 @@
 </a>
 
 {{-- <a href="{{ route('whatsapp.show', 1) }}" class="ml-6 sidebar-link"
-    :class="{ 'active': current === $el.getAttribute('href') }">
+    :class="{ 'active': current.startsWith($el.getAttribute('href')) }">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="size-5 shrink-0"
         aria-hidden="true">
         <path fill-rule="evenodd"
@@ -21,7 +21,7 @@
 
 @can('viewAny', App\Models\Property::class)
     <a href="{{ route('properties.index') }}" class="ml-6 sidebar-link"
-        :class="{ 'active': current === $el.getAttribute('href') }">
+        :class="{ 'active': current.startsWith($el.getAttribute('href')) }">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
             class="size-5">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -31,7 +31,7 @@
     </a>
 @endcan
 
-<a href="#" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
+<a href="#" class="ml-6 sidebar-link" :class="{ 'active': current.startsWith($el.getAttribute('href')) }">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
         <path fill-rule="evenodd"
             d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
@@ -40,7 +40,7 @@
     <span>Landlords</span>
 </a>
 
-<a href="#" class="ml-6 sidebar-link" :class="{ 'active': current === $el.getAttribute('href') }">
+<a href="{{ route('tenants.index') }}" class="ml-6 sidebar-link" :class="{ 'active': current.startsWith($el.getAttribute('href')) }">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
         class="size-5">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -48,18 +48,35 @@
     </svg>
     <span>Tenants</span>
 </a>
+<a href="{{ route('tenancy_agreements.index') }}" class="ml-6 sidebar-link"
+    :class="{ 'active': current.startsWith($el.getAttribute('href')) }">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="size-5">
+        <path stroke-linecap="round" stroke-linejoin="round"
+            d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12" />
+    </svg>
+    <span>Tenancy Agreements</span>
+</a>
 
 <!-- collapsible item  -->
 <div x-data="{
     isExpanded: false,
     init() {
+        // 1. Get current path and normalize it (remove trailing slash)
         const current = window.location.pathname.replace(/\/$/, '');
+        
+        // 2. Grab all valid child links
         const links = Array.from(this.$refs.productsmenu.querySelectorAll('a'))
             .filter(a => a.getAttribute('href') && a.getAttribute('href') !== '#');
 
-        this.isExpanded = links.some(a =>
-            new URL(a.href, window.location.origin).pathname.replace(/\/$/, '') === current
-        );
+        // 3. Check for partial match
+        this.isExpanded = links.some(a => {
+            const linkPath = new URL(a.href, window.location.origin).pathname.replace(/\/$/, '');
+            
+            // Check if current URL starts with the link path
+            // Example: /properties/45 starts with /properties
+            return current.startsWith(linkPath) && linkPath !== '';
+        });
     }
 }" class="flex flex-col">
     <button type="button" x-on:click="isExpanded = ! isExpanded" id="products-btn" aria-controls="products"
@@ -86,30 +103,30 @@
         @can('viewAny', App\Models\User::class)
             <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
                 <a href="{{ route('users.index') }}" class="sidebar-link-collapsible-subitem"
-                    :class="{ 'active': current === $el.getAttribute('href') }">Users</a>
+                    :class="{ 'active': current.startsWith($el.getAttribute('href')) }">Users</a>
             </li>
         @endcan
 
         @can('viewAny', App\Models\Role::class)
             <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
                 <a href="{{ route('roles.index') }}" class="sidebar-link-collapsible-subitem"
-                    :class="{ 'active': current === $el.getAttribute('href') }">Roles</a>
+                    :class="{ 'active': current.startsWith($el.getAttribute('href')) }">Roles</a>
             </li>
         @endcan
         @can('viewAny', App\Models\District::class)
             <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
                 <a href="{{ route('districts.index') }}" class="sidebar-link-collapsible-subitem"
-                    :class="{ 'active': current === $el.getAttribute('href') }">Districts</a>
+                    :class="{ 'active': current.startsWith($el.getAttribute('href')) }">Districts</a>
             </li>
         @endcan
-        <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
+        {{-- <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
             <a href="{{ route('documents.index') }}" class="sidebar-link-collapsible-subitem"
-                :class="{ 'active': current === $el.getAttribute('href') }">Documents</a>
-        </li>
+                :class="{ 'active': current.startsWith($el.getAttribute('href')) }">Documents</a>
+        </li> --}}
         @can('viewAny', App\Models\Audit::class)
             <li class="px-2 py-0.5 border-l border-outline dark:border-outline-dark first:mt-2">
                 <a href="{{ route('audits.index') }}" class="sidebar-link-collapsible-subitem"
-                    :class="{ 'active': current === $el.getAttribute('href') }">Activity Logs</a>
+                    :class="{ 'active': current.startsWith($el.getAttribute('href')) }">Activity Logs</a>
             </li>
         @endcan
     </ul>

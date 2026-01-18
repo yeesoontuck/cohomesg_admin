@@ -113,10 +113,10 @@
             <div class="flex justify-between">
                 <div class="flex gap-2">
                     @can('update', $property)
-                        <a x-target.push="main" href="{{ route('properties.edit', $property) }}"
+                        <a href="{{ route('properties.edit', $property) }}"
                             class="inline-block btn-info">Edit</a>
                     @endcan
-                    <a x-target.push="main" href="{{ route('properties.index') }}"
+                    <a href="{{ route('properties.index') }}"
                         class="inline-block btn-outline-inverse">Back</a>
                 </div>
 

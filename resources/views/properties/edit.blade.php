@@ -1,11 +1,15 @@
 <x-app>
     <main id="main" class="flex-1 dark:text-white">
 
+        @if (session('toast'))
+            <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
+        @endif
+        
         <h3 class="text-lg mb-4">Edit Property</h3>
 
         <div class="overflow-hidden w-full overflow-x-auto">
 
-            <form x-target.push="main" action="{{ route('properties.update', $property) }}" method="POST"
+            <form action="{{ route('properties.update', $property) }}" method="POST"
                 class="p-8 overflow-hidden w-full max-w-4xl overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
                 @csrf
                 @method('PUT')
@@ -145,7 +149,7 @@
 
                 <button type="submit" class="btn-primary">Update</button>
 
-                <a x-target.push="main" href="{{ route('properties.show', $property) }}"
+                <a href="{{ route('properties.show', $property) }}"
                     class="inline-block btn-outline-inverse">Cancel</a>
             </form>
         </div>

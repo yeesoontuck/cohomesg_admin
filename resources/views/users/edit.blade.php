@@ -1,6 +1,10 @@
 <x-app>
     <main id="main" x-data="{ open: false, deleteUrl: '' }" class="flex-1 dark:text-white">
 
+        @if (session('toast'))
+            <x-toast :type="session('toast.type')">{{ session('toast.message') }}</x-toast>
+        @endif
+        
         <div class="flex justify-between mb-4">
             <h1 class="text-2xl font-bold">Edit User</h1>
         </div>
@@ -79,7 +83,7 @@
 
                 <h2 class="text-md font-semibold text-center">Are you sure?</h2>
 
-                <form x-target.push="main" id="delete_form" :action="deleteUrl" method="POST">
+                <form id="delete_form" :action="deleteUrl" method="POST">
                     @csrf
                     @method('delete')
 
